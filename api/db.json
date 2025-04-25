@@ -2,46 +2,74 @@
   "users": [
     {
       "id": "1",
-      "role": "admin",
       "name": "Admin",
       "email": "email@email.com",
       "phone": "01012345678",
-      "bookings": [
-        {
-          "bookingId": "",
-          "carId": "",
-          "pickupDate": "",
-          "returnDate": "",
-          "status": "",
-          "totalCost": null
-        }
-      ]
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "User",
+      "email": "email2@email.com",
+      "phone": "01012345678",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "carId": "1",
+      "userId": "2",
+      "pickupDate": "2025-04-30",
+      "returnDate": "2025-05-05",
+      "status": "confirmed",
+      "totalCost": 3000
+    },
+    {
+      "id": "2",
+      "carId": null,
+      "userId": "2",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-03",
+      "status": "pending",
+      "totalCost": 1600
     }
   ],
   "cars": [
     {
       "id": "1",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "type": "Sedan",
-      "year": 2022,
-      "image": "images/toyota-corolla.jpg",
-      "pricePerDay": 400,
-      "availability": true,
-      "rating": 4.5,
-      "description": "Comfortable and fuel-efficient sedan, perfect for city rides."
+      "brand": "KIA",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": "2024",
+      "pricePerDay": "600",
+      "availability": "false",
+      "rating": "5",
+      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
     },
     {
       "id": "2",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "image": "images/kia-sportage.jpg",
-      "pricePerDay": 550,
-      "availability": false,
-      "rating": 4.7,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "brand": "Toyota",
+      "model": "Corolla",
+      "type": "Sedan",
+      "year": "2024",
+      "pricePerDay": 800,
+      "availability": "false",
+      "rating": 4.8,
+      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
+    },
+    {
+      "id": "3",
+      "brand": "Ford",
+      "model": "Mustang GT",
+      "type": "Sports",
+      "year": "2023",
+      "pricePerDay": 1000,
+      "availability": "true",
+      "rating": 5,
+      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
     }
   ]
 }
