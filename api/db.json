@@ -1,8 +1,8 @@
 {
-  "users" : [
+  "users": [
     {
       "id": "1",
-      "role": "admin", 
+      "role": "admin",
       "name": "Admin",
       "email": "email@email.com",
       "phone": "01012345678",
@@ -12,10 +12,19 @@
           "carId": "",
           "pickupDate": "",
           "returnDate": "",
-          "status": "", 
+          "status": "",
           "totalCost": null
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Yasser Hozaifa Sultan",
+      "email": "yassersoltan64@gmail.com",
+      "phone": "01096700398",
+      "password": "12345678",
+      "role": "user",
+      "bookings": []
     }
   ],
   "cars": [
