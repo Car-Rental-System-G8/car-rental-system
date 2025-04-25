@@ -16,15 +16,6 @@
           "totalCost": null
         }
       ]
-    },
-    {
-      "id": 2,
-      "name": "Yasser Hozaifa Sultan",
-      "email": "yassersoltan64@gmail.com",
-      "phone": "01096700398",
-      "password": "12345678",
-      "role": "user",
-      "bookings": []
     }
   ],
   "cars": [
