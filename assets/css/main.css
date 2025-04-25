@@ -76,13 +76,13 @@ body {
   width: 60%;
 }
 .btn-contact {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  border-radius: 30px;
+  background-color: var(--primary-color)!important;
+  color: var(--text-light)!important;
+  border-radius: 30px !important;
   padding: 8px 24px;
   font-weight: 600;
   border: none;
-  transition: var(--transition);
+  transition: var(--transition)!important;
 }
 
 .btn-contact:hover {
@@ -90,7 +90,9 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
 }
-
+a{
+  text-decoration: none !important;
+}
 .search-icon,
 .profile-icon {
   width: 40px;
@@ -269,19 +271,19 @@ a {
 }
 
 .btn-search {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  border-radius: var(--border-radius);
+  background-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+  border-radius: var(--border-radius) !important;
   padding: 12px 30px;
   font-weight: 600;
   border: none;
   height: 50px;
   width: 100%;
-  transition: var(--transition);
+  transition: var(--transition) !important;
 }
 
 .btn-search:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--primary-hover)!important;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
 }
