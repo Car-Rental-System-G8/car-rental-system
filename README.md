@@ -8,7 +8,7 @@ npm i
 
 ## Start json-server
 ```
-npx json-server db.json
+npx json-server api/db.json
 ```
 
 ## More Details About json-server
