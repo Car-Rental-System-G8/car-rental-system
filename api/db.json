@@ -47,7 +47,7 @@
       "pricePerDay": "600",
       "availability": "false",
       "rating": "5",
-      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
+      "image": "/assets/images/cars/bugatti_PNG17.png"
     },
     {
       "id": "2",
@@ -58,7 +58,7 @@
       "pricePerDay": 800,
       "availability": "false",
       "rating": 4.8,
-      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
+      "image": "/assets/images/cars/bugatti_PNG17.png"
     },
     {
       "id": "3",
@@ -69,7 +69,7 @@
       "pricePerDay": 1000,
       "availability": "true",
       "rating": 5,
-      "image": "http://127.0.0.1:5550/assets/images/cars/bugatti_PNG17.png"
+      "image": "/assets/images/cars/bugatti_PNG17.png"
     }
   ]
 }
