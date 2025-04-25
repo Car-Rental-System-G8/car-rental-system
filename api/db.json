@@ -1,8 +1,8 @@
 {
-  "users" : [
+  "users": [
     {
       "id": "1",
-      "role": "admin", 
+      "role": "admin",
       "name": "Admin",
       "email": "email@email.com",
       "phone": "01012345678",
@@ -12,7 +12,7 @@
           "carId": "",
           "pickupDate": "",
           "returnDate": "",
-          "status": "", 
+          "status": "",
           "totalCost": null
         }
       ]
@@ -20,28 +20,26 @@
   ],
   "cars": [
     {
-      "id": "1",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "type": "Sedan",
-      "year": 2022,
-      "image": "images/toyota-corolla.jpg",
-      "pricePerDay": 400,
-      "availability": true,
-      "rating": 4.5,
-      "description": "Comfortable and fuel-efficient sedan, perfect for city rides."
-    },
-    {
-      "id": "2",
-      "brand": "Kia",
+      "brand": "Car1",
       "model": "Sportage",
       "type": "SUV",
-      "year": 2023,
-      "image": "images/kia-sportage.jpg",
-      "pricePerDay": 550,
-      "availability": false,
-      "rating": 4.7,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "year": "2022",
+      "pricePerDay": "700",
+      "availability": "true",
+      "rating": "5",
+      "id": "1",
+      "image": "http://127.0.0.1:5500/assets/images/cars/bugatti_PNG17.png"
+    },
+    {
+      "id": "c618",
+      "brand": "Kia2",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": "2023",
+      "pricePerDay": "550",
+      "availability": "true",
+      "rating": "5",
+      "image": "http://127.0.0.1:5500/assets/images/cars/bugatti_PNG17.png"
     }
   ]
 }

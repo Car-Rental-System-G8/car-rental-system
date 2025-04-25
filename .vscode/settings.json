@@ -1,0 +1,4 @@
+{
+  "liveServer.settings.ignoreFiles": ["**/api/**"],
+  "liveServer.settings.port": 5500
+}
