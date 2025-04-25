@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/global-styles.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/login-page.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <main class="login pt-5">
+      <div class="container pt-5">
+        <div
+          class="row align-items-center justify-content-center flex-column-reverse flex-md-row"
+        >
+          <section class="col-md-8 p-md-5">
+            <h1>Sign up</h1>
+            <form class="row px-md-4 mt-4 gy-3" id="signup-form">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="p-3 w-100 border-0 border-bottom border-primary-color"
+                  id="name"
+                  name="name"
+                  placeholder="Please Enter User Name"
+                />
+                <p class="error" id="name-error"></p>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="p-3 w-100 border-0 border-bottom border-primary-color"
+                  id="email"
+                  name="email"
+                  placeholder="Please Enter E-mail"
+                />
+                <p class="error" id="email-error"></p>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="password"
+                  class="p-3 w-100 border-0 border-bottom border-primary-color"
+                  id="password"
+                  name="password"
+                  placeholder="Please Enter Password"
+                />
+                <p class="error" id="password-error"></p>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="password"
+                  class="p-3 w-100 border-0 border-bottom border-primary-color"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="Confirm Password"
+                />
+                <p class="error" id="confirm-password-error"></p>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="p-3 w-100 border-0 border-bottom border-primary-color"
+                  id="phone"
+                  name="phone"
+                  placeholder="Please Enter Phone Number"
+                  maxlength="11"
+                />
+                <p class="error" id="phone-error"></p>
+              </div>
+              <div class="col-12 mb-4">
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="termsCheck"
+                  />
+                  <label class="form-check-label" for="termsCheck"
+                    >I agree to the Terms of Service and Privacy Policy</label
+                  >
+                  <p class="error" id="terms-error"></p>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="marketingCheck"
+                  />
+                  <label class="form-check-label" for="marketingCheck">
+                    I want to receive promotional offers and updates via email
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 text-center text-md-start">
+                <button type="submit" class="btn">Sign up</button>
+              </div>
+              <span class="text-center text-md-start"
+                ><a href="./login-page.html" class="text-decoration-underline"
+                  >Already have an account!</a
+                ></span
+              >
+            </form>
+          </section>
+          <section class="col-md-4">
+            <img
+              src="./assets/images/cars/bugatti_PNG17.png"
+              alt="Car"
+              class="img-fluid"
+            />
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/loadNavbar.js"></script>
+    <script src="./assets/JS/signup-page.js"></script>
+  </body>
+</html>
