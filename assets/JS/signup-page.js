@@ -15,7 +15,7 @@ const confirmPasswordError = document.getElementById("confirm-password-error");
 const termsError = document.getElementById("terms-error");
 
 // form submissison
-signupForm.addEventListener("submit", (e) => {
+signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   let isValid = true;
   const userData = {
@@ -68,7 +68,7 @@ signupForm.addEventListener("submit", (e) => {
   }
 
   if (isValid) {
-    const res = signUp(userData);
+    const res = await signUp(userData);
     if (res) {
       window.location.href = "/login-page.html";
     } else {
@@ -94,7 +94,6 @@ async function signUp(userData) {
       ...userData,
       id: users.length + 1,
       role: "user",
-      bookings: [],
     };
 
     const res = await fetch("http://localhost:3000/users", {
