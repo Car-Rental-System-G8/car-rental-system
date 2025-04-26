@@ -1,69 +1,33 @@
-export const getCars = async (_id) => {
+// carManager.js
+
+// ========= Utility Fetch Function =========
+const fetchData = async (url, options = {}) => {
   try {
-    let res;
-    if (_id) {
-      res = await fetch(`http://localhost:3000/cars/${_id}`);
-    } else {
-      res = await fetch(`http://localhost:3000/cars`);
-    }
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const data = await res.json();
-    return data;
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    return await res.json();
   } catch (error) {
-    console.error("Error fetching cars:", error.message);
+    console.error("Fetch Error:", error.message);
     return null;
   }
 };
 
-export const addCar = async (newCarData) => {
-  try {
-    const res = await fetch('http://localhost:3000/cars', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newCarData)
-    });
+// ========= Car Operations =========
+export const getCars = (_id = "") => fetchData(`http://localhost:3000/cars/${_id}`);
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
+export const addCar = (newCarData) =>
+  fetchData('http://localhost:3000/cars', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newCarData)
+  });
 
-    const result = await res.json();
-    return result;
-
-  } catch (error) {
-    console.error('Error adding car:', error.message);
-    return null;
-  }
-};
-
-export const updateCar = async (_id, updatedData) => {
-  try {
-    const res = await fetch(`http://localhost:3000/cars/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(updatedData)
-    });
-
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const result = await res.json();
-    return result;
-
-  } catch (error) {
-    console.error("Error updating car:", error.message);
-    return null;
-  }
-};
+export const updateCar = (_id, updatedData) =>
+  fetchData(`http://localhost:3000/cars/${_id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedData)
+  });
 
 export const deleteCar = async (_id) => {
   try {
@@ -78,261 +42,182 @@ export const deleteCar = async (_id) => {
     });
 
     if (result.isConfirmed) {
-      const res = await fetch(`http://localhost:3000/cars/${_id}`, {
-        method: 'DELETE'
-      });
+      const res = await fetch(`http://localhost:3000/cars/${_id}`, { method: 'DELETE' });
+      const success = res.ok;
 
-      if (res.ok) {
-        Swal.fire(
-          'Deleted!',
-          'Your car has been deleted.',
-          'success'
-        );
-      } else {
-        Swal.fire(
-          'Failed!',
-          'There was an error while deleting the car.',
-          'error'
-        );
-      }
-
-      const carsData = await getCars();
-      displayCars(carsData);
-    } else if (result.dismiss === Swal.DismissReason.cancel) {
       Swal.fire(
-        'Cancelled',
-        'Your car is safe :)',
-        'info'
+        success ? 'Deleted!' : 'Failed!',
+        success ? 'Your car has been deleted.' : 'There was an error while deleting the car.',
+        success ? 'success' : 'error'
       );
+
+      if (success) {
+        const carsData = await getCars();
+        displayCars(carsData, true);
+      }
+    } else {
+      Swal.fire('Cancelled', 'Your car is safe :)', 'info');
     }
   } catch (error) {
     console.error('Error:', error);
-    Swal.fire(
-      'Error!',
-      'There was an error while deleting the car.',
-      'error'
-    );
+    Swal.fire('Error!', 'There was an error while deleting the car.', 'error');
   }
 };
 
-export const displayCars = async (_cars) => {
-  const carsTableBody = document.querySelector("#carsTable tbody");
+// ========= DOM Rendering =========
+export const displayCars = async (_cars, inDashboard) => {
+  const container = inDashboard
+    ? document.querySelector("#carsTableContainer")
+    : document.querySelector("#carsContainer"); // هنا هتحتاج تحط container اللي هتعرض فيه cars بتاعتك
 
-  carsTableBody.innerText = "";
+  if (!container) return;
+  container.innerHTML = "";
+
   _cars.forEach((car) => {
-    const trTemplate = `
-      <td>${car.id}</td>
-      <td>
-        <img src="${car.image}" />
-      </td>
-      <td>
-        ${car.brand}
-      </td>
-      <td>
-        ${car.model}
-      </td>
-      <td>
-        ${car.type}
-      </td>
-      <td>
-        ${car.year}
-      </td>
-      <td>
-        ${car.pricePerDay}
-      </td>
-      <td>
-        ${ String(car.availability) === "true" ? 
-          '<div class="badge bg-success-subtle text-success fw-medium px-3 py-2">Available</div>' : 
-          '<div class="badge bg-danger-subtle text-danger fw-medium px-3 py-2">Not Available</div>' 
-        }
-      </td>
-      <td>
-        ${car.rating}</td>
-      <td>
-        <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
-          <div class="col">
-            <button class="btn btn-primary edit-car-btn" data-bs-toggle="modal" data-bs-target="#carEditModal">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-          </div>
-          <div class="col">
-            <button class="btn btn-danger delete-car-btn" data-car-delete="${car.id}">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
-        </div>
-      </td>
-    `;
-    const trEl = document.createElement("tr");
-    trEl.innerHTML = trTemplate
-    carsTableBody.appendChild(trEl);
+    const { id, image, brand, model, type, year, pricePerDay, availability, rating } = car;
 
-    const editBtn = trEl.querySelector(".edit-car-btn");
-    editBtn.addEventListener("click", () => updateForm(car.id));
+    if (inDashboard) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${id}</td>
+        <td><img src="${image}" /></td>
+        <td>${brand}</td>
+        <td>${model}</td>
+        <td>${type}</td>
+        <td>${year}</td>
+        <td>${pricePerDay}</td>
+        <td>
+          <div class="badge ${String(availability) === "true" ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
+            ${String(availability) === "true" ? 'Available' : 'Not Available'}
+          </div>
+        </td>
+        <td>${rating}</td>
+        <td>
+          <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
+            <div class="col">
+              <button class="btn btn-primary edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </div>
+            <div class="col">
+              <button class="btn btn-danger delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        </td>
+      `;
+      container.appendChild(tr);
+    } else {
+      // هنا كود العرض بتاعك ممكن تشوف انا عاملها ازاي وتعمل زيها
+    }
   });
 
-  const deleteButtons = document.querySelectorAll("[data-car-delete]");
-  deleteButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const button = e.currentTarget;
-      const id = button.getAttribute("data-car-delete");
-      deleteCar(id);
-    });
+  if (inDashboard) setupCarEventListeners();
+};
+
+// ========= Event Listeners =========
+const setupCarEventListeners = () => {
+  document.querySelectorAll(".edit-car-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => updateForm(e.currentTarget.dataset.id));
+  });
+
+  document.querySelectorAll(".delete-car-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => deleteCar(e.currentTarget.dataset.id));
   });
 };
 
 export const updateForm = async (_id) => {
   const carEditForm = document.getElementById("carEditForm");
+  const car = await getCars(_id);
+
+  if (!car) return;
+
+  fillForm(carEditForm, car);
+
   const updateCarBtn = document.getElementById("updateCarBtn");
-
-  let car = await getCars(_id);
-
-  const brandInput = carEditForm.querySelector("[name=brand]");
-  const modelInput = carEditForm.querySelector("[name=model]");
-  const typeInput = carEditForm.querySelector("[name=type]");
-  const yearInput = carEditForm.querySelector("[name=year]");
-  const priceInput = carEditForm.querySelector("[name=price]");
-  const statusInput = carEditForm.querySelector("[name=status]");
-  const ratingInput = carEditForm.querySelector("[name=rating]");
-  const imageInput = carEditForm.querySelector("[name=image]");
-
-  brandInput.value = car.brand;
-  modelInput.value = car.model;
-  typeInput.value = car.type;
-  yearInput.value = car.year;
-  priceInput.value = car.pricePerDay;
-  statusInput.value = car.availability;
-  ratingInput.value = car.rating;
-  imageInput.value = car.image;
-
   updateCarBtn.replaceWith(updateCarBtn.cloneNode(true));
-  const newUpdateCarBtn = document.getElementById("updateCarBtn");
 
-  newUpdateCarBtn.addEventListener("click", async (e) => {
+  document.getElementById("updateCarBtn").addEventListener("click", async (e) => {
     e.preventDefault();
-    const brand = brandInput.value.trim();
-    const model = modelInput.value.trim();
-    const type = typeInput.value.trim();
-    const image = imageInput.value.trim();
-    const year = parseInt(yearInput.value);
-    const price = parseFloat(priceInput.value);
-    const rating = parseFloat(ratingInput.value);
 
-    if (!brand || !model || !type || !image) {
-      toastr.error("Please fill in brand, model, type and Image.!");
-      return;
-    }
-  
-    if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
-      toastr.error("Please enter a valid year!");
-      return;
-    }
-  
-    if (isNaN(price) || price <= 0) {
-      toastr.error("Please enter a valid price!");
-      return;
-    }
-  
-    if (isNaN(rating) || rating < 0 || rating > 5) {
-      toastr.error("Please enter a rating between 0 and 5!");
-      return;
-    }
+    const updatedData = getFormData(carEditForm);
+    if (!validateCarData(updatedData)) return;
 
-    const updatedData = {
-      brand: brandInput.value,
-      model: modelInput.value,
-      type: typeInput.value,
-      year: yearInput.value,
-      pricePerDay: priceInput.value,
-      availability: statusInput.value,
-      rating: ratingInput.value,
-      image: imageInput.value,
-    };
-  
     const res = await updateCar(_id, updatedData);
-  
     if (res) {
-      const modalElement = document.getElementById("carEditModal");
-      const modalInstance = bootstrap.Modal.getInstance(modalElement);
-      modalInstance.hide();
-
+      bootstrap.Modal.getInstance(document.getElementById("carEditModal")).hide();
       toastr.success("Car updated successfully!");
       const carsData = await getCars();
-      displayCars(carsData);
-    } else {
-      alert("Something went wrong, please try again.");
-    }
-  });
-};
-
-export const addCarForm = async () => {
-  const carAddForm = document.getElementById("carAddForm");
-  const addCarBtn = document.getElementById("addCarBtn");
-
-  addCarBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-
-    const brandInput = carAddForm.querySelector("[name=brand]");
-    const modelInput = carAddForm.querySelector("[name=model]");
-    const typeInput = carAddForm.querySelector("[name=type]");
-    const yearInput = carAddForm.querySelector("[name=year]");
-    const priceInput = carAddForm.querySelector("[name=price]");
-    const statusInput = carAddForm.querySelector("[name=status]");
-    const ratingInput = carAddForm.querySelector("[name=rating]");
-    const imageInput = carAddForm.querySelector("[name=image]");
-
-    const brand = brandInput.value.trim();
-    const model = modelInput.value.trim();
-    const type = typeInput.value.trim();
-    const image = imageInput.value.trim();
-    const year = parseInt(yearInput.value);
-    const price = parseFloat(priceInput.value);
-    const rating = parseFloat(ratingInput.value);
-
-    if (!brand || !model || !type || !image) {
-      toastr.error("Please fill in brand, model, type, and Image.");
-      return;
-    }
-
-    if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
-      toastr.error("Please enter a valid year!");
-      return;
-    }
-
-    if (isNaN(price) || price <= 0) {
-      toastr.error("Please enter a valid price!");
-      return;
-    }
-
-    if (isNaN(rating) || rating < 0 || rating > 5) {
-      toastr.error("Please enter a rating between 0 and 5!");
-      return;
-    }
-
-    const newCarData = {
-      brand,
-      model,
-      type,
-      year,
-      pricePerDay: price,
-      availability: statusInput.value,
-      rating,
-      image
-    };
-
-    const res = await addCar(newCarData);
-
-    if (res) {
-      carAddForm.reset();
-      const modalElement = document.getElementById("carAddModal");
-      const modalInstance = bootstrap.Modal.getInstance(modalElement);
-      modalInstance.hide();
-
-      toastr.success("Car Added successfully!");
-      const carsData = await getCars();
-      displayCars(carsData); 
+      displayCars(carsData, true);
     } else {
       toastr.error("Something went wrong, please try again.");
     }
   });
+};
+
+export const addCarForm = () => {
+  const carAddForm = document.getElementById("carAddForm");
+  document.getElementById("addCarBtn").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const newCarData = getFormData(carAddForm);
+    if (!validateCarData(newCarData)) return;
+
+    const res = await addCar(newCarData);
+    if (res) {
+      carAddForm.reset();
+      bootstrap.Modal.getInstance(document.getElementById("carAddModal")).hide();
+      toastr.success("Car added successfully!");
+      const carsData = await getCars();
+      displayCars(carsData, true);
+    } else {
+      toastr.error("Something went wrong, please try again.");
+    }
+  });
+};
+
+// ========= Helpers =========
+const fillForm = (form, car) => {
+  form.querySelector("[name=brand]").value = car.brand;
+  form.querySelector("[name=model]").value = car.model;
+  form.querySelector("[name=type]").value = car.type;
+  form.querySelector("[name=year]").value = car.year;
+  form.querySelector("[name=price]").value = car.pricePerDay;
+  form.querySelector("[name=status]").value = car.availability;
+  form.querySelector("[name=rating]").value = car.rating;
+  form.querySelector("[name=image]").value = car.image;
+};
+
+const getFormData = (form) => ({
+  brand: form.querySelector("[name=brand]").value.trim(),
+  model: form.querySelector("[name=model]").value.trim(),
+  type: form.querySelector("[name=type]").value.trim(),
+  year: parseInt(form.querySelector("[name=year]").value),
+  pricePerDay: parseFloat(form.querySelector("[name=price]").value),
+  availability: form.querySelector("[name=status]").value,
+  rating: parseFloat(form.querySelector("[name=rating]").value),
+  image: form.querySelector("[name=image]").value.trim()
+});
+
+const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating }) => {
+  if (!brand || !model || !type || !image) {
+    toastr.error("Please fill in all required fields!");
+    return false;
+  }
+
+  if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
+    toastr.error("Please enter a valid year!");
+    return false;
+  }
+
+  if (isNaN(pricePerDay) || pricePerDay <= 0) {
+    toastr.error("Please enter a valid price!");
+    return false;
+  }
+
+  if (isNaN(rating) || rating < 0 || rating > 5) {
+    toastr.error("Please enter a rating between 0 and 5!");
+    return false;
+  }
+
+  return true;
 };

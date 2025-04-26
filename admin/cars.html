@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="datatable table-responsive mt-3">
-      <table id="carsTable" class="align-middle mb-0">
+      <table class="align-middle mb-0">
         <thead>
           <th>ID</th>
           <th>Image</th>
@@ -35,11 +35,9 @@
           <th>Rating</th>
           <th class="text-end">Actions</th>
         </thead>
-        <tbody></tbody>
+        <tbody id="carsTableContainer"></tbody>
       </table>
     </div>
-
-
     <div id="carAddModal" class="modal modal-lg fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-3">
@@ -77,8 +75,8 @@
                 <div class="col">
                   <label class="form-label">Status</label>
                   <select class="form-select" name="status">
-                    <option value="false">Not Available</option>
                     <option value="true">Available</option>
+                    <option value="false">Not Available</option>
                   </select>
                 </div>
                 <div class="col">
@@ -132,8 +130,8 @@
                 <div class="col">
                   <label class="form-label">Status</label>
                   <select class="form-select" name="status">
-                    <option value="false">Not Available</option>
                     <option value="true">Available</option>
+                    <option value="false">Not Available</option>
                   </select>
                 </div>
                 <div class="col">
