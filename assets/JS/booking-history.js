@@ -9,16 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const mainContent = document.getElementById("main-content");
 
-// localStorage.setItem("currentUser", "email2@email.com");
-
 async function getUserBooking() {
-  const userMail = localStorage.getItem("currentUser");
+  const userMail = JSON.parse(localStorage.getItem("currentUser"));
   if (userMail) {
     const users = await getUsers();
     const user = users.find((u) => u.email === userMail);
     if (user) {
       const bookings = await getBookings();
-      const userBookings = bookings.filter((booking) => booking.userId === user.id);
+      const userBookings = bookings.filter(
+        (booking) => booking.userId === user.id
+      );
       displayBookingHistory(userBookings);
     }
   } else {
