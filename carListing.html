@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+
+
+</head>
+<body>
+    <!-- Navigation Bar Fetch -->
+    <div id="navbar">  </div>
+
+    <section class="Car-listing pt-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="carWrapper position-relative" >
+                            <img src="assets/images/cars/bugatti-chiron.png" alt="Luxury Car 1" class=" w-100 car">
+                            <img src="assets/images/cars/bugatti-chiron-wheel-2.png" alt="Luxury Car 1" class="wheel">
+                            <img src="assets/images/cars/bugatti-chiron-wheel-2.png" alt="Luxury Car 1" class="wheel-2">
+                        </div>
+                </div>
+
+                <div class="col-lg-4 hero-content mt-5">
+                    <h1 class="hero-title">Explore Our  <span>Cars</span></h1>
+                   
+
+                    <div class="filters border bg-white p-3 mt-md-4"> 
+                        <!-- Search Box -->
+                           <div class="mb-4">
+                               <label for="searchCar" class="form-label fw-bold">Search Car</label>
+                               <div class="input-group flex-nowrap">
+                                   <span class="input-group-text border-end-0 bg-transparent">
+                                       <i class="fas fa-car-side text-muted"></i>
+                                   </span>
+                                   <input type="text" class="searchBox" class="form-control border-start-0 " placeholder="Search ">
+                               </div>
+                           </div>
+
+                           <!-- Car Type Filter -->
+                           <div class="Car-Type mb-4">
+                               <label for="carType" class="form-label fw-bold">Car Type</label>
+                               <select id="carType" class="form-select rounded-3">
+                               <option value="">All Types</option>
+                               <option value="sedan">Sedan</option>
+                               <option value="suv">SUV</option>
+                               <option value="hatchback">Hatchback</option>
+                               <option value="coupe">Coupe</option>
+                               <option value="convertible">Convertible</option>
+                               </select>
+                           </div>
+
+                           <!-- Price Range Filter -->
+                           <div class="mb-4">
+                               <div class="d-flex justify-content-between align-items-center ">
+                                   <label for="priceRange" class="form-label fw-bold">Price Range</label>
+                                   <span id="priceValue" class="fw-bold"> 2500$ </span>    
+                               </div>
+                               <input type="range" class="form-range" min="50" max="5000" step="10" id="priceRange" oninput="updatePriceValue(this.value)">
+                               <div class="d-flex justify-content-between">
+                               <small>$50</small>
+                               <small>$5000</small>
+                               </div>
+                           </div>
+
+                           <!-- Availability Filter -->
+                           <div class="mb-4">
+                               <label class="form-label fw-bold">Availability</label>
+                               <div class="Availability d-flex align-items-center ">
+                               <input class="" type="checkbox" checked value="available" id="available">
+                               <label class="form-check-label" for="available">
+                                   Available Now
+                               </label>
+                               </div>
+                           </div>
+
+                           <!-- Filter Button -->
+                           <button class=" w-100">Apply Filters</button>    
+                   
+                   
+                   </div>
+
+
+
+                </div>
+               
+            </div>
+        </div>
+
+
+
+        
+
+
+        <!-- Car Listing Section -->
+        <div class="container mb-5 d-flex gap-5 flex-wrap justify-content-between align-items-center">
+
+                <div class="row justify-content-between">
+                    <div id="carsContainer" class=" row flex-wrap py-5"></div>
+                </div>
+
+        </div>
+        <!-- Background Elements -->
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        <div class="bg-lines"></div>
+    </section>
+    
+
+
+    <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/main-script.js"></script>
+    <script src="assets/JS/loadNavbar.js"></script>
+
+</body>
+</html>
+
+
+
+
+
