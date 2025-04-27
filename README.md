@@ -3,6 +3,16 @@
 
 This project provides a car management system that allows adding, updating, deleting, and displaying cars. The system supports pagination and allows you to display the most recent cars or the first cars based on the user's choice. It also includes a dashboard for easy car management.
 
+## Install json-server
+```
+npm i
+```
+
+## Start json-server
+```
+npx json-server api/db.json
+```
+
 ## Features
 
 - **CRUD Operations**: Create, Read, Update, and Delete cars.
@@ -69,7 +79,7 @@ Displays cars with pagination or without pagination based on the options.
 
 #### Example:
 ```javascript
-displayCars(carsData, { currentPage: 1, carsLimit: 9, displayNewestCars: true, inDashboard: true });
+displayCars(carsData, { currentPage: 1, carsLimit: 9, carsOrder: "newest", isPagination: true, inDashboard: true });
 ```
 
 ### 4. **`createPaginationControls(totalCars, carsLimit, currentPage, inDashboard)`**
@@ -98,12 +108,13 @@ createPaginationControls(100, 9, 1, true);  // Create pagination for 100 cars wi
 ### Displaying Cars with Pagination
 
 ```javascript
-displayCars(carsData, { currentPage: 1, carsLimit: 9, inDashboard: true });
+displayCars(carsData, { currentPage: 1, carsLimit: 9, carsOrder: "newest", isPagination: true, inDashboard: true });
 ```
 
 - **`currentPage`**: The page number to display.
 - **`carsLimit`**: Number of cars to show per page.
-- **`displayNewestCars`**: If true, shows the last `carsLimit` cars. If false, shows the first `carsLimit` cars.
+- **`carsOrder`**: If "newest", shows the last `carsLimit` cars. If "oldest", shows the first `carsLimit` cars.
+- **`isPagination`**: if true, show cars pagination.
 - **`inDashboard`**: If true, displays the cars in a table format.
 
 ### Add a Car

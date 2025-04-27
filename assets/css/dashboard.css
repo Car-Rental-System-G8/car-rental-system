@@ -98,6 +98,12 @@ a:hover {
     color: #fff !important;
 }
 
+.btn-outline--primary:disabled {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
 .btn-reset {
     background: transparent;
     padding: 0;
@@ -451,30 +457,8 @@ a:hover {
     color: var(--primary-color);
 }
 
-
-
-/* .dashboard-table table tr:first-child th:first-child {
-    border-top-left-radius: 12px;
-}
-
-.dashboard-table table tr:first-child th:last-child {
-    border-top-right-radius: 12px;
-}
-
-.dashboard-table table tr:last-child td:last-child {
-    border-bottom-right-radius: 12px;
-}
-
-.dashboard-table table tr:last-child td:first-child {
-    border-bottom-left-radius: 12px;
-}
-
-.dashboard-table table tr:last-child td:last-child {
-    border-bottom-right-radius: 12px;
-} */
-
 .dashboard-table .table-img {
-    width: 60px;
+    height: 60px;
 }
 
 .dashboard-footer {

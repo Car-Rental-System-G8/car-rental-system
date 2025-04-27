@@ -1,5 +1,7 @@
 // carManager.js
 
+let currentCarsPage = 1;
+
 // ========= Utility Fetch Function =========
 const fetchData = async (url, options = {}) => {
   try {
@@ -53,7 +55,7 @@ export const deleteCar = async (_id) => {
 
       if (success) {
         const carsData = await getCars();
-        displayCars(carsData, true);
+        displayCars(carsData, { inDashboard: true });
       }
     } else {
       Swal.fire('Cancelled', 'Your car is safe :)', 'info');
@@ -66,7 +68,12 @@ export const deleteCar = async (_id) => {
 
 // ========= DOM Rendering =========
 export const displayCars = async (_cars, options = {}) => {
-  const { currentPage = 1, carsLimit  = 9, displayNewestCars, inDashboard } = options;
+  const { 
+    currentPage = 1, 
+    carsLimit = 5, 
+    carsOrder = "oldest",
+    isPagination = true,
+    inDashboard } = options;
 
   const container = inDashboard
     ? document.querySelector("#carsTableContainer")
@@ -81,19 +88,17 @@ export const displayCars = async (_cars, options = {}) => {
 
     let carsToDisplay = _cars;
 
-    // If displayNewestCars is true, display the last carsLimit cars
-    if (displayNewestCars === true) {
-      carsToDisplay = _cars.slice(-carsLimit );
+    if (carsOrder === "newest") {
+      carsToDisplay = _cars.slice().reverse().slice(0, carsLimit || _cars.length);
+    } else if (carsOrder === "oldest") {
+      carsToDisplay = _cars.slice(0, carsLimit || _cars.length);
     }
-    // If displayNewestCars is false, display the first carsLimit cars
-    else if (displayNewestCars === false) {
-      carsToDisplay = _cars.slice(0, carsLimit );
-    }
-    // Otherwise, handle normal pagination
-    else {
-      const startIndex = (currentPage - 1) * carsLimit ;
+    
+    if (isPagination && carsLimit > 0 && carsLimit < _cars.length) {
+      const startIndex = (currentPage - 1) * carsLimit;
       const endIndex = startIndex + carsLimit ;
       carsToDisplay = _cars.slice(startIndex, endIndex);
+      createPaginationControls(_cars.length, carsLimit , currentPage, inDashboard);
     }
 
     if (carsToDisplay.length === 0) {
@@ -148,11 +153,6 @@ export const displayCars = async (_cars, options = {}) => {
 
     if (inDashboard) setupCarEventListeners();
 
-    // If not showing first/last cars, display pagination controls
-    if (displayNewestCars === undefined) {
-      createPaginationControls(_cars.length, carsLimit , currentPage, inDashboard);
-    }
-
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
 
@@ -162,28 +162,30 @@ export const displayCars = async (_cars, options = {}) => {
   }, 400);
 };
 
-
 const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboard) => {
   const paginationContainer = document.getElementById("paginationControls");
-
+  
   if (!paginationContainer) return;
-
+  
+  paginationContainer.classList.add("d-flex");
   paginationContainer.innerHTML = "";
 
   totalCars ? paginationContainer.classList.remove("d-none") : paginationContainer.classList.add("d-none");
-  const totalPages = Math.ceil(totalCars / carsLimit );
+  const totalPages = Math.ceil(totalCars / carsLimit);
 
+  // Helper function to create pagination buttons
   const createPageButton = (text, page, disabled = false, isActive = false) => {
     const btn = document.createElement("button");
-    btn.className = `btn btn-sm ${disabled ? 'btn--primary disabled' : 'btn-outline--primary'} ${isActive ? 'active' : ''}`;
+    btn.className = `btn btn-sm btn-outline--primary ${isActive ? 'active' : ''}`;
     btn.textContent = text;
     btn.disabled = disabled;
     if (isActive) {
       btn.style.pointerEvents = 'none'; // Disable click on active button
     }
     btn.addEventListener("click", async () => {
+      currentCarsPage = page;
       const carsData = await getCars();
-      displayCars(carsData, { currentPage: page, carsLimit , inDashboard });
+      displayCars(carsData, { currentPage: page, carsLimit, inDashboard });
     });
     return btn;
   };
@@ -191,16 +193,37 @@ const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboar
   // Previous button
   paginationContainer.appendChild(createPageButton('« Previous', currentPage - 1, currentPage === 1));
 
-  // Page number buttons
-  for (let i = 1; i <= totalPages; i++) {
+  // Always show the first page
+  paginationContainer.appendChild(createPageButton(1, 1, false, currentPage === 1));
+
+  // Show ellipsis (...) if there are many pages before the current page
+  if (currentPage - 1 > 2) {
+    paginationContainer.appendChild(createPageButton('...', 0, true)); // Disable the "..." button
+  }
+
+  // Display only the previous, current, and next pages
+  const startPage = Math.max(2, currentPage - 1); // The page before current
+  const endPage = Math.min(totalPages - 1, currentPage + 1); // The page after current
+
+  // Append the page buttons to the pagination container
+  for (let i = startPage; i <= endPage; i++) {
     const btn = createPageButton(i, i, false, i === currentPage);
     paginationContainer.appendChild(btn);
+  }
+
+  // Show ellipsis (...) if there are many pages after the current page
+  if (currentPage + 1 < totalPages - 1) {
+    paginationContainer.appendChild(createPageButton('...', 0, true)); // Disable the "..." button
+  }
+
+  // Always show the last page
+  if (totalPages > 1) {
+    paginationContainer.appendChild(createPageButton(totalPages, totalPages, false, currentPage === totalPages));
   }
 
   // Next button
   paginationContainer.appendChild(createPageButton('Next »', currentPage + 1, currentPage === totalPages));
 };
-
 
 // ========= Event Listeners =========
 const setupCarEventListeners = () => {
@@ -235,15 +258,16 @@ export const updateForm = async (_id) => {
       bootstrap.Modal.getInstance(document.getElementById("carEditModal")).hide();
       toastr.success("Car updated successfully!");
       const carsData = await getCars();
-      displayCars(carsData, true);
+      displayCars(carsData, { currentPage: currentCarsPage, inDashboard: true });
     } else {
       toastr.error("Something went wrong, please try again.");
     }
   });
 };
 
-export const addCarForm = () => {
+export const addCarForm = async () => {
   const carAddForm = document.getElementById("carAddForm");
+  
   document.getElementById("addCarBtn").addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -256,7 +280,7 @@ export const addCarForm = () => {
       bootstrap.Modal.getInstance(document.getElementById("carAddModal")).hide();
       toastr.success("Car added successfully!");
       const carsData = await getCars();
-      displayCars(carsData, true);
+      displayCars(carsData, { inDashboard: true });
     } else {
       toastr.error("Something went wrong, please try again.");
     }
