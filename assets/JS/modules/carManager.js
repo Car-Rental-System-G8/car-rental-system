@@ -65,54 +65,142 @@ export const deleteCar = async (_id) => {
 };
 
 // ========= DOM Rendering =========
-export const displayCars = async (_cars, inDashboard) => {
+export const displayCars = async (_cars, options = {}) => {
+  const { currentPage = 1, carsLimit  = 9, displayNewestCars, inDashboard } = options;
+
   const container = inDashboard
     ? document.querySelector("#carsTableContainer")
-    : document.querySelector("#carsContainer"); // هنا هتحتاج تحط container اللي هتعرض فيه cars بتاعتك
+    : document.querySelector("#carsContainer");
 
   if (!container) return;
-  container.innerHTML = "";
 
-  _cars.forEach((car) => {
-    const { id, image, brand, model, type, year, pricePerDay, availability, rating } = car;
+  container.classList.add("fade-out");
 
-    if (inDashboard) {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${id}</td>
-        <td><img src="${image}" /></td>
-        <td>${brand}</td>
-        <td>${model}</td>
-        <td>${type}</td>
-        <td>${year}</td>
-        <td>${pricePerDay}</td>
-        <td>
-          <div class="badge ${String(availability) === "true" ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
-            ${String(availability) === "true" ? 'Available' : 'Not Available'}
-          </div>
-        </td>
-        <td>${rating}</td>
-        <td>
-          <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
-            <div class="col">
-              <button class="btn btn-primary edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-            </div>
-            <div class="col">
-              <button class="btn btn-danger delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-        </td>
-      `;
-      container.appendChild(tr);
-    } else {
-      // هنا كود العرض بتاعك ممكن تشوف انا عاملها ازاي وتعمل زيها
+  setTimeout(() => {
+    container.innerHTML = "";
+
+    let carsToDisplay = _cars;
+
+    // If displayNewestCars is true, display the last carsLimit cars
+    if (displayNewestCars === true) {
+      carsToDisplay = _cars.slice(-carsLimit );
     }
-  });
+    // If displayNewestCars is false, display the first carsLimit cars
+    else if (displayNewestCars === false) {
+      carsToDisplay = _cars.slice(0, carsLimit );
+    }
+    // Otherwise, handle normal pagination
+    else {
+      const startIndex = (currentPage - 1) * carsLimit ;
+      const endIndex = startIndex + carsLimit ;
+      carsToDisplay = _cars.slice(startIndex, endIndex);
+    }
 
-  if (inDashboard) setupCarEventListeners();
+    if (carsToDisplay.length === 0) {
+      if (inDashboard) {
+        const noDataMessage = document.createElement("tr");
+        noDataMessage.innerHTML = `
+          <td colspan="9" class="text-center text-muted">No cars to display!</td>
+        `;
+        container.appendChild(noDataMessage);
+      } else {
+        // No cars to display Code Here
+      }
+    } else {
+      carsToDisplay.forEach((car) => {
+        const { id, image, brand, model, type, year, pricePerDay, availability, rating } = car;
+
+        if (inDashboard) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${id}</td>
+            <td><img class="table-img" src="${image}" /></td>
+            <td>${brand}</td>
+            <td>${model}</td>
+            <td>${type}</td>
+            <td>${year}</td>
+            <td>${pricePerDay}</td>
+            <td>
+              <div class="badge ${String(availability) === "true" ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
+                ${String(availability) === "true" ? 'Available' : 'Not Available'}
+              </div>
+            </td>
+            <td class="text-start"><div class="dashboard-rating"><i class="fa fa-star"></i> ${rating}</div></td>
+            <td>
+              <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
+                <div class="col">
+                  <button class="btn btn--primary edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </div>
+                <div class="col">
+                  <button class="btn btn-danger delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </div>
+            </td>
+          `;
+          container.appendChild(tr);
+        } else {
+          // عرض الكروت لو مش داشبورد
+        }
+      });
+    }
+
+    if (inDashboard) setupCarEventListeners();
+
+    // If not showing first/last cars, display pagination controls
+    if (displayNewestCars === undefined) {
+      createPaginationControls(_cars.length, carsLimit , currentPage, inDashboard);
+    }
+
+    container.classList.remove("fade-out");
+    container.classList.add("fade-in");
+
+    setTimeout(() => {
+      container.classList.remove("fade-in");
+    }, 500);
+  }, 400);
 };
+
+
+const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboard) => {
+  const paginationContainer = document.getElementById("paginationControls");
+
+  if (!paginationContainer) return;
+
+  paginationContainer.innerHTML = "";
+
+  totalCars ? paginationContainer.classList.remove("d-none") : paginationContainer.classList.add("d-none");
+  const totalPages = Math.ceil(totalCars / carsLimit );
+
+  const createPageButton = (text, page, disabled = false, isActive = false) => {
+    const btn = document.createElement("button");
+    btn.className = `btn btn-sm ${disabled ? 'btn--primary disabled' : 'btn-outline--primary'} ${isActive ? 'active' : ''}`;
+    btn.textContent = text;
+    btn.disabled = disabled;
+    if (isActive) {
+      btn.style.pointerEvents = 'none'; // Disable click on active button
+    }
+    btn.addEventListener("click", async () => {
+      const carsData = await getCars();
+      displayCars(carsData, { currentPage: page, carsLimit , inDashboard });
+    });
+    return btn;
+  };
+
+  // Previous button
+  paginationContainer.appendChild(createPageButton('« Previous', currentPage - 1, currentPage === 1));
+
+  // Page number buttons
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = createPageButton(i, i, false, i === currentPage);
+    paginationContainer.appendChild(btn);
+  }
+
+  // Next button
+  paginationContainer.appendChild(createPageButton('Next »', currentPage + 1, currentPage === totalPages));
+};
+
 
 // ========= Event Listeners =========
 const setupCarEventListeners = () => {
