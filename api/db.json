@@ -6,7 +6,8 @@
       "email": "email@email.com",
       "phone": "01012345678",
       "password": "admin123",
-      "role": "admin"
+      "role": "admin",
+      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif" 
     },
     {
       "id": "2",
@@ -14,7 +15,8 @@
       "email": "email2@email.com",
       "phone": "01012345678",
       "password": "user123",
-      "role": "user"
+      "role": "user",
+      "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg" 
     }
   ],
   "bookings": [
@@ -70,6 +72,149 @@
       "availability": "true",
       "rating": 5,
       "image": "/assets/images/cars/bugatti_PNG17.png"
+    },
+    {
+      "id": "f336",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "5d29",
+      "brand": "Kia",
+      "model": "Sportage2",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "84e1",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "9502",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "4994",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "e54c",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+    },
+    {
+      "id": "71a8",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "0f95",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "5d2c",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "db72",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "ed3f",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "e942",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "37a3",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": "true",
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
     }
   ]
 }
