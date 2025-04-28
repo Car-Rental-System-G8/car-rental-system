@@ -421,7 +421,7 @@ a {
 
 .Car-listing .carWrapper {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   width: 850px;
   height: 400px;
   display: flex;
@@ -619,6 +619,7 @@ a {
   box-shadow: var(--shadow);
   background: radial-gradient(circle 304px at 41% 130%, var(--primary-color-opacity), #fff);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 /*  Animate Card when enter screen  */
