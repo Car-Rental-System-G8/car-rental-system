@@ -1,0 +1,41 @@
+.booking-history h2 span{
+    color: var(--primary-color);
+}
+
+.booking-history .card {
+  box-shadow: var(--shadow-lg);
+  color: var(--text-dark);
+}
+
+.booking-history .card p {
+  margin: 0;
+  color: var(--text-gray);
+}
+
+.booking-history .card i {
+  color: var(--primary-color);
+}
+
+.booking-history .card strong {
+  color: var(--text-gray);
+}
+
+.booking-history .card .btn {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transition: var(--transition)!important;
+}
+
+.booking-history .card .btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
+}
+
+.booking-history .card img{
+    transition: var(--transition)!important;
+}
+
+.booking-history .card img:hover{
+    transform: scale(1.05);
+}
