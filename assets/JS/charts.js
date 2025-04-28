@@ -9,8 +9,6 @@ async function loadData() {
 
         const bookings = data;
 
-
-
         function gettingStatus() {
             let confirmed = 0
             let canceled = 0
@@ -30,22 +28,16 @@ async function loadData() {
                 data: {
                     labels: statusName,
                     datasets: [{
-                        label: 'Booking Status Distribution',
                         data: status,
-                        borderWidth: 2,
+                        borderWidth: 0,
                         borderColor: '#fff', // White border for each slice
-                        backgroundColor: ['#28a745', '#dc3545', '#ffc107'], // Green, Red, Yellow for each status
-                        hoverBackgroundColor: ['#218838', '#c82333', '#e0a800'], // Darker shades for hover effect
-                        hoverBorderColor: '#fff', // Border color when hovered
+                        backgroundColor: ['#4caf50', '#f44336', '#ffc107'],
+                        hoverBackgroundColor: ['#329536', '#de3225', '#edb717'],
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    animation: {
-                        duration: 1500, // Longer animation time for a smoother effect
-                        easing: 'easeOutElastic', // Elastic easing for the animation effect
-                    },
                     plugins: {
                         tooltip: {
                             enabled: true,
@@ -78,12 +70,7 @@ async function loadData() {
                             anchor: 'center', // Center anchor position
                         },
                         title: {
-                            display: true,
-                            text: 'Different booking status comparison',
-                            font: {
-                                size: 20
-                            },
-                            color: '#333'
+                            display: false,
                         }
                     }
                 }
@@ -111,7 +98,6 @@ async function loadData() {
 
 
             }
-            console.log(carsLabels);
         
             const ctx = document.getElementById('myChart-3');
         
@@ -123,12 +109,12 @@ async function loadData() {
                         label: 'Booking Duration (Days)',
                         data: bookingsTime,
                         fill: true, // 👉 Fills the area under the line for a smooth look
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Light blue background
-                        borderColor: 'rgba(54, 162, 235, 1)', // Stronger blue border
-                        pointBackgroundColor: 'rgba(255, 99, 132, 1)', // Points color
+                        backgroundColor: 'rgba(48, 71, 224, 0.1)', // Light blue background
+                        borderColor: '#3047E0', // Stronger blue border
+                        pointBackgroundColor: '#3047E0', // Points color
                         pointBorderColor: '#fff', // Point border color
                         pointHoverBackgroundColor: '#fff', // Hover color
-                        pointHoverBorderColor: 'rgba(255, 99, 132, 1)',
+                        pointHoverBorderColor: '#3047E0',
                         tension: 0.4, // 👉 Smooth curved lines
                         borderWidth: 2
                     }]
@@ -138,12 +124,7 @@ async function loadData() {
                     maintainAspectRatio: false, // Better responsiveness
                     plugins: {
                         title: {
-                            display: true,
-                            text: 'Confirmed Booking Durations',
-                            font: {
-                                size: 20
-                            },
-                            color: '#333'
+                            display: false,
                         },
                         legend: {
                             display: true,
@@ -162,50 +143,7 @@ async function loadData() {
                             cornerRadius: 4,
                         }
                     },
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Booking ID',
-                                color: '#666',
-                                font: {
-                                    weight: 'bold',
-                                    size: 16
-                                }
-                            },
-                            ticks: {
-                                color: '#666',
-                                font: {
-                                    size: 12
-                                }
-                            },
-                            grid: {
-                                color: 'rgba(200,200,200,0.2)'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Duration (Days)',
-                                color: '#666',
-                                font: {
-                                    weight: 'bold',
-                                    size: 16
-                                }
-                            },
-                            ticks: {
-                                color: '#666',
-                                font: {
-                                    size: 12
-                                },
-                                stepSize: 1 // Force nice steps
-                            },
-                            grid: {
-                                color: 'rgba(200,200,200,0.2)'
-                            },
-                            beginAtZero: true
-                        }
-                    },animation: {
+                    animation: {
                         duration: 1500,
                         easing: 'easeInOutQuad '
                     },
@@ -216,19 +154,12 @@ async function loadData() {
 
         // _____________________________---
         
-        
-        
-
-
     } catch { }
 
 
 
 }
 loadData()
-
-
-
 
 // -----------------------------------------------------------------------------------
 async function loadData_2() {
@@ -238,9 +169,6 @@ async function loadData_2() {
         const data = await response.json();
 
         const cars = data;
-
-
-
 
         function gettingPrices() {
             let prices = []
@@ -259,13 +187,13 @@ async function loadData_2() {
                     datasets: [{
                         label: 'Car Cost per day',
                         data: prices,
-                        borderWidth: 2,
-                        borderColor: '#0d6efd', // Blue color for the border
-                        backgroundColor: 'skyblue', // Fill color for the bars
-                        hoverBackgroundColor: '#4c99e6', // Hover color
-                        hoverBorderColor: '#004085', // Hover border color
-                        borderRadius: 8, // Rounded corners for bars
-                        barPercentage: 0.7, // Control the width of the bars
+                        borderWidth: 1,
+                        borderColor: '#3047E050', // Blue color for the border
+                        backgroundColor: '#3047E0',
+                        hoverBackgroundColor: 'rgba(48, 71, 224, 0.8)', // Hover color
+                        hoverBorderColor: '#3047E050', // Hover border color
+                        borderRadius: 0, // Rounded corners for bars
+                        barPercentage: 0.5, // Control the width of the bars
                         categoryPercentage: 0.8, // Control the space between bars
                         
                     }]
@@ -294,84 +222,17 @@ async function loadData_2() {
                                 }
                             }
                         },
-                        title: {
-                            display: true,
-                            text: 'Different cars cost comparison',
-                            font: {
-                                size: 20
-                            },
-                            color: '#333'
-                        },
                         legend: {
-                            display: true,
-                            labels: {
-                                font: {
-                                    weight: 'bold',
-                                    size: 16
-                                },
-                            },
+                            display: false,
                         }
                     },
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Car ID',
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
-                                },
-                                color: '#555',
-                            },
-                            ticks: {
-                                font: {
-                                    size: 12,
-                                    weight: 'bold',
-                                },
-                                color: '#555'
-                            },
-                            grid: {
-                                display: false, // Hide grid lines for the x-axis
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Price per day (EGP)',
-                                font: {
-                                    weight: 'bold',
-                                    size: 14
-                                },
-                                color: '#555'
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                font: {
-                                    size: 12,
-                                    weight: 'bold',
-                                },
-                                color: '#555',
-                            },
-                            grid: {
-                                color: '#ddd', // Light gray grid lines
-                                lineWidth: 1
-                            }
-                        }
-                    }
                 }
             });
         }
         
         gettingPrices();
         
-        
-        
-        
-
-
     } catch { }
-
-
 
 }
 loadData_2()
