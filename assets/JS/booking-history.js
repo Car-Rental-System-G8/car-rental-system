@@ -1,12 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("Layout/navbar.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("navbar").innerHTML = data;
-    })
-    .catch((error) => console.error("Error loading navbar:", error));
-});
-
 const mainContent = document.getElementById("main-content");
 
 async function getUserBooking() {
