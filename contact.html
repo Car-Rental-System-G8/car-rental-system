@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/global-styles.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- Font Awesome -->
+    <link href="vendors/fontawesome/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/contact.css" />
+  </head>
+  <body>
+    <header id="navbar"></header>
+
+    <main class="contact pt-5 mt-5">
+      <section class="container pt-5">
+        <h2 class="text-center pb-3">Contact Us</h2>
+        <div class="row my-5 justify-content-center">
+          <section class="col-md-6 px-4">
+            <form id="contact-form" class="contact-form row">
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="first-name"
+                  name="firs-name"
+                />
+                <p
+                  id="first-name-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="last-name"
+                  name="last-name"
+                />
+                <div
+                  id="last-name-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="Email Address"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  name="email"
+                  id="email"
+                />
+                <p
+                  id="email-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="tel"
+                  placeholder="Phone"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  name="phone"
+                  id="phone"
+                />
+                <p
+                  id="phone-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-12 mb-3">
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="subject"
+                  name="subject"
+                />
+                <p
+                  id="subject-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-12 mb-3">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Write a message..."
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  rows="5"
+                ></textarea>
+                <p
+                  id="message-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <button type="submit" class="btn col-6 col-md-3 send-message-btn p-3 mb-5 m-auto m-md-0">
+                Send Message
+              </button>
+            </form>
+          </section>
+          <section
+            class="col-11 col-md-4 contact-info rounded p-4 align-self-stretch d-flex flex-column justify-content-center"
+          >
+            <article class="d-flex align-items-start my-3">
+              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Hours</h4>
+                <p class="info-details mb-0">
+                  Monday - Friday: 8 AM - 5:30 PM<br />
+                  Saturday - Sunday: Closed
+                </p>
+              </div>
+            </article>
+            <article class="d-flex align-items-start my-3">
+              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Call Us:</h4>
+                <p class="info-details mb-0">
+                  (+20) 305-905-8099<br />
+                  +88 568 956 238
+                </p>
+              </div>
+            </article>
+            <article class="d-flex align-items-start my-3">
+              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Location:</h4>
+                <p class="info-details mb-0">
+                  3915 NW 25th St,<br />
+                  Miami, Florida, USA
+                </p>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/loadNavbar.js"></script>
+    <script src="./assets/JS/loadFooter.js"></script>
+    <script src="./assets/JS/contact.js"></script>
+  </body>
+</html>
