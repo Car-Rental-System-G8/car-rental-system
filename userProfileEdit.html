@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Profile</title>
+    
+
+    <link rel="stylesheet" href="assets/css/userProfileEdit.css">
+</head>
+
+<body>
+
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="./assets/images/others/bodyguard-hands-gun-suit-jacke.avif" alt="User Image"
+                class="profile-image">
+            <h2 id="ph-profilename"></h2>
+        </div>
+
+        <form class="profile-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Change Image</label>
+                <input type="file" id="image">
+            </div>
+
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+    </div>
+
+
+
+    <script src="./assets/JS/userProfileEdit.js"></script>
+</body>
+
+</html>
