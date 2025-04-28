@@ -67,19 +67,58 @@ body {
     box-sizing: border-box;
   }
   
+  
+
+  /* __________ */
+
+  .profile-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px; /* wider */
+    text-align: center;
+  }
+  
+  .profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    gap: 20px 40px; /* space between fields */
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
   .save-button {
-    background-color: rgb(0, 177, 236);
+    grid-column: span 2;
+    background-color: #00d0ff;
     color: white;
-    padding: 12px;
-    width: 100%;
+    padding: 14px;
+    width: 30%;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    margin-top: 20px;
   }
   
   .save-button:hover {
-    background-color: rgb(0, 122, 162);
+    background-color: #00729f;
   }
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+  }
+  
   

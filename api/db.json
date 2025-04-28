@@ -7,7 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
-      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif" 
+      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "phone": "01012345678",
       "password": "user123",
       "role": "user",
-      "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg" 
+      "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
     }
   ],
   "bookings": [

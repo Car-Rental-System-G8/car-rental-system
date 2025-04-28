@@ -25,7 +25,7 @@ async function fetchAndHandleUser() {
       emailField.value = currentUser.email;
       phoneField.value = currentUser.phone;
       passField.value = currentUser.password;
-      imageField.src = currentUser.image;
+      imageField.value = currentUser.image;
       
      
 
@@ -38,7 +38,7 @@ async function fetchAndHandleUser() {
           email: emailField.value,
           phone: phoneField.value,
           password: passField.value,
-          image: imageField.src,
+          image: imageField.value,
         };
 
         try {
