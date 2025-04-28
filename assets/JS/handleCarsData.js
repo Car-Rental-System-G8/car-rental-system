@@ -3,6 +3,7 @@
 //  ================= Render Cars===========================
 export function renderCars(carsData) {
     const carsContainer = document.getElementById("carsContainer");
+    if (!carsContainer) return;
     carsContainer.innerHTML = "";
     let output = "";
     carsData.forEach((car) => {
@@ -12,7 +13,7 @@ export function renderCars(carsData) {
                   <div class="fav" data-id="${car.id}" >
                       <i class="fas fa-heart"></i>
                   </div>
-                  <img  src="assets/${car.image}" class="w-100 animateCard"  alt="Car 1" style="margin-left: 20%; " >
+                  <img  src="${car.image}" class="w-100 animateCard"  alt="Car 1" style="margin-left: 20%; " >
           
               <div class="carHeader text-start d-flex justify-content-between align-items-center mb-3 px-2">
                   <div class="carTitle">

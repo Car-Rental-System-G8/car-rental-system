@@ -100,7 +100,7 @@ function applyFilters() {
   } else {
     filtered = filtered.filter(car => car.availability === false);
   }
-
+  
   // Render the filtered cars
   renderCars(filtered);
 }
@@ -110,9 +110,12 @@ function applyFilters() {
 function updatePriceValue(value) {
   priceValue.innerText = `$${value}`;
 }
-priceRange.addEventListener("input", (e) => updatePriceValue(e.target.value));
 
+
+if(priceRange) {
+  priceRange.addEventListener("input", (e) => updatePriceValue(e.target.value));
+}
+if(applyFiltersButton) {
 // put filter function to work
 applyFiltersButton.addEventListener("click", applyFilters);
-
-
+}

@@ -64,7 +64,7 @@
       "model": "luxury",
       "type": "Sedan",
       "year": 2022,
-      "image": "images/cars/cars listing/red-edition-audi-luxury-car-jdc.png",
+      "image": "/assets/images/cars/cars listing/red-edition-audi-luxury-car-jdc.png",
       "pricePerDay": 400,
       "availability": true,
       "rating": 4.5,
@@ -76,76 +76,70 @@
       "model": "X-6",
       "type": "SUV",
       "year": 2025,
-      "image": "images/cars/cars listing/mercedes gray.png",
-      "pricePerDay": 550,
+      "image": "/assets/images/cars/cars listing/mercedes gray.png",
+      "pricePerDay": 400,
       "availability": "false",
       "rating": 5
-    }
-    ,
+    },
     {
       "id": "3",
       "brand": "lancer",
       "model": "Mitsubishi",
       "type": "Sedan",
       "year": 2025,
-      "image": "images/cars/cars listing/lancer Mitsubishi gray.png",
+      "image": "/assets/images/cars/cars listing/lancer Mitsubishi gray.png",
       "pricePerDay": 330,
       "availability": true,
       "rating": 5,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "4",
       "brand": "toyota",
       "model": "fortuner",
       "type": "SUV",
       "year": 2024,
-      "image": "images/cars/cars listing/toyota fortuner .webp",
+      "image": "/assets/images/cars/cars listing/toyota fortuner .webp",
       "pricePerDay": 650,
       "availability": true,
-      "rating": 4.0,
+      "rating": 4,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "5",
       "brand": "volkswagen",
       "model": "GLI",
       "type": "jetta",
       "year": 2025,
-      "image": "images/cars/cars listing/volkswagen jetta GLI black.webp",
+      "image": "/assets/images/cars/cars listing/volkswagen jetta GLI black.webp",
       "pricePerDay": 1000,
       "availability": true,
-      "rating": 5.0,
+      "rating": 5,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "6",
       "brand": "bugatti",
       "model": "g3",
       "type": "SUV",
       "year": 2025,
-      "image": "images/cars/cars listing/bugatti_PNG17.png",
+      "image": "/assets/images/cars/cars listing/bugatti_PNG17.png",
       "pricePerDay": 2500,
       "availability": false,
-      "rating": 5.0,
+      "rating": 5,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "7",
       "brand": "BMW 7",
       "model": "2013",
       "type": "Sedan",
       "year": 2025,
-      "image": "images/cars/cars listing/BMW 7 Sedan 2013 black.png",
+      "image": "/assets/images/cars/cars listing/BMW 7 Sedan 2013 black.png",
       "pricePerDay": 700,
       "availability": true,
       "rating": 2,
       "description": "Spacious and powerful SUV suitable for family trips."
     }
-    
   ]
 }
