@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/global-styles.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- Font Awesome -->
+    <link href="vendors/fontawesome/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/login-page.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <main class="login pt-5 position-relative">
+      <div class="container pt-5">
+        <div
+          class="row align-items-center justify-content-center flex-column-reverse flex-md-row"
+        >
+          <section class="col-md-6 p-md-5">
+            <h1>Log in</h1>
+            <form class="row px-md-4 mt-4 gy-3" id="login-form">
+              <div class="col-12">
+                <input
+                  type="text"
+                  class="p-3 border-0 border-bottom border-primary-color w-75"
+                  id="email"
+                  name="email"
+                  placeholder="Please Enter your E-mail"
+                />
+                <p class="error" id="mail-error"></p>
+              </div>
+              <div class="col-12">
+                <input
+                  type="password"
+                  class="p-3 border-0 border-bottom border-primary-color w-75"
+                  id="password"
+                  name="password"
+                  placeholder="Please Enter your Password"
+                />
+                <p class="error" id="password-error"></p>
+              </div>
+              <div class="col-12 text-center text-md-start">
+                  <button type="submit" class="btn">Log in</button>
+              </div>
+              <span class="text-center text-md-start"
+                ><a href="./signup.html" class="text-decoration-underline"
+                  >create new account?</a
+                ></span
+              >
+            </form>
+          </section>
+          <section class="col-md-6">
+            <img
+              src="./assets/images/cars/bugatti_PNG17.png"
+              alt="Car"
+              class="img-fluid"
+            />
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer id="footer"></footer>
+    <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/loadNavbar.js"></script>
+    <script src="./assets/JS/loadFooter.js"></script>
+    <script src="./assets/JS/login-page.js"></script>
+  </body>
+</html>
