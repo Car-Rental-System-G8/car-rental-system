@@ -63,7 +63,7 @@
   color: var(--text-dark);
 }
 
-.error{
+.login .error{
   color: red;
   font-size: 12px;
-};
+}
