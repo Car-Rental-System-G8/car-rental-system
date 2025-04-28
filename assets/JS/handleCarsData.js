@@ -8,7 +8,7 @@ export function renderCars(carsData) {
     carsData.forEach((car) => {
       output += `
          <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
-            <div class="carCard animateCard position-relative z-2 p-3 "  >
+            <div class="carCard animateCard position-relative z-2 p-3 "  data-id="${car.id}" >
                   <div class="fav" data-id="${car.id}" >
                       <i class="fas fa-heart"></i>
                   </div>
@@ -69,6 +69,7 @@ export function renderCars(carsData) {
     // Car Card Click Event
     document.querySelectorAll('.carCard').forEach(card => {
       card.addEventListener('click', function() {
+        const id = this.dataset.id;
         window.location.href=`car-details.html?id=${id}`
       });
     });
