@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="/assets/css/dashboard.css" />
     </head>
     <body>
-        <div class="dashboard-container">
+        <div id="loader">
+            <span class="loader-spinner"></span>
+        </div>
+        <div id="content" class="dashboard-container">
             <aside class="dashboard-sidebar">
                 <div class="dashboard-sidebar-inner">
                     <header class="dashboard-sidebar-header">
@@ -115,34 +118,79 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- My Code Here  -->
-
-                        <!-- card1 -->
-                        <div class="dashboard-card">
-                            <h5>Analytics Chart</h5>
-                            <div >
-                                <canvas id="myChart-1"></canvas>
+                        <div class="row row-cols-4 g-3 mb-3">
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Total Profit</h6>
+                                        <p id="totalProfit" class="dashboard-stat-amount"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-secondary-subtle text-secondary flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">All Cars</h6>
+                                        <p id="allCars" class="dashboard-stat-amount"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-success-subtle text-success flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Avaliable Cars</h6>
+                                        <p class="dashboard-stat-amount" id="avaliableCars"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-warning-subtle text-warning flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Booking Cars</h6>
+                                        <p class="dashboard-stat-amount" id="bookingCars"></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- card1 -->
-                        <div class="dashboard-card">
-                            <h5>Analytics Chart</h5>
-                            <div >
-                                <canvas id="myChart-2"></canvas>
+
+                        <div class="row g-3">
+                            <div class="col-9">
+                                <div class="dashboard-card h-100">
+                                    <h5 class="mb-4">Cars Cost Comparison</h5>
+                                    <div >
+                                        <canvas id="myChart-1" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dashboard-card d-flex flex-column h-100">
+                                    <h5 class="mb-3">Booking Status</h5>
+                                    <div class="my-auto">
+                                        <canvas id="myChart-2" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="dashboard-card">
+                                    <h5>Analytics Chart</h5>
+                                    <div >
+                                        <canvas id="myChart-3" height="400"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- card1 -->
-                        <div class="dashboard-card">
-                            <h5>Analytics Chart</h5>
-                            <div >
-                                <canvas id="myChart-3"></canvas>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
                 <footer class="dashboard-footer">
@@ -159,8 +207,8 @@
         <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
         <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="/vendors/toastr/toastr.min.js"></script>
-        <script src="/assets/JS/admin.js"></script>
-
+        <script src="/assets/JS/admin.js" type="module"></script>
+        <script src="/assets/JS/cars.js" type="module"></script>
         <!-- linking -->
         <script src="/vendors/chartJs/chart.umd.min.js"></script>        
         <script src="/assets/JS/charts.js"></script>

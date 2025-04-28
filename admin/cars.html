@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="/assets/css/dashboard.css" />
     </head>
     <body>
-        <div class="dashboard-container">
+        <div id="loader">
+            <span class="loader-spinner"></span>
+        </div>
+        <div id="content" class="dashboard-container">
             <aside class="dashboard-sidebar">
                 <div class="dashboard-sidebar-inner">
                     <header class="dashboard-sidebar-header">
@@ -267,7 +270,7 @@
         <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
         <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="/vendors/toastr/toastr.min.js"></script>
-        <script src="/assets/JS/admin.js"></script>
         <script src="/assets/JS/cars.js" type="module"></script>
+        <script src="/assets/JS/admin.js" type="module"></script>
     </body>
 </html>

@@ -1,18 +1,7 @@
+import { fetchData } from "./fetchData.js";
+
 // carManager.js
-
 let currentCarsPage = 1;
-
-// ========= Utility Fetch Function =========
-const fetchData = async (url, options = {}) => {
-  try {
-    const res = await fetch(url, options);
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    return await res.json();
-  } catch (error) {
-    console.error("Fetch Error:", error.message);
-    return null;
-  }
-};
 
 // ========= Car Operations =========
 export const getCars = (_id = "") => fetchData(`http://localhost:3000/cars/${_id}`);
@@ -267,8 +256,11 @@ export const updateForm = async (_id) => {
 
 export const addCarForm = async () => {
   const carAddForm = document.getElementById("carAddForm");
+  const addCarButton = document.getElementById("addCarBtn");
   
-  document.getElementById("addCarBtn").addEventListener("click", async (e) => {
+  if (!addCarButton) return;
+
+  addCarButton.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const newCarData = getFormData(carAddForm);
@@ -285,6 +277,17 @@ export const addCarForm = async () => {
       toastr.error("Something went wrong, please try again.");
     }
   });
+};
+
+// ========= Get Cars Details =========
+export const getCarsLength = async () =>  { 
+  const cars = await getCars();
+  return await cars.length;
+};
+export const getAvaliableCarsLength = async () =>  { 
+  const cars = await getCars();
+  const avaliable =  cars.filter((car) => String(car.availability) === "true");
+  return await avaliable.length;
 };
 
 // ========= Helpers =========

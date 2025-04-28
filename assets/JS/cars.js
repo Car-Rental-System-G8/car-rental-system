@@ -1,4 +1,4 @@
-import { addCarForm, displayCars, getCars } from "./modules/carManager.js";
+import { addCarForm, displayCars, getAvaliableCarsLength, getCars, getCarsLength } from "./modules/carManager.js";
 
 window.addEventListener("load", async () => {
   addCarForm();

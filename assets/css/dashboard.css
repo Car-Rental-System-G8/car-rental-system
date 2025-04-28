@@ -461,6 +461,43 @@ a:hover {
     height: 60px;
 }
 
+.dashboard-stat .dashboard-stat-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-opacity);
+    color: var(--primary-color);
+    font-size: 20px;
+    border-radius: 8px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.dashboard-stat .dashboard-stat-amount {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+.dashboard-stat .dashboard-stat-title {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+
+
 .dashboard-footer {
     background-color: var(--elements-bg);
     border-top: 1px solid var(--elements-border);
@@ -468,7 +505,6 @@ a:hover {
     padding-block: 16px;
     font-size: 13px;
 }
-
 
 @media (max-width: 575.98px) {
     .btn-dashboard {
@@ -523,6 +559,64 @@ a:hover {
     }
 }
 
+#loader {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background-color: var(--elements-bg);
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+
+.loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px dotted #fff;
+    border-style: solid solid dotted dotted;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+}
+.loader-spinner::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px dotted var(--primary-color);
+    border-style: solid solid dotted;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    animation: rotationBack 1s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+    @keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+} 
 
 
 
