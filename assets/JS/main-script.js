@@ -1,3 +1,6 @@
+import { getCars } from "./getCarsData.js";
+import { renderCars } from "./handleCarsData.js";
+
 $(document).ready(function () {
   // Auto-cycle the carousel
   $(".carousel").carousel({
@@ -41,117 +44,20 @@ $(".nav-link").click(function (e) {
 
 //   ================ Car Listing Page   ===========================
 
-//  Get Cars 
-/* 
-end Points
-http://localhost:3000/users
-http://localhost:3000/cars
-*/
 
-const carsContainer = document.getElementById("carsContainer");
-const carsUrl = "http://localhost:3000/cars";
-const cars = [];
+let cars = [];
 let filteredCars = [];
 
-const getCars = async () => {
-  try {
-    const response = await fetch(carsUrl);
-    const data = await response.json();
-    console.log('data:', data);
-    cars.push(...data);
-    filteredCars = [...cars];
-    renderCars(filteredCars);
-  } catch (error) {
-    console.error("Error fetching cars:", error);
-  }
-};
 
-
-
-//  Card Animation on Scroll just add "animateCard" class
-const cards = document.querySelectorAll(".animateCard");
-      
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("animateshow");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-
-
-//  ================= Render Cars===========================
-function renderCars(carsData) {
-  carsContainer.innerHTML = "";
-  let output = "";
-  carsData.forEach((car) => {
-    output += `
-       <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
-          <div class="carCard animateCard position-relative z-2 p-3 "  onclick=goCarDetails(this, ${car.id})>
-                <div class="fav" onclick="event.stopPropagation(); addToFavourites(this, ${car.id})">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <img  src="assets/${car.image}" class="w-100 animateCard"  alt="Car 1" style="margin-left: 20%; " >
-        
-            <div class="carHeader text-start d-flex justify-content-between align-items-center mb-3 px-2">
-                <div class="carTitle">
-                  <h5 class="carName   fw-bold ">${car.brand}</h5>
-                  <span class="">${car.model}</span>
-                </div>
-                <div class="price">
-                  <h5 class="card-price   fw-bold ">${car.pricePerDay}</h5>
-                  <span class="">per day</span>
-                </div>
-            </div>
-        
-            <div class="row gap-3 justify-content-center align-items-center flex-md-nowrap gap-3">
-                <div class="feature col-3 text-center">
-                  <i class="fas fa-star"></i>
-                  <p class="small mb-0 ">${car.rating}</p>
-                </div>
-                <div class="feature col-3 text-center">
-                  <i class="fas fa-car"></i>
-                  <p class="small mb-0">${car.type}</p>
-                </div>
-                <div class="feature col-3 text-center">
-                  <i class="fas fa-calendar-alt"></i>
-                  <p class="small mb-0">${car.year}</p>
-                </div>
-            </div>
-            ${car.availability === false ? ` <button class=" notAvilable"><a href="#" class=" fw-bold "> Not Avilable </a> </button>` : `<button class=" " onclick="event.stopPropagation(); AddToCart(${car.id})"><a href="#" class=" fw-bold"> Rent Now </a></button>`}
-            
-          </div>
-      </div>
-    `;
-  });
-  carsContainer.innerHTML = output;
-  const cards = document.querySelectorAll(".animateCard");
-  cards.forEach(card => observer.observe(card));
+// initiate Cars Function to get data from the API and render it
+async function initCars() {
+  const data = await getCars();
+  cars.push(...data);
+  filteredCars = [...cars];
+  renderCars(filteredCars);
 }
 
-getCars();
-
-//  ================= Add to Favourites ===========================
-function addToFavourites(ele, id) {
-  $(ele).toggleClass('text-danger');
-  $(ele).addClass('heartbeat');
-  setTimeout(() => {
-    $(ele).removeClass('heartbeat');
-  }, 300);
-}
-
-//  ================== Add to Cart =========================
-let cart = [];
-function AddToCart(id) {
- console.log('id:', id);
-}
-
-
-//  ================== Car Details Page =========================
-function goCarDetails(id) {
-  window.location.href = `car-details.html?id=${id}`;
-}
+initCars();
 
 
 // ================== Car Filter =========================
@@ -198,7 +104,6 @@ function applyFilters() {
   // Render the filtered cars
   renderCars(filtered);
 }
-
 
 
 // Update the price range value on change
