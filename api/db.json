@@ -75,12 +75,15 @@
       "brand": "mercedes",
       "model": "X-6",
       "type": "SUV",
+      "year": 2023,
       "year": 2025,
-      "image": "/assets/images/cars/cars listing/mercedes gray.png",
-      "pricePerDay": 400,
-      "availability": "false",
-      "rating": 5
-    },
+      "image": "images/cars/cars listing/mercedes gray.png",
+      "pricePerDay": 550,
+      "availability": false,
+      "rating": 4.7,
+      "description": "Spacious and powerful SUV suitable for family trips."
+    }
+    ,
     {
       "id": "3",
       "brand": "lancer",
