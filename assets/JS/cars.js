@@ -28,6 +28,7 @@ window.addEventListener("load", async () => {
       }
       if (!years.some(el => el == car.year)) {
         years.push(car.year);
+        years.sort();
       }
     });
 
@@ -54,7 +55,7 @@ window.addEventListener("load", async () => {
       const filterObj = {};
 
       if (statusInput.value != "") {
-        filterObj.availability = String(statusInput.value);
+        filterObj.availability = statusInput.value === "true";
       }
 
       if (brandInput.value != "") {

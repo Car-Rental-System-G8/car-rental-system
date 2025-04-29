@@ -115,8 +115,8 @@ export const displayCars = async (_cars, options = {}) => {
             <td>${year}</td>
             <td>${pricePerDay}</td>
             <td>
-              <div class="badge ${String(availability) === "true" ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
-                ${String(availability) === "true" ? 'Available' : 'Not Available'}
+              <div class="badge ${availability === true ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
+                ${availability === true ? 'Available' : 'Not Available'}
               </div>
             </td>
             <td class="text-start"><div class="dashboard-rating"><i class="fa fa-star"></i> ${rating}</div></td>
@@ -287,7 +287,7 @@ export const getCarsLength = async () =>  {
 };
 export const getAvaliableCarsLength = async () =>  { 
   const cars = await getCars();
-  const avaliable =  cars.filter((car) => String(car.availability) === "true");
+  const avaliable =  cars.filter((car) => car.availability === "true");
   return await avaliable.length;
 };
 
@@ -298,7 +298,7 @@ const fillForm = (form, car) => {
   form.querySelector("[name=type]").value = car.type;
   form.querySelector("[name=year]").value = car.year;
   form.querySelector("[name=price]").value = car.pricePerDay;
-  form.querySelector("[name=status]").value = car.availability;
+  form.querySelector("[name=status]").value = Boolean(car.availability);
   form.querySelector("[name=rating]").value = car.rating;
   form.querySelector("[name=image]").value = car.image;
 };
@@ -309,7 +309,7 @@ const getFormData = (form) => ({
   type: form.querySelector("[name=type]").value.trim(),
   year: parseInt(form.querySelector("[name=year]").value),
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
-  availability: form.querySelector("[name=status]").value,
+  availability: Boolean(form.querySelector("[name=status]").value),
   rating: parseFloat(form.querySelector("[name=rating]").value),
   image: form.querySelector("[name=image]").value.trim()
 });
@@ -338,13 +338,6 @@ const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating 
   return true;
 };
 
-// export const filterCars = async (_filters = {}) => {
-//   const cars = await getCars();
-
-//   return cars.filter((car) => {
-//     return Object.entries(_filters).every(([key, value]) => car[key] === value);
-//   });
-// };
 export const filterCars = async (_filters = {}) => {
   const cars = await getCars();
 
