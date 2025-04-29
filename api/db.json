@@ -17,6 +17,14 @@
       "password": "user123",
       "role": "user",
       "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Sara",
+      "email": "ahem@gmail.com",
+      "phone": "01089457686",
+      "password": "NcTwv3n@c5u5M8p",
+      "role": "user"
     }
   ],
   "bookings": [
@@ -233,6 +241,72 @@
       "availability": "false",
       "rating": 5,
       "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "0019",
+      "brand": "Lamborghini",
+      "model": "Aventador SVJ",
+      "type": "Coupe",
+      "year": 2023,
+      "pricePerDay": 12000,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/162362-lamborghini-side-view-png-free-photo.png"
+    },
+    {
+      "id": "b673",
+      "brand": "Bugatti",
+      "model": "Chiron Super Sport",
+      "type": "Coupe",
+      "year": 2023,
+      "pricePerDay": 25000,
+      "availability": "true",
+      "rating": 5,
+      "image": "/assets/images/cars/pngimg.com - bugatti_PNG36.png"
+    },
+    {
+      "id": "ef6f",
+      "brand": "Porsche",
+      "model": "911 Turbo S",
+      "type": "Coupe",
+      "year": 2024,
+      "pricePerDay": 1800,
+      "availability": "true",
+      "rating": 4,
+      "image": "/assets/images/cars/rolls-royce-dawn-blue-car.png"
+    },
+    {
+      "id": "f2a5",
+      "brand": "Ferrari",
+      "model": "SF90 Stradale",
+      "type": "Coupe",
+      "year": 2023,
+      "pricePerDay": 10000,
+      "availability": "true",
+      "rating": 4,
+      "image": "/assets/images/cars/Ferrari-812-Superfast-PNG-Photo-Image.png"
+    },
+    {
+      "id": "0a4f",
+      "brand": "Rolls-Royce",
+      "model": "Phantom",
+      "type": "Sedan",
+      "year": 2020,
+      "pricePerDay": 8000,
+      "availability": "true",
+      "rating": 4,
+      "image": "/assets/images/cars/rolls-royce-dawn-blue-car.png"
+    },
+    {
+      "id": "3747",
+      "brand": "Mclaren",
+      "model": "Continental GT",
+      "type": "Coupe",
+      "year": 2023,
+      "pricePerDay": 4000,
+      "availability": "true",
+      "rating": 3,
+      "image": "/assets/images/cars/pngimg.com - Mclaren_PNG76.png"
     }
   ]
 }

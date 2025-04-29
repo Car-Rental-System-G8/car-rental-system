@@ -94,7 +94,9 @@ a{
   text-decoration: none !important;
 }
 .search-icon,
-.profile-icon {
+.profile-icon,
+.favorite-icon,
+.login-link {
   width: 40px;
   height: 40px;
   display: flex;
@@ -112,11 +114,116 @@ a {
 }
 
 .search-icon:hover,
-.profile-icon:hover {
+.profile-icon:hover,
+.favorite-icon:hover,
+.login-link:hover {
   background-color: var(--primary-color);
   color: var(--text-light);
   transform: scale(1.1);
 }
+
+
+
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-dropdown-menu {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: none;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  margin-top: 10px;
+  background-color: var(--text-light);
+  right: 0;
+  left: auto;
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+.profile-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-light);
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item {
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.dropdown-item i {
+  color: var(--primary-color);
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  background-color: rgba(94, 204, 201, 0.1);
+  color: var(--primary-color);
+}
+
+.dropdown-divider {
+  margin: 0.3rem 0;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.logout-btn {
+  color: #dc3545;
+}
+
+.logout-btn i {
+  color: #dc3545;
+}
+
+.logout-btn:hover, 
+.logout-btn:focus {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Hero Section Styles */
 .hero-section {
@@ -1006,4 +1113,42 @@ a {
   .footer-logo {
       height: 50px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Trending Section Styles */
+.trending-section {
+  background-color: #e6f7f7;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.section-title span {
+  color: var(--primary-color);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 40px;
 }
