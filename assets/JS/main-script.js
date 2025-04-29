@@ -1,5 +1,7 @@
-import { getCars } from "./getCarsData.js";
-import { renderCars } from "./handleCarsData.js";
+import { loadListingPage } from './listingPage.js';
+import { loadDetailsPage } from './detailsPage.js';
+import { initCars } from './getCarsData.js';
+import { renderCars } from "./renderCarCards.js";
 
 $(document).ready(function () {
   // Auto-cycle the carousel
@@ -44,35 +46,21 @@ $(".nav-link").click(function (e) {
 
 //   ================ Car Listing Page   ===========================
 
+// ================= Filter Cars : name - type - price range - avilabilty =========================
 
-let cars = [];
-let filteredCars = [];
-
-
-// initiate Cars Function to get data from the API and render it
-async function initCars() {
-  const data = await getCars();
-  cars.push(...data);
-  filteredCars = [...cars];
-  renderCars(filteredCars);
-}
-
-initCars();
-
-
-// ================== Car Filter =========================
-const searchInput = document.querySelector('.filters .searchBox');
-const carTypeSelect = document.getElementById("carType");
+const applyFiltersButton = document.querySelector(".filters button");
 const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
-const availableCheckbox = document.getElementById("available");
-const applyFiltersButton = document.querySelector(".filters button");
+const searchInput = document.querySelector('.filters .searchBox');
+const carTypeSelect = document.getElementById("carType");
 
+async function applyFilters() {
 
+const cars = await initCars();
+let filtered = [...cars];
 
-// ================= Filter Cars : name - type - price range - avilabilty =========================
-function applyFilters() {
-  let filtered = [...cars];
+const availableCheckbox = document.querySelector('input[name="Availability"]:checked');
+
 
   // Search with Name 
   const searchText = searchInput.value.trim().toLowerCase();
@@ -95,11 +83,16 @@ function applyFilters() {
 
   
   // Availability Filter
-  if (availableCheckbox.checked) {
+  if (availableCheckbox.value === "available") {
     filtered = filtered.filter(car => car.availability === true);
-  } else {
+  } else if (availableCheckbox.value === "notAvailable") {
+    // If the checkbox is checked, filter for not available cars
     filtered = filtered.filter(car => car.availability === false);
+  }else if (availableCheckbox.value === "all") {
+    // If the checkbox is checked, filter for all cars
+    filtered = filtered.filter(car => car.availability === true || car.availability === false);
   }
+
   
   // Render the filtered cars
   renderCars(filtered);
@@ -115,7 +108,18 @@ function updatePriceValue(value) {
 if(priceRange) {
   priceRange.addEventListener("input", (e) => updatePriceValue(e.target.value));
 }
+
 if(applyFiltersButton) {
 // put filter function to work
 applyFiltersButton.addEventListener("click", applyFilters);
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.href.includes('car-listing.html')) {
+    loadListingPage();
+  } else if (window.location.href.includes('car-details.html')) {
+    loadDetailsPage();
+  }
+});

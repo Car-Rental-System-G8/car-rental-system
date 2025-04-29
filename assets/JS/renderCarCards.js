@@ -1,5 +1,3 @@
-
-
 //  ================= Render Cars===========================
 export function renderCars(carsData) {
     const carsContainer = document.getElementById("carsContainer");

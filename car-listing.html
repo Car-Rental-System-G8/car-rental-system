@@ -29,7 +29,7 @@
                         </div>
                 </div>
 
-                <div class="col-lg-4 hero-content mt-5">
+                <div class="col-lg-4 hero-content mt-2 mt-md-5">
                     <h1 class="hero-title">Explore Our  <span>Cars</span></h1>
                    
 
@@ -74,11 +74,29 @@
                            <!-- Availability Filter -->
                            <div class="mb-4">
                                <label class="form-label fw-bold">Availability</label>
-                               <div class="Availability d-flex align-items-center ">
-                               <input class="" type="checkbox" checked value="available" id="available">
-                               <label class="form-check-label" for="available">
-                                   Available Now
-                               </label>
+                               <div class="Availability d-flex justify-content-between align-items-center  ">
+
+                                    <div class="all d-flex  align-items-center">
+                                        <input class="" type="radio" name="Availability" checked value="all" id="allCars">
+                                        <label class="form-check-label" for="allCars">
+                                            All Cars
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="avilable d-flex  align-items-center ">
+                                        <input class="" type="radio" name="Availability"  value="available" id="available">
+                                        <label class="form-check-label" for="available">
+                                            Available Now
+                                        </label>
+                                    </div>
+
+                                    <div class="notAv d-flex  align-items-center">
+                                        <input class="" type="radio" name="Availability"  value="notAvailable" id="notAvailable">
+                                        <label class="form-check-label" for="notAvilable">
+                                            Not Available
+                                        </label>
+                                    </div>
+                                    
                                </div>
                            </div>
 
@@ -98,9 +116,9 @@
 
 
         <!-- Car Listing Section -->
-        <div class="container mb-5 d-flex gap-5 flex-wrap justify-content-between align-items-center">
+        <div class="container mb-5 d-flex flex-wrap justify-content-between align-items-center">
 
-                <div class="row justify-content-between">
+                <div class="row justify-content-between w-100">
                     <div id="carsContainer" class=" row flex-wrap py-5"></div>
                 </div>
         </div>

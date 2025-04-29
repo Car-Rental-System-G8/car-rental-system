@@ -1,9 +1,10 @@
 //  ================ Get Cars ===========================
 
-//   api end Point
+//   api 
 const carsUrl = "http://localhost:3000/cars";
 
- export async function getCars() {
+
+async function getCars() {
     try {
         const response = await fetch(carsUrl);
     
@@ -20,5 +21,19 @@ const carsUrl = "http://localhost:3000/cars";
         console.log(" Error fetching cars");
       }
 }
+
+// initiate Cars Function to get data from the API and render it
+export async function initCars() {
+  try {
+    const data = await getCars();
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch cars:', error);
+    return [];
+  }
+}
+
+
+
 
 
