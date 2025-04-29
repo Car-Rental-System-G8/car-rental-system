@@ -71,7 +71,7 @@
 
 .save-button {
   grid-column: span 2;
-  background-color: #00d0ff;
+  background-color: #5ECCC9;
   color: white;
   padding: 14px;
   width: 30%;
@@ -84,5 +84,5 @@
 }
 
 .save-button:hover {
-  background-color: #00729f;
+  background-color: #2c9a96;
 }
