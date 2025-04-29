@@ -3,7 +3,7 @@ import { addCarForm, displayCars, getCars, filterCars } from "./modules/carManag
 window.addEventListener("load", async () => {
   addCarForm();
   const carsData = await getCars();
-  displayCars(carsData, { inDashboard: true });
+  displayCars(carsData);
 
   const handleFilters = async () => {
     const brandInput = document.getElementById("brandFilter");
@@ -91,7 +91,7 @@ window.addEventListener("load", async () => {
       }
 
       filteredCars = await filterCars(filterObj);
-      displayCars(filteredCars, { inDashboard: true });
+      displayCars(filteredCars);
     });
 
     const searchInput = document.getElementById("searchInput");
@@ -110,7 +110,7 @@ window.addEventListener("load", async () => {
         car.brand?.toLowerCase().includes(keyword)
       );
 
-      displayCars(searched, { inDashboard: true });
+      displayCars(searched);
     });
   };
 
