@@ -40,9 +40,7 @@ function createBookingCard(booking, car) {
             <div class="row align-items-center p-3 flex-md-row flex-column">
               <div class="col-md-3">
                 <a href="#"
-                  ><img src=${car.image} alt="${car.brand} ${
-    car.model
-  } photo" class="img-fluid"
+                  ><img src="${car.image}" alt="${car.brand} ${car.model} photo" class="img-fluid"
                 /></a>
               </div>
               <div class="col-md-7 d-flex flex-column justify-content-between">

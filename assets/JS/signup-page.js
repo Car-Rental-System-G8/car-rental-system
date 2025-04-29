@@ -25,22 +25,25 @@ signupForm.addEventListener("submit", async (e) => {
     password: password.value,
   };
 
-  if (!validateName(userData.name)) {
-    nameError.textContent = "*Invalid  - Must be at least 5 characters*";
+  const nameValidation = validateName(userData.name);
+  if (!nameValidation.isValid) {
+    nameError.textContent = nameValidation.error;
     isValid = false;
   } else {
     nameError.textContent = "";
   }
-
-  if (!validateEmail(userData.email)) {
-    emailError.textContent = "*Invalid email*";
+  
+  const emailValidation = validateEmail(userData.email);
+  if (!emailValidation.isValid) {
+    emailError.textContent = emailValidation.error;
     isValid = false;
   } else {
     emailError.textContent = "";
   }
 
-  if (!validatePhone(userData.phone)) {
-    phoneError.textContent = "*Invalid phone number*";
+  const phoneValidation = validatePhone(userData.phone);
+  if (!phoneValidation.isValid) {
+    phoneError.textContent = phoneValidation.error;
     isValid = false;
   } else {
     phoneError.textContent = "";
@@ -92,7 +95,6 @@ async function signUp(userData) {
 
     const newUser = {
       ...userData,
-      id: users.length + 1,
       role: "user",
     };
 
@@ -115,18 +117,40 @@ async function signUp(userData) {
 
 // Field Validation Functions
 const validateName = (name) => {
-  const regex = /^[a-zA-Z\s]{3,30}$/;
-  return regex.test(name.trim());
+  const regex = /^[a-zA-Z0-9_\s]{5,30}$/;
+  if (name.trim() === "") {
+    return { isValid: false, error: "*user Name is required*" };
+  } else if (!regex.test(name.trim())) {
+    console.log(name.trim());
+    return {
+      isValid: false,
+      error: "*Must be 5-30 characters (numbers, letters, _ )*",
+    };
+  } else {
+    return { isValid: true, error: "" };
+  }
 };
 
 const validateEmail = (email) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email.trim());
+  if (email.trim() === "") {
+    return { isValid: false, error: "*E-mail is required*" };
+  } else if (!regex.test(email.trim())) {
+    return { isValid: false, error: "*Invalid email*" };
+  } else {
+    return { isValid: true, error: "" };
+  }
 };
 
 const validatePhone = (phone) => {
   const regex = /^01[0-2,5]\d{8}$/;
-  return regex.test(phone.trim());
+  if (phone.trim() === "") {
+    return { isValid: false, error: "*Phone is required*" };
+  } else if (!regex.test(phone.trim())) {
+    return { isValid: false, error: "*Invalid phone number*" };
+  } else {
+    return { isValid: true, error: "" };
+  }
 };
 
 const validatePassword = (password) => {
