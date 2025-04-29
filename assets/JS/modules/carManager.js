@@ -87,8 +87,8 @@ export const displayCars = async (_cars, options = {}) => {
       const startIndex = (currentPage - 1) * carsLimit;
       const endIndex = startIndex + carsLimit ;
       carsToDisplay = _cars.slice(startIndex, endIndex);
-      createPaginationControls(_cars.length, carsLimit , currentPage, inDashboard);
     }
+    createPaginationControls(_cars, _cars.length, carsLimit , currentPage, inDashboard);
 
     if (carsToDisplay.length === 0) {
       if (inDashboard) {
@@ -123,12 +123,12 @@ export const displayCars = async (_cars, options = {}) => {
             <td>
               <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
                 <div class="col">
-                  <button class="btn btn--primary edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
+                  <button class="btn btn--primary btn-sm edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </button>
                 </div>
                 <div class="col">
-                  <button class="btn btn-danger delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-danger btn-sm delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </td>
@@ -151,7 +151,7 @@ export const displayCars = async (_cars, options = {}) => {
   }, 400);
 };
 
-const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboard) => {
+const createPaginationControls = (cars, totalCars, carsLimit , currentPage, inDashboard) => {
   const paginationContainer = document.getElementById("paginationControls");
   
   if (!paginationContainer) return;
@@ -173,8 +173,9 @@ const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboar
     }
     btn.addEventListener("click", async () => {
       currentCarsPage = page;
-      const carsData = await getCars();
-      displayCars(carsData, { currentPage: page, carsLimit, inDashboard });
+      // const carsData = await getCars();
+      displayCars(cars, { currentPage: page, carsLimit, inDashboard });
+      console.log(totalCars);
     });
     return btn;
   };
@@ -335,4 +336,43 @@ const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating 
   }
 
   return true;
+};
+
+// export const filterCars = async (_filters = {}) => {
+//   const cars = await getCars();
+
+//   return cars.filter((car) => {
+//     return Object.entries(_filters).every(([key, value]) => car[key] === value);
+//   });
+// };
+export const filterCars = async (_filters = {}) => {
+  const cars = await getCars();
+
+  return cars.filter((car) => {
+    return Object.entries(_filters).every(([key, value]) => {
+      const rawValue = car[key];
+      const carValue = !isNaN(parseFloat(rawValue)) ? parseFloat(rawValue) : rawValue;
+
+      if (key === "rating" && !isNaN(parseFloat(value))) {
+        return carValue >= parseFloat(value);
+      }
+
+      if (key === "year" && !isNaN(parseFloat(value))) {
+        return carValue == parseFloat(value);
+      }
+
+      // فلتر Range
+      if (Array.isArray(value) && !isNaN(parseFloat(value[0])) && !isNaN(parseFloat(value[1]))) {
+        const [min, max] = value;
+        return carValue >= parseInt(min) && carValue <= parseInt(max);
+      }
+
+      // مقارنة نصوص بدون حساسية لحالة الأحرف
+      if (typeof value === 'string' && typeof carValue === 'string') {
+        return carValue.toLowerCase() === value.toLowerCase();
+      }
+
+      return carValue === value;
+    });
+  });
 };

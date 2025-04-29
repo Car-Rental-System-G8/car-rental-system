@@ -85,7 +85,7 @@
       "brand": "Ford",
       "model": "Mustang GT",
       "type": "Sports",
-      "year": "2023",
+      "year": 2023,
       "pricePerDay": 1000,
       "availability": "true",
       "rating": 5,
@@ -224,15 +224,15 @@
       "image": "https://placehold.co/80x80"
     },
     {
-      "id": "37a3",
+      "id": "c09f",
       "brand": "Kia",
       "model": "Sportage",
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "false",
+      "availability": "true",
       "rating": 5,
-      "image": "https://placehold.co/80x80"
+      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
     }
   ]
 }
