@@ -57,6 +57,7 @@
       "totalCost": 3000
     }
   ],
+  "contacts": [],
   "cars": [
     {
       "id": "1",
@@ -81,8 +82,7 @@
       "availability": false,
       "rating": 4.7,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "3",
       "brand": "lancer",
