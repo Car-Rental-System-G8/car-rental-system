@@ -95,7 +95,7 @@ async function signUp(userData) {
 
     const newUser = {
       ...userData,
-      id: users.length + 1,
+      id: users[users.length - 1].id + 1,
       role: "user",
     };
 
