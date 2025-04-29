@@ -17,6 +17,14 @@
       "password": "user123",
       "role": "user",
       "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Mohamed",
+      "email": "example@email.com",
+      "phone": "01234567891",
+      "password": "123456789",
+      "role": "user"
     }
   ],
   "bookings": [
@@ -81,8 +89,7 @@
       "availability": false,
       "rating": 4.7,
       "description": "Spacious and powerful SUV suitable for family trips."
-    }
-    ,
+    },
     {
       "id": "3",
       "brand": "lancer",

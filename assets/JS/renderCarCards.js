@@ -86,8 +86,11 @@ export function renderCars(carsData) {
 
 //  ================== Add to Cart Function =========================
 function AddToCart(carsData, id) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const AddedCar = carsData.find(car => car.id === id);
-  console.log('Added To Cart:', AddedCar);
+  cart.push(AddedCar);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log("Added to cart:", cart);
 }
 
 
