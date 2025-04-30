@@ -8,7 +8,7 @@ export function renderCars(carsData) {
       output += `
          <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
             <div class="carCard animateCard position-relative z-2 p-3 "  data-id="${car.id}" >
-                  <div class="fav" data-id="${car.id}" >
+                  <div class="fav fav${car.id}" data-id="${car.id}" >
                       <i class="fas fa-heart"></i>
                   </div>
                   <img  src="${car.image}" class="w-100 animateCard"  alt="Car 1" style="margin-left: 20%; " >
@@ -48,6 +48,16 @@ export function renderCars(carsData) {
     const cards = document.querySelectorAll(".animateCard");
     cards.forEach(card => observer.observe(card));
 
+
+    if(sessionStorage.getItem("favourites")) {
+      const favourites = JSON.parse(sessionStorage.getItem("favourites"));
+      favourites.forEach(car => {
+          const favIcon = document.querySelector(`.fav${car.id}`);
+          if (favIcon) {
+            favIcon.classList.add('text-danger');
+          }
+      });
+      
     attachEventListeners(carsData);
 
   }
@@ -86,19 +96,35 @@ export function renderCars(carsData) {
 
 //  ================== Add to Cart Function =========================
 function AddToCart(carsData, id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
   const AddedCar = carsData.find(car => car.id === id);
-  cart.push(AddedCar);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  cart = AddedCar;
+  sessionStorage.setItem("cart", JSON.stringify(cart));
   console.log("Added to cart:", cart);
 }
 
 
 //  ================== Add to Favourites Function =========================
+
+
+}
 function addToFavourites(ele, carsData,  id) {
+    let favourites =  JSON.parse(sessionStorage.getItem("favourites")) || []; 
+    const existingCar = favourites.find(car => car.id === id);
+    if (existingCar) {
+        // If the car is already in favourites, remove it
+        favourites = favourites.filter(car => car.id !== id);
+        sessionStorage.setItem("favourites", JSON.stringify(favourites));
+        $(ele).removeClass('text-danger');
+        return;
+    }
+
     const AddedCar = carsData.find(car => car.id === id);
-    console.log("Adding to favorites:", AddedCar);
-    $(ele).toggleClass('text-danger');
+    favourites.push(AddedCar);
+    sessionStorage.setItem("favourites", JSON.stringify(favourites));
+    console.log("Adding to favorites:", favourites);
+     favourites.find(car => car.id === id);
+    $(ele).addClass('text-danger');
     $(ele).addClass('heartbeat');
     setTimeout(() => {
         $(ele).removeClass('heartbeat');
