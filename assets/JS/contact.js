@@ -22,6 +22,9 @@ contactForm.addEventListener("submit", async function (e) {
     phone: phone.value.trim(),
     subject: subject.value.trim(),
     message: message.value.trim(),
+    date: new Date().toISOString().slice(0, 10),
+    read: false,
+    starred: false,
   };
 
   const userId = await getUserId();
