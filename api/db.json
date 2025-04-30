@@ -37,184 +37,111 @@
       "returnDate": "2025-05-03",
       "status": "pending",
       "totalCost": 1600
-    }
-  ],
-  "cars": [
-    {
-      "id": "1",
-      "brand": "KIA",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": "2024",
-      "pricePerDay": "600",
-      "availability": "false",
-      "rating": "5",
-      "image": "/assets/images/cars/bugatti_PNG17.png"
-    },
-    {
-      "id": "2",
-      "brand": "Toyota",
-      "model": "Corolla",
-      "type": "Sedan",
-      "year": "2024",
-      "pricePerDay": 800,
-      "availability": "false",
-      "rating": 4.8,
-      "image": "/assets/images/cars/bugatti_PNG17.png"
     },
     {
       "id": "3",
-      "brand": "Ford",
-      "model": "Mustang GT",
-      "type": "Sports",
-      "year": "2023",
+      "carId": "3",
+      "userId": "2",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-03",
+      "status": "canceled",
+      "totalCost": 3000
+    },
+    {
+      "id": "4",
+      "carId": "1",
+      "userId": "2",
+      "pickupDate": "2025-04-30",
+      "returnDate": "2025-05-03",
+      "status": "confirmed",
+      "totalCost": 3000
+    }
+  ],
+  "contacts": [],
+  "cars": [
+    {
+      "id": "1",
+      "brand": "audi",
+      "model": "luxury",
+      "type": "Sedan",
+      "year": 2022,
+      "image": "/assets/images/cars/cars listing/red-edition-audi-luxury-car-jdc.png",
+      "pricePerDay": 400,
+      "availability": true,
+      "rating": 4.5,
+      "description": "Comfortable and fuel-efficient sedan, perfect for city rides."
+    },
+    {
+      "id": "2",
+      "brand": "mercedes",
+      "model": "X-6",
+      "type": "SUV",
+      "year": 2023,
+      "image": "/assets/images/cars/cars listing/mercedes gray.png",
+      "pricePerDay": 550,
+      "availability": false,
+      "rating": 4.7,
+      "description": "Spacious and powerful SUV suitable for family trips."
+    },
+    {
+      "id": "3",
+      "brand": "lancer",
+      "model": "Mitsubishi",
+      "type": "Sedan",
+      "year": 2025,
+      "image": "/assets/images/cars/cars listing/lancer Mitsubishi gray.png",
+      "pricePerDay": 330,
+      "availability": true,
+      "rating": 5,
+      "description": "Spacious and powerful SUV suitable for family trips."
+    },
+    {
+      "id": "4",
+      "brand": "toyota",
+      "model": "fortuner",
+      "type": "SUV",
+      "year": 2024,
+      "image": "/assets/images/cars/cars listing/toyota fortuner .webp",
+      "pricePerDay": 650,
+      "availability": true,
+      "rating": 4,
+      "description": "Spacious and powerful SUV suitable for family trips."
+    },
+    {
+      "id": "5",
+      "brand": "volkswagen",
+      "model": "GLI",
+      "type": "jetta",
+      "year": 2025,
+      "image": "/assets/images/cars/cars listing/volkswagen jetta GLI black.webp",
       "pricePerDay": 1000,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
-      "image": "/assets/images/cars/bugatti_PNG17.png"
+      "description": "Spacious and powerful SUV suitable for family trips."
     },
     {
-      "id": "f336",
-      "brand": "Kia",
-      "model": "Sportage",
+      "id": "6",
+      "brand": "bugatti",
+      "model": "g3",
       "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
+      "year": 2025,
+      "image": "/assets/images/cars/cars listing/bugatti_PNG17.png",
+      "pricePerDay": 2500,
+      "availability": false,
       "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
+      "description": "Spacious and powerful SUV suitable for family trips."
     },
     {
-      "id": "5d29",
-      "brand": "Kia",
-      "model": "Sportage2",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
-    },
-    {
-      "id": "84e1",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
-    },
-    {
-      "id": "9502",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
-    },
-    {
-      "id": "4994",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
-    },
-    {
-      "id": "e54c",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp"
-    },
-    {
-      "id": "71a8",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "0f95",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "5d2c",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "db72",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "ed3f",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "e942",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "37a3",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
+      "id": "7",
+      "brand": "BMW 7",
+      "model": "2013",
+      "type": "Sedan",
+      "year": 2025,
+      "image": "/assets/images/cars/cars listing/BMW 7 Sedan 2013 black.png",
+      "pricePerDay": 700,
+      "availability": true,
+      "rating": 2,
+      "description": "Spacious and powerful SUV suitable for family trips."
     }
   ]
 }
