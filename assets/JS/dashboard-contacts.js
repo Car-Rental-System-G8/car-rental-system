@@ -1,21 +1,23 @@
 const messagesContainer = document.getElementById("msgsTableContainer");
+const allMsgsBtn = document.getElementById("all-msgs-btn");
+const starredMsgsBtn = document.getElementById("starred-msgs-btn");
 const clearAllBtn = document.getElementById("clear-all-btn");
+const paginationContainer = document.getElementById("paginationControls");
 
-async function displayMessages() {
-  messagesContainer.innerHTML = "";
+getMessages();
+let isStarred = false;
+let currentMsgsPage = 1;
+
+async function getMessages(page = 1) {
   const result = await getContacts();
+  currentMsgsPage = page;
   if (result.success) {
-    const messages = result.data;
-    if(messages.length === 0){
-        const noDataMessage = document.createElement("tr");
-        noDataMessage.innerHTML = `
-          <td colspan="9" class="text-center text-muted">No Messages to display!</td>
-        `;
-        messagesContainer.appendChild(noDataMessage);
-        return;
-    }
-    messages.forEach((message) => {
-      createMessageRow(message);
+    const messages = isStarred
+      ? result.data.filter((msg) => msg.starred)
+      : result.data;
+
+    displaymsgs(messages, {
+      inDashboard: true,
     });
   } else {
     Swal.fire({
@@ -27,9 +29,72 @@ async function displayMessages() {
   }
 }
 
-displayMessages();
+function displaymsgs(msgs, options = {}) {
+  const {
+    currentPage = 1,
+    msgsLimit = 10,
+    isPagination = true,
+    inDashboard,
+  } = options;
 
-function createMessageRow(message) {
+  const container = inDashboard
+    ? document.querySelector("#msgsTableContainer")
+    : document.querySelector("#msgsContainer");
+
+  if (!container) return;
+
+  container.classList.add("fade-out");
+
+  setTimeout(() => {
+    container.innerHTML = "";
+
+    let msgsToDisplay = msgs;
+
+    console.log(isStarred);
+    if (isPagination && msgsLimit > 0 && msgsLimit < msgs.length) {
+      const startIndex = (currentPage - 1) * msgsLimit;
+      const endIndex = startIndex + msgsLimit;
+      msgsToDisplay = msgs.slice(startIndex, endIndex);
+      createPaginationControls(
+        msgs.length,
+        msgsLimit,
+        currentPage,
+        inDashboard
+      );
+    } else {
+      paginationContainer.innerHTML = "";
+    }
+
+    if (msgsToDisplay.length === 0) {
+      if (inDashboard) {
+        const noDataMessage = document.createElement("tr");
+        noDataMessage.innerHTML = `
+              <td colspan="9" class="text-center text-muted">No Messages to display!</td>
+            `;
+        container.appendChild(noDataMessage);
+      } else {
+        // No msgs to display Code Here
+      }
+    } else {
+      msgsToDisplay.forEach((msg) => {
+        if (inDashboard) {
+          createMessageRow(msg, currentPage);
+        } else {
+          // عرض الكروت لو مش داشبورد
+        }
+      });
+    }
+
+    container.classList.remove("fade-out");
+    container.classList.add("fade-in");
+
+    setTimeout(() => {
+      container.classList.remove("fade-in");
+    }, 500);
+  }, 400);
+}
+
+function createMessageRow(message, currentPage) {
   const row = document.createElement("tr");
   row.classList.add("message-row");
   row.addEventListener("click", () => {
@@ -56,10 +121,25 @@ function createMessageRow(message) {
 
   row.querySelector(".starred-btn").addEventListener("click", (e) => {
     e.stopPropagation();
-    updatingStarredMsg(message.id, { starred: !message.starred });
+    updatingStarredMsg(message.id, { starred: !message.starred }, currentPage);
   });
   messagesContainer.append(row);
 }
+
+// buttons events
+// all msgs
+allMsgsBtn.addEventListener("click", () => {
+  isStarred = false;
+  getMessages();
+  currentMsgsPage = 1;
+});
+
+// starred msgs
+starredMsgsBtn.addEventListener("click", () => {
+  isStarred = true;
+  getMessages();
+  currentMsgsPage = 1;
+});
 
 // DELETE ALL
 clearAllBtn.addEventListener("click", () => confirmDeleteAll());
@@ -79,7 +159,7 @@ async function confirmDeleteAll() {
   if (isConfirmed) {
     const result = await deleteAllContacts();
     if (result.success) {
-      displayMessages();
+      getMessages();
       Swal.fire("Deleted!", "All contacts removed.", "success");
     } else {
       Swal.fire({
@@ -107,8 +187,8 @@ async function confirmDelete(id) {
   if (isConfirmed) {
     const result = await deleteMessage(id);
     if (result.success) {
-        Swal.fire("Deleted!", "Message removed.", "success");
-        displayMessages();
+      Swal.fire("Deleted!", "Message removed.", "success");
+      getMessages();
     } else {
       Swal.fire({
         title: "Error!",
@@ -120,10 +200,10 @@ async function confirmDelete(id) {
   }
 }
 
-async function updatingStarredMsg(id, updatedObj) {
+async function updatingStarredMsg(id, updatedObj, currentPage) {
   const updateResult = await updateContact(id, updatedObj);
   if (updateResult.success) {
-    displayMessages();
+    getMessages(currentPage);
   } else {
     Swal.fire("Error!", updateResult.error, "error");
   }
@@ -141,6 +221,97 @@ function dateFormatter(date) {
         day: "numeric",
       });
 }
+
+const createPaginationControls = (
+  totalMsgs,
+  msgsLimit,
+  currentPage,
+  inDashboard
+) => {
+  // cleared const paginationContainer = document.getElementById("paginationControls");
+  if (!paginationContainer) return;
+
+  paginationContainer.classList.add("d-flex");
+  paginationContainer.innerHTML = "";
+
+  totalMsgs
+    ? paginationContainer.classList.remove("d-none")
+    : paginationContainer.classList.add("d-none");
+  const totalPages = Math.ceil(totalMsgs / msgsLimit);
+
+  // Helper function to create pagination buttons
+  const createPageButton = (text, page, disabled = false, isActive = false) => {
+    const btn = document.createElement("button");
+    btn.className = `btn btn-sm btn-outline--primary ${
+      isActive ? "active" : ""
+    }`;
+    btn.textContent = text;
+    btn.disabled = disabled;
+    if (isActive) {
+      btn.style.pointerEvents = "none"; // Disable click on active button
+    }
+    btn.addEventListener("click", async () => {
+      currentMsgsPage = page;
+      const msgsData = await getContacts();
+      const messagesToDisplay = isStarred
+        ? msgsData.data.filter((msg) => msg.starred)
+        : msgsData.data;
+      displaymsgs(messagesToDisplay, {
+        currentPage: page,
+        msgsLimit,
+        inDashboard,
+      });
+    });
+    return btn;
+  };
+
+  // Previous button
+  paginationContainer.appendChild(
+    createPageButton("« Previous", currentPage - 1, currentPage === 1)
+  );
+
+  // Always show the first page
+  paginationContainer.appendChild(
+    createPageButton(1, 1, false, currentPage === 1)
+  );
+
+  // Show ellipsis (...) if there are many pages before the current page
+  if (currentPage - 1 > 2) {
+    paginationContainer.appendChild(createPageButton("...", 0, true)); // Disable the "..." button
+  }
+
+  // Display only the previous, current, and next pages
+  const startPage = Math.max(2, currentPage - 1); // The page before current
+  const endPage = Math.min(totalPages - 1, currentPage + 1); // The page after current
+
+  // Append the page buttons to the pagination container
+  for (let i = startPage; i <= endPage; i++) {
+    const btn = createPageButton(i, i, false, i === currentPage);
+    paginationContainer.appendChild(btn);
+  }
+
+  // Show ellipsis (...) if there are many pages after the current page
+  if (currentPage + 1 < totalPages - 1) {
+    paginationContainer.appendChild(createPageButton("...", 0, true)); // Disable the "..." button
+  }
+
+  // Always show the last page
+  if (totalPages > 1) {
+    paginationContainer.appendChild(
+      createPageButton(
+        totalPages,
+        totalPages,
+        false,
+        currentPage === totalPages
+      )
+    );
+  }
+
+  // Next button
+  paginationContainer.appendChild(
+    createPageButton("Next »", currentPage + 1, currentPage === totalPages)
+  );
+};
 
 // APIs
 // get all
