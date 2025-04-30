@@ -1,3 +1,5 @@
+
+
 /* Global CSS Variables */
 :root {
   --primary-color: #5eccc9;
@@ -852,7 +854,7 @@ a {
 
 
 /* ======= Card Button ======= */
-.Car-listing button {
+.carCard button {
   padding: 15px;
   background: var(--primary-color);
   box-shadow: var(--shadow);
@@ -870,16 +872,16 @@ a {
 
  }
  
- .Car-listing button:hover {
+ .carCard button:hover {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
  }
 
- .Car-listing button:hover a {
+ .carCard button:hover a {
   color: var(--primary-color);
  }
  
- .Car-listing button:after {
+ .carCard button:after {
   content: "";
   background: white;
   position: absolute;
@@ -892,25 +894,25 @@ a {
   transition: all 0.5s;
  }
  
- .Car-listing button:hover:after {
+ .carCard button:hover:after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
  }
 
-.Car-listing  button a {
+.carCard  button a {
   width: 100%;
   height: 100%;
   color: white;
 }
 
-.Car-listing .notAvilable {
+.carCard .notAvilable {
   background-color: rgb(223, 100, 100);
   border-color: rgb(223, 100, 100);
   box-shadow: none;
 
 }
-.Car-listing .notAvilable:hover {
+.carCard .notAvilable:hover {
   background-color: rgb(223, 100, 100);
   border-color: rgb(223, 100, 100);
 }
@@ -933,6 +935,15 @@ a {
 .Car-listing .searchBar button {
   transform: translateY(0);
 }
+
+
+.trending-section {
+  background-color: #e6f7f7;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
 
 /*  ===================== End Car Listing  ==================== */
 

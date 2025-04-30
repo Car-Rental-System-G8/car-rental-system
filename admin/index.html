@@ -56,10 +56,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="dashboard-sidebar-link">
+                                <div class="dashboard-sidebar-link logout-btn">
                                     <i class="fa-solid fa-power-off"></i>
                                     <span>Logout</span>
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -79,22 +79,22 @@
                                 </button>
                                 <div class="drop-down" data-dropdown>
                                     <div class="drop-down-btn">
-                                        <img src="https://placehold.co/100x100" class="user-img" alt="">
+                                        <img src="https://placehold.co/100x100" class="user-img current-user-img" alt="">
                                     </div>
                                     <div class="drop-down-menu">
                                         <div class="d-flex align-items-center gap-2 pt-2 pb-3">
-                                            <img src="https://placehold.co/100x100" class="user-img user-img-md" alt="">
+                                            <img src="" class="user-img user-img-md current-user-img" alt="">
                                             <div>
-                                                <h6 class="user-title mb-1">Admin</h6>
-                                                <p class="user-text mb-0 text-muted">email@email.com</p>
+                                                <h6 class="user-title current-user-title mb-1"></h6>
+                                                <p class="user-text current-user-email mb-0 text-muted"></p>
                                             </div>
                                         </div>
                                         <a href="#" class="drop-down-item">
                                             <i class="fa fa-cog"></i> Account Settings
                                         </a>
-                                        <a href="#" class="drop-down-item text-danger">
+                                        <div class="drop-down-item text-danger logout-btn">
                                             <i class="fa fa-power-off"></i> Logout
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-cols-4 g-3 mb-3">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-3 mb-3">
                             <div class="col">
                                 <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
                                     <div class="dashboard-stat-icon flex-shrink-0">
@@ -164,9 +164,9 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="row g-3">
-                            <div class="col-9">
+                            <div class="col-12 col-lg-9">
                                 <div class="dashboard-card h-100">
                                     <h5 class="mb-4">Cars Cost Comparison</h5>
                                     <div >
@@ -174,7 +174,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-3">
                                 <div class="dashboard-card d-flex flex-column h-100">
                                     <h5 class="mb-3">Booking Status</h5>
                                     <div class="my-auto">
