@@ -8,7 +8,7 @@ export function renderCars(carsData) {
       output += `
          <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
             <div class="carCard animateCard position-relative z-2 p-3 "  data-id="${car.id}" >
-                  <div class="fav" data-id="${car.id}" >
+                  <div class="fav fav${car.id}" data-id="${car.id}" >
                       <i class="fas fa-heart"></i>
                   </div>
                   <img  src="${car.image}" class="w-100 animateCard"  alt="Car 1" style="margin-left: 20%; " >
@@ -50,7 +50,19 @@ export function renderCars(carsData) {
 
     attachEventListeners(carsData);
 
+
+    if(sessionStorage.getItem("favourites")) {
+      const favourites = JSON.parse(sessionStorage.getItem("favourites"));
+      console.log('favourites:', favourites);
+      favourites.forEach(car => {
+          const favIcon = document.querySelector(`.fav${car.id}`);
+          if (favIcon) {
+            favIcon.classList.add('text-danger');
+          }
+      });
+
   }
+}
 
 
 //  ================= Add Event Listeners to Favourites, Rent Button and Card =========================
@@ -93,19 +105,36 @@ function AddToCart(carsData, id) {
 
 //  ================== Add to Favourites Function =========================
 function addToFavourites(ele, carsData,  id) {
-    const AddedCar = carsData.find(car => car.id === id);
-    console.log("Adding to favorites:", AddedCar);
-    $(ele).toggleClass('text-danger');
-    $(ele).addClass('heartbeat');
-    setTimeout(() => {
-        $(ele).removeClass('heartbeat');
-    }, 300);
+
+  // Check if the car is already in favourites if not initaite favourites array
+  let favourites =  JSON.parse(sessionStorage.getItem("favourites")) || []; 
+  // check if the car is already in favourites
+  const existingCar = favourites.find(car => car.id === id);
+  if (existingCar) {
+    // If click and car is already in favourites, remove it
+    favourites = favourites.filter(car => car.id !== id);
+      sessionStorage.setItem("favourites", JSON.stringify(favourites));
+      $(ele).removeClass('text-danger');
+      return;
+  }
+
+  // If the car is not in favourites, add it
+  const AddedCar = carsData.find(car => car.id === id);
+  favourites.push(AddedCar);
+  sessionStorage.setItem("favourites", JSON.stringify(favourites));
+
+  // Add the class to the favourite icon
+  $(ele).addClass('text-danger');
+  $(ele).addClass('heartbeat');
+  setTimeout(() => {
+      $(ele).removeClass('heartbeat');
+    }, 300);
 }
 
 
 
 //  Card Animation on Scroll just add "animateCard" class
-const cards = document.querySelectorAll(".animateCard");
+// const cards = document.querySelectorAll(".animateCard");
       
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
