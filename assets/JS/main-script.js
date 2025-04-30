@@ -2,6 +2,11 @@ import { loadListingPage } from './listingPage.js';
 import { loadDetailsPage } from './detailsPage.js';
 import { initCars } from './getCarsData.js';
 import { renderCars } from "./renderCarCards.js";
+import { loadTrendingSection } from './trendingSection.js';
+
+
+
+
 
 $(document).ready(function () {
   // Auto-cycle the carousel
@@ -117,9 +122,10 @@ applyFiltersButton.addEventListener("click", applyFilters);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.href.includes('car-listing.html')) {
-    loadListingPage();
-  } else if (window.location.href.includes('car-details.html')) {
-    loadDetailsPage();
-  }
-});
+  loadTrendingSection();   
+if (window.location.href.includes('car-listing.html')) {
+  loadListingPage();
+} else if (window.location.href.includes('car-details.html')) {
+  loadDetailsPage();
+  } 
+})
