@@ -35,6 +35,38 @@
       "returnDate": "2025-05-23",
       "status": "pending",
       "paymentMethod": "cash"
+    },
+    {
+      "id": "d3f2",
+      "carId": 2,
+      "userId": 1,
+      "totalCost": 17545,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-30",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "ee67",
+      "carId": 3,
+      "userId": 2,
+      "totalCost": 10890,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-31",
+      "status": "pending",
+      "paymentMethod": "cash"
     }
   ],
   "contacts": [],

@@ -1,6 +1,6 @@
 import { fetchData } from "./modules/fetchData.js";
 import { getCurrentUser } from "./modules/userManager.js";
-// sessionStorage.setItem("checkout", JSON.stringify({"carId": 1}));
+// sessionStorage.setItem("checkout", JSON.stringify({"carId": 3}));
 const checkoutItem = JSON.parse(sessionStorage.getItem("checkout"));
 const taxRate = 0.10;
 
@@ -11,14 +11,20 @@ const calculateDays = (pickup, dropoff) => {
   return diff > 0 ? Math.ceil(diff / (1000 * 60 * 60 * 24)) : null;
 };
 
-const showSwal = (icon, title, text, redirect = false) => {
-  Swal.fire({ icon, title, text, confirmButtonText: "Go to Home", allowOutsideClick: false, allowEscapeKey: false })
-    .then(() => {
-      if (redirect) {
-        sessionStorage.removeItem("checkout");
-        setTimeout(() => (window.location.href = "/"), 100);
-      }
-    });
+const showSwal = (icon, title, text, redirect = false, path = "/", buttonText = "Go to Home") => {
+  Swal.fire({
+    icon,
+    title,
+    text,
+    confirmButtonText: buttonText,
+    allowOutsideClick: false,
+    allowEscapeKey: false
+  }).then(() => {
+    if (redirect) {
+      sessionStorage.removeItem("checkout");
+      setTimeout(() => (window.location.href = path), 100);
+    }
+  });
 };
 
 const toggleCheckoutVisibility = (visible) => {
@@ -42,24 +48,25 @@ const updatePriceDisplay = (pricePerDay, days = 1) => {
   document.querySelector(".checkout-plan-price").textContent = `${totalPrice.toFixed(2)} EGP`;
   document.querySelector(".checkout-plan-tax").textContent = `${totalTax.toFixed(2)} EGP`;
   document.querySelector(".checkout-plan-totalprice").textContent = `${finalPrice.toFixed(2)} EGP`;
-  
+
   checkoutItem.totalCost = finalPrice;
 };
 
 const handleCheckout = async () => {
+  const user = await getCurrentUser();
+  if (!user) return showSwal("warning", "Oops!", "Please log in to proceed with the checkout.", true, "login.html", "Go to Login");
+
   if (!checkoutItem || !checkoutItem.carId) {
-    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", true);
+    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", true, "index.html", "Go to Home");
   }
 
   const car = await fetchData(`http://localhost:3000/cars/${checkoutItem.carId}`);
   const bookings = await fetchData(`http://localhost:3000/bookings`);
 
   const alreadyBooked = bookings.find((b) => b.carId == checkoutItem.carId);
-  if (alreadyBooked) return showSwal("warning", "Oops!", "Car is not Available Right Now!", true);
+  if (alreadyBooked) return showSwal("warning", "Oops!", "Car is not Available Right Now!", true, "index.html", "Go to Home");
 
   toggleCheckoutVisibility(true);
-
-  const user = await getCurrentUser();
   checkoutItem.userId = parseInt(user.id);
   sessionStorage.setItem("checkout", JSON.stringify(checkoutItem));
 
@@ -216,7 +223,7 @@ const handleCheckout = async () => {
 
     if (res.ok) {
       sessionStorage.removeItem("checkout");
-      showSwal("success", "Success!", "Your booking has been successfully created.", true);
+      showSwal("success", "Success!", "Your booking has been successfully created.", true, "booking-history.html", "Go to Bookings");
     } else {
       showSwal("error", "Error!", "There was an error creating your booking. Please try again.");
     }
