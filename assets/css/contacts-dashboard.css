@@ -1,0 +1,26 @@
+.msg-subject-element{
+    max-width: 200px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-row{
+    cursor: pointer;
+    transition: var(--transition);
+    
+
+}
+
+.message-row:hover{
+    box-shadow: var(--shadow);
+    scale: 1.01;
+}
+
+.starred-btn{
+    border: none;
+    background-color: transparent;
+}
+
+.starred-btn:hover i{
+    color: rgb(255, 193, 7);
+}
