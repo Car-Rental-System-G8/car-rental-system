@@ -1,6 +1,6 @@
 import { fetchData } from "./modules/fetchData.js";
 import { getCurrentUser } from "./modules/userManager.js";
-// sessionStorage.setItem("checkout", JSON.stringify({"carId": 2}));
+// sessionStorage.setItem("checkout", JSON.stringify({"carId": 1}));
 const checkoutItem = JSON.parse(sessionStorage.getItem("checkout"));
 const taxRate = 0.10;
 
@@ -42,6 +42,8 @@ const updatePriceDisplay = (pricePerDay, days = 1) => {
   document.querySelector(".checkout-plan-price").textContent = `${totalPrice.toFixed(2)} EGP`;
   document.querySelector(".checkout-plan-tax").textContent = `${totalTax.toFixed(2)} EGP`;
   document.querySelector(".checkout-plan-totalprice").textContent = `${finalPrice.toFixed(2)} EGP`;
+  
+  checkoutItem.totalCost = finalPrice;
 };
 
 const handleCheckout = async () => {
