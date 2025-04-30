@@ -47,8 +47,10 @@ export function renderCars(carsData) {
     carsContainer.innerHTML = output;
     const cards = document.querySelectorAll(".animateCard");
     cards.forEach(card => observer.observe(card));
+    
+    attachEventListeners(carsData);
 
-
+    // Check if there are any favourites in sessionStorage and add the class to the favourite icon
     if(sessionStorage.getItem("favourites")) {
       const favourites = JSON.parse(sessionStorage.getItem("favourites"));
       favourites.forEach(car => {
@@ -58,7 +60,6 @@ export function renderCars(carsData) {
           }
       });
       
-    attachEventListeners(carsData);
 
   }
 
@@ -109,21 +110,25 @@ function AddToCart(carsData, id) {
 
 }
 function addToFavourites(ele, carsData,  id) {
+
+    // Check if the car is already in favourites if not initaite favourites array
     let favourites =  JSON.parse(sessionStorage.getItem("favourites")) || []; 
+    // check if the car is already in favourites
     const existingCar = favourites.find(car => car.id === id);
     if (existingCar) {
-        // If the car is already in favourites, remove it
+        // If click and car is already in favourites, remove it
         favourites = favourites.filter(car => car.id !== id);
         sessionStorage.setItem("favourites", JSON.stringify(favourites));
         $(ele).removeClass('text-danger');
         return;
     }
 
+    // If the car is not in favourites, add it
     const AddedCar = carsData.find(car => car.id === id);
     favourites.push(AddedCar);
     sessionStorage.setItem("favourites", JSON.stringify(favourites));
-    console.log("Adding to favorites:", favourites);
-     favourites.find(car => car.id === id);
+
+    // Add the class to the favourite icon
     $(ele).addClass('text-danger');
     $(ele).addClass('heartbeat');
     setTimeout(() => {
@@ -134,8 +139,7 @@ function addToFavourites(ele, carsData,  id) {
 
 
 //  Card Animation on Scroll just add "animateCard" class
-const cards = document.querySelectorAll(".animateCard");
-      
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

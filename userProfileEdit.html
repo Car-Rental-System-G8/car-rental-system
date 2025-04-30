@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Profile</title>
+    
+
+
+        <!-- Bootstrap CSS -->
+        <link href="vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="vendors/fontawesome/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/userProfileEdit.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="" alt="User Image" class="profile-image">
+            <h2 id="ph-profilename"></h2>
+        </div>
+
+        <form class="profile-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Change Image</label>
+                <input type="text" id="image">
+            </div>
+
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="./assets/JS/userProfileEdit.js"></script>
+    <script src="vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/main-script.js"></script>
+    <script src="assets/JS/loadNavbar.js"></script>
+    <script src="assets/JS/loadFooter.js"></script>
+</body>
+
+</html>
