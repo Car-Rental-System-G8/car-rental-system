@@ -156,7 +156,6 @@ const createPaginationControls = (cars, totalCars, carsLimit , currentPage) => {
     btn.addEventListener("click", async () => {
       currentCarsPage = page;
       displayCars(cars, { currentPage: page, carsLimit });
-      console.log(totalCars);
     });
     return btn;
   };
@@ -246,7 +245,6 @@ export const addCarForm = async () => {
     e.preventDefault();
 
     const newCarData = getFormData(carAddForm);
-    console.log(newCarData);
     if (!validateCarData(newCarData)) return;
 
     const res = await addCar(newCarData);
