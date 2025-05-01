@@ -15,8 +15,12 @@ const confirmPasswordError = document.getElementById("confirm-password-error");
 const termsError = document.getElementById("terms-error");
 
 // form submissison
-signupForm.addEventListener("submit", async (e) => {
+signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  confirmSignup();
+});
+
+async function confirmSignup(){
   let isValid = true;
   const userData = {
     name: name.value,
@@ -32,7 +36,7 @@ signupForm.addEventListener("submit", async (e) => {
   } else {
     nameError.textContent = "";
   }
-  
+
   const emailValidation = validateEmail(userData.email);
   if (!emailValidation.isValid) {
     emailError.textContent = emailValidation.error;
@@ -72,46 +76,46 @@ signupForm.addEventListener("submit", async (e) => {
 
   if (isValid) {
     const res = await signUp(userData);
-    if (res) {
-      window.location.href = "/login-page.html";
+    if (res.success) {
+      window.location.href = "./login.html";
+    } else if (res.error === "User already exist.") {
+      Swal.fire({
+        title: "Notice!",
+        text: "User already exist.",
+        icon: "warning",
+        confirmButtonText: "Try Again",
+      });
     } else {
-      console.log("Can't be Added");
+      Swal.fire({
+        title: "Error!",
+        text: res.error || "Can't Signup.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
     }
   }
-});
+}
 
 async function signUp(userData) {
-  try {
-    const response = await fetch("http://localhost:3000/users");
-    const users = await response.json();
+  const result = await getUsers();
+  if (result.success) {
+    const users = result.data;
     const exists = users.some(
       (user) => user.email === userData.email || user.phone === userData.phone
     );
-
     if (exists) {
-      alert("User already exists!");
-      return false;
+      return { success: false, error: "User already exist." };
+    } else {
+      const newUser = {
+        ...userData,
+        role: "user",
+      };
+      const response = await addUser(newUser);
+      console.log(response)
+      return response;
     }
-
-    const newUser = {
-      ...userData,
-      role: "user",
-    };
-
-    const res = await fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newUser),
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const result = await res.json();
+  } else {
     return result;
-  } catch (error) {
-    console.error("Signup failed:", error);
-    return false;
   }
 }
 
@@ -160,3 +164,36 @@ const validatePassword = (password) => {
 const validateConfirmPassword = (password, confirmPassword) => {
   return password === confirmPassword;
 };
+
+// API
+async function getUsers() {
+  try {
+    const response = await fetch("http://localhost:3000/users");
+    if (!response.ok) throw new Error("Failed to Sign up.");
+
+    return { success: true, data: await response.json() };
+  } catch (error) {
+    return { success: false, error: "Network error. Please try again." };
+  }
+}
+
+async function addUser(userData) {
+  try {
+    const res = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userData),
+    });
+    if (!res.ok) {
+      const errorData = await res.json();
+      return {
+        success: false,
+        error: errorData.message || "API request failed",
+      };
+    }
+
+    return { success: true, data: await res.json() };
+  } catch (error) {
+    return { success: false, error: "Network error. Please try again." };
+  }
+}
