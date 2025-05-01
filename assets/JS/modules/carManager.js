@@ -246,6 +246,7 @@ export const addCarForm = async () => {
     e.preventDefault();
 
     const newCarData = getFormData(carAddForm);
+    console.log(newCarData);
     if (!validateCarData(newCarData)) return;
 
     const res = await addCar(newCarData);
@@ -268,7 +269,7 @@ export const getCarsLength = async () =>  {
 };
 export const getAvaliableCarsLength = async () =>  { 
   const cars = await getCars();
-  const avaliable =  cars.filter((car) => car.availability === "true");
+  const avaliable =  cars.filter((car) => car.availability === true);
   return await avaliable.length;
 };
 
@@ -279,7 +280,7 @@ const fillForm = (form, car) => {
   form.querySelector("[name=type]").value = car.type;
   form.querySelector("[name=year]").value = car.year;
   form.querySelector("[name=price]").value = car.pricePerDay;
-  form.querySelector("[name=status]").value = Boolean(car.availability);
+  form.querySelector("[name=status]").value = car.availability;
   form.querySelector("[name=rating]").value = car.rating;
   form.querySelector("[name=image]").value = car.image;
 };
@@ -290,7 +291,7 @@ const getFormData = (form) => ({
   type: form.querySelector("[name=type]").value.trim(),
   year: parseInt(form.querySelector("[name=year]").value),
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
-  availability: Boolean(form.querySelector("[name=status]").value),
+  availability: form.querySelector("[name=status]").value === "true",
   rating: parseFloat(form.querySelector("[name=rating]").value),
   image: form.querySelector("[name=image]").value.trim()
 });

@@ -17,6 +17,22 @@
       "password": "user123",
       "role": "user",
       "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Sara",
+      "email": "ahem@gmail.com",
+      "phone": "01089457686",
+      "password": "NcTwv3n@c5u5M8p",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "name": "Max",
+      "email": "max@gmail.com",
+      "phone": "01056436465",
+      "password": "4?c#S%:8d8Z>M!E",
+      "role": "user"
     }
   ],
   "bookings": [
@@ -144,16 +160,70 @@
       "description": "Spacious and powerful SUV suitable for family trips."
     },
     {
-      "id": "7",
-      "brand": "BMW 7",
-      "model": "2013",
-      "type": "Sedan",
-      "year": 2025,
-      "image": "/assets/images/cars/cars listing/BMW 7 Sedan 2013 black.png",
-      "pricePerDay": 700,
+      "id": "71a8",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
       "availability": true,
-      "rating": 2,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "0f95",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "5d2c",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "db72",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "ed3f",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "e942",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
     }
   ]
 }
