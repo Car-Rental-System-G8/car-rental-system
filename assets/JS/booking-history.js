@@ -1,5 +1,7 @@
 const mainContent = document.getElementById("main-content");
 
+getUserBooking();
+
 async function getUserBooking() {
   const userMail = JSON.parse(localStorage.getItem("currentUser"));
   if (userMail) {
@@ -24,9 +26,9 @@ async function displayBookingHistory(bookings) {
     const bookingWrapper = document.createElement("div");
     bookingWrapper.classList.add("row", "gy-3");
     const cars = await getCars();
-    bookingWrapper.appendChild = bookings.forEach((booking) => {
+    bookings.forEach((booking) => {
       const car = cars.filter((car) => car.id === booking.carId)[0];
-      bookingWrapper.appendChild(createBookingCard(booking, car));
+      bookingWrapper.append(createBookingCard(booking, car));
     });
     mainContent.appendChild(bookingWrapper);
   }
@@ -124,7 +126,6 @@ function displayNotLogin() {
   mainContent.appendChild(wrapper);
 }
 
-getUserBooking();
 
 // helper functions
 async function getUsers() {
