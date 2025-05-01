@@ -5,6 +5,7 @@ const phone = document.getElementById("phone");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 const signupForm = document.getElementById("signup-form");
+const signupBtn = document.getElementById("signup-btn");
 
 // errors
 const nameError = document.getElementById("name-error");
@@ -75,7 +76,11 @@ async function confirmSignup(){
   }
 
   if (isValid) {
+    signupBtn.textContent = "Loading...";
+    signupBtn.disabled = true;
     const res = await signUp(userData);
+    signupBtn.textContent = "Sign up";
+    signupBtn.disabled = false;
     if (res.success) {
       window.location.href = "./login.html";
     } else if (res.error === "User already exist.") {
@@ -111,7 +116,6 @@ async function signUp(userData) {
         role: "user",
       };
       const response = await addUser(newUser);
-      console.log(response)
       return response;
     }
   } else {
