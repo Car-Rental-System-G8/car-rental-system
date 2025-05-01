@@ -1,7 +1,7 @@
 import { fetchData } from "./modules/fetchData.js";
 import { getCurrentUser } from "./modules/userManager.js";
-// sessionStorage.setItem("checkout", JSON.stringify({"carId": 3}));
-const checkoutItem = JSON.parse(sessionStorage.getItem("checkout"));
+// sessionStorage.setItem("cart", JSON.stringify({"carId": "1"}));
+const checkoutItem = JSON.parse(sessionStorage.getItem("cart"));
 const taxRate = 0.10;
 
 const calculateDays = (pickup, dropoff) => {
@@ -21,7 +21,7 @@ const showSwal = (icon, title, text, redirect = false, path = "/", buttonText = 
     allowEscapeKey: false
   }).then(() => {
     if (redirect) {
-      sessionStorage.removeItem("checkout");
+      sessionStorage.removeItem("cart");
       setTimeout(() => (window.location.href = path), 100);
     }
   });
@@ -63,12 +63,13 @@ const handleCheckout = async () => {
   const car = await fetchData(`http://localhost:3000/cars/${checkoutItem.carId}`);
   const bookings = await fetchData(`http://localhost:3000/bookings`);
 
-  const alreadyBooked = bookings.find((b) => b.carId == checkoutItem.carId);
+
+  const alreadyBooked = bookings.find((b) => b.carId == checkoutItem.carId || !car.availability);
   if (alreadyBooked) return showSwal("warning", "Oops!", "Car is not Available Right Now!", true, "index.html", "Go to Home");
 
   toggleCheckoutVisibility(true);
-  checkoutItem.userId = parseInt(user.id);
-  sessionStorage.setItem("checkout", JSON.stringify(checkoutItem));
+  checkoutItem.userId = user.id;
+  sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
 
   // User Info
   document.getElementById("checkoutUserImage").src = user.image;
@@ -109,7 +110,7 @@ const handleCheckout = async () => {
     const type = key === "country" ? "change" : "keyup";
     input.addEventListener(type, (e) => {
       checkoutItem[key] = key === "zipCode" ? parseInt(e.target.value) : e.target.value;
-      sessionStorage.setItem("checkout", JSON.stringify(checkoutItem));
+      sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
       updateLocationDisplay();
     });
   });
@@ -150,14 +151,14 @@ const handleCheckout = async () => {
 
   pickupDateInput.addEventListener("change", () => {
     checkoutItem.pickupDate = pickupDateInput.value;
-    sessionStorage.setItem("checkout", JSON.stringify(checkoutItem));
+    sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
     setDateLimits();
     updateDateRange();
   });
 
   returnDateInput.addEventListener("change", () => {
     checkoutItem.returnDate = returnDateInput.value;
-    sessionStorage.setItem("checkout", JSON.stringify(checkoutItem));
+    sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
     setDateLimits();
     updateDateRange();
   });
@@ -212,7 +213,7 @@ const handleCheckout = async () => {
 
     if (!isValid) return;
 
-    const existingBooking = bookings.find((b) => b.carId == checkoutItem.carId);
+    const existingBooking = bookings.find((b) => b.carId == checkoutItem.carId || !car.availability);
     if (existingBooking) return;
 
     const res = await fetch("http://localhost:3000/bookings", {
@@ -221,8 +222,14 @@ const handleCheckout = async () => {
       body: JSON.stringify({ ...checkoutItem, status: "pending", paymentMethod: "cash" })
     });
 
-    if (res.ok) {
-      sessionStorage.removeItem("checkout");
+    const res2 = await fetch(`http://localhost:3000/cars/${checkoutItem.carId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ availability: Boolean(false) })
+    });
+
+    if (res.ok && res2.ok) {
+      sessionStorage.removeItem("cart");
       showSwal("success", "Success!", "Your booking has been successfully created.", true, "booking-history.html", "Go to Bookings");
     } else {
       showSwal("error", "Error!", "There was an error creating your booking. Please try again.");

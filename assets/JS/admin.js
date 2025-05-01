@@ -34,22 +34,24 @@ document.querySelectorAll(".logout-btn").forEach(btn => {
   });
 });
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "progressBar": true,
-  "newestOnTop": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "showDuration": "1000",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-};
+if (window.toastr) {
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "progressBar": true,
+    "newestOnTop": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "showDuration": "1000",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+}
 
 const dashboardToggleBtn = document.querySelector(".dashboard-toggle-btn");
 const dashboardContainer = document.querySelector(".dashboard-container");

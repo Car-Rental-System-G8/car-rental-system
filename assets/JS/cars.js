@@ -96,7 +96,20 @@ window.addEventListener("load", async () => {
         }
   
         filteredCars = await filterCars(filterObj);
-        displayCars(filteredCars);
+        const keyword = searchInput.value.trim().toLowerCase();
+
+        let finalResults = filteredCars;
+
+        if (keyword !== "") {
+          finalResults = filteredCars.filter(car =>
+            car.name?.toLowerCase().includes(keyword) ||
+            car.model?.toLowerCase().includes(keyword) ||
+            car.type?.toLowerCase().includes(keyword) ||
+            car.brand?.toLowerCase().includes(keyword)
+          );
+        }
+
+        displayCars(finalResults);
       });
     }
 
