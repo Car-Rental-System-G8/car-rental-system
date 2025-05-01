@@ -37,31 +37,52 @@
   ],
   "bookings": [
     {
-      "id": "1",
-      "carId": "1",
-      "userId": "2",
-      "pickupDate": "2025-04-30",
-      "returnDate": "2025-05-05",
+      "id": "9421",
+      "carId": 1,
+      "userId": 1,
+      "totalCost": 9680,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-23",
       "status": "pending",
-      "totalCost": 3000
+      "paymentMethod": "cash"
     },
     {
-      "id": "2",
-      "carId": "2",
-      "userId": "2",
+      "id": "d3f2",
+      "carId": 2,
+      "userId": 1,
+      "totalCost": 17545,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
       "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-03",
-      "status": "confirmed",
-      "totalCost": 1600
+      "returnDate": "2025-05-30",
+      "status": "pending",
+      "paymentMethod": "cash"
     },
     {
-      "id": "3",
-      "carId": "3",
-      "userId": "2",
+      "id": "ee67",
+      "carId": 3,
+      "userId": 2,
+      "totalCost": 10890,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
       "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-03",
-      "status": "confirmed",
-      "totalCost": 3000
+      "returnDate": "2025-05-31",
+      "status": "pending",
+      "paymentMethod": "cash"
     }
   ],
   "contacts": [],
@@ -145,7 +166,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     },
@@ -156,7 +177,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     },
@@ -167,7 +188,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     },
@@ -178,7 +199,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     },
@@ -189,7 +210,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     },
@@ -200,18 +221,7 @@
       "type": "SUV",
       "year": 2023,
       "pricePerDay": 550,
-      "availability": "true",
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "37a3",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": "false",
+      "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
     }
