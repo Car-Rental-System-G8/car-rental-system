@@ -8,7 +8,6 @@ async function displayNotification() {
     const messages = response.data;
     const unreadMsgs = messages.filter((msg) => !msg.read);
     if (unreadMsgs.length > 0) {
-    //   notificationCount.textContent = unreadMsgs.length;
       notificationCount.classList.add("bg-danger");
     }
     const header = document.createElement("li");
@@ -17,6 +16,13 @@ async function displayNotification() {
     h3.innerHTML = `Messages Notifications`
     header.append(h3);
     notificationDropdownList.append(header);
+    if(messages.length === 0){
+        const para = document.createElement("p")
+        para.className = "text-center text-muted p-3 m-0";
+        para.innerHTML = "No Messages to display!";
+        notificationDropdownList.append(para);
+        return;
+    }
     messages.forEach((msg) => {
         const notificationCard = createNotificationCard(msg);
         notificationDropdownList.appendChild(notificationCard);
