@@ -27,7 +27,7 @@
       "role": "user"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Max",
       "email": "max@gmail.com",
       "phone": "01056436465",
@@ -117,7 +117,45 @@
       "paymentMethod": "cash"
     }
   ],
-  "contacts": [],
+  "contacts": [
+    {
+      "id": "a030",
+      "firstName": "Sara",
+      "lastName": "rezk",
+      "email": "3535sade@gmail.com",
+      "phone": "01089456798",
+      "subject": "the service is bad",
+      "message": "peovhex lvb;ewpi4 gpyq;i la;Gaqet",
+      "userId": "1",
+      "starred": true
+    },
+    {
+      "id": "52a2",
+      "firstName": "Shaima",
+      "lastName": "ahmed",
+      "email": "minalona@gmail.com",
+      "phone": "01089456798",
+      "subject": "problem",
+      "message": "Sure! Here are some engaging and suitable topics for a presentation in a presentation skills course. The focus should be on how well you organize and deliver the content, so choose something you're comfortable with or passionate about:",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    },
+    {
+      "id": "4f73",
+      "firstName": "Max",
+      "lastName": "fury",
+      "email": "3535sade@gmail.com",
+      "phone": "01089456798",
+      "subject": "the service is bad",
+      "message": "ayhag;dvbd vdbaidfga efeg;eago qeg;qeohgqg",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    }
+  ],
   "cars": [
     {
       "id": "1",

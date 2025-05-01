@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HV Car Rentals - Premium Luxury Cars</title>
+    <!-- Bootstrap CSS -->
+    <link href="vendors/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="vendors/fontawesome/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/terms.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <section class="terms-section pt-5 mt-5">
+      <div class="container pt-5 mt-5">
+        <div class="tabs">
+          <button
+            class="tab-btn active"
+            onclick="openTab(event, 'rental-terms')"
+          >
+            Rental Terms
+          </button>
+          <button class="tab-btn" onclick="openTab(event, 'insurance')">
+            Insurance Policy
+          </button>
+          <button class="tab-btn" onclick="openTab(event, 'cancellation')">
+            Cancellation Policy
+          </button>
+          <button class="tab-btn" onclick="openTab(event, 'damages')">
+            Damages & Liability
+          </button>
+          <button class="tab-btn" onclick="openTab(event, 'privacy')">
+            Privacy Policy
+          </button>
+        </div>
+
+        <div id="rental-terms" class="tab-content active">
+          <h2>Rental Terms & Conditions</h2>
+
+          <h3>Eligibility Requirements</h3>
+          <p>To rent a vehicle from HV Car Rental, customers must:</p>
+          <ul>
+            <li>Be at least 21 years of age (25 for premium vehicles)</li>
+            <li>Possess a valid driver's license held for at least 1 year</li>
+            <li>Present a major credit card in the renter's name</li>
+            <li>
+              Provide proof of insurance or purchase our insurance coverage
+            </li>
+          </ul>
+
+          <h3>Reservation & Payment</h3>
+          <p>
+            Reservations can be made online, by phone, or in person. A valid
+            credit card is required to secure any reservation. The full rental
+            amount will be charged at the time of pickup. We accept all major
+            credit cards, but do not accept cash, debit cards, or prepaid cards
+            for the security deposit.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Security Deposit:</strong> A security deposit of $200-$500
+              (depending on vehicle category) will be held on your credit card
+              during the rental period. This amount will be refunded upon
+              vehicle return, subject to the condition assessment.
+            </p>
+          </div>
+
+          <h3>Fuel Policy</h3>
+          <p>
+            All vehicles are provided with a full tank of fuel and should be
+            returned with a full tank. If the vehicle is returned with less fuel
+            than at pickup, a refueling charge will apply at the current market
+            rate plus a $25 service fee.
+          </p>
+
+          <h3>Mileage Policy</h3>
+          <p>
+            Standard rentals include 200 miles per day. Additional mileage will
+            be charged at $0.35 per mile. Unlimited mileage packages are
+            available at an additional cost.
+          </p>
+
+          <a href="#" class="btn-terms">Download Full Terms PDF</a>
+        </div>
+
+        <div id="insurance" class="tab-content">
+          <h2>Insurance Policy</h2>
+
+          <h3>Coverage Options</h3>
+          <p>
+            HV Car Rental offers several insurance coverage options to protect
+            you during your rental period:
+          </p>
+          <ul>
+            <li>
+              <strong>Basic Coverage (Included):</strong> Includes liability
+              coverage up to state minimum requirements
+            </li>
+            <li>
+              <strong>Standard Protection ($15/day):</strong> Includes liability
+              coverage up to $50,000 and collision damage waiver with $1,000
+              deductible
+            </li>
+            <li>
+              <strong>Premium Protection ($25/day):</strong> Includes liability
+              coverage up to $100,000, collision damage waiver with $500
+              deductible, and personal effects coverage
+            </li>
+            <li>
+              <strong>Full Coverage ($35/day):</strong> Includes all of the
+              above plus zero deductible and roadside assistance
+            </li>
+          </ul>
+
+          <h3>Personal Insurance</h3>
+          <p>
+            If you have personal auto insurance, it may provide coverage for
+            rental vehicles. We recommend checking with your insurance provider
+            before declining our coverage options. You will be required to
+            provide proof of insurance if declining our coverage.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Note:</strong> Regardless of the coverage option selected,
+              damage resulting from prohibited uses (off-road driving, reckless
+              operation, etc.) will not be covered and will be the full
+              responsibility of the renter.
+            </p>
+          </div>
+
+          <h3>Credit Card Coverage</h3>
+          <p>
+            Some credit cards offer rental car insurance when the entire rental
+            is charged to the card. This coverage is typically secondary to your
+            personal insurance. Check with your credit card company for details.
+          </p>
+
+          <a href="#" class="btn-terms">View Insurance Details</a>
+        </div>
+
+        <div id="cancellation" class="tab-content">
+          <h2>Cancellation Policy</h2>
+
+          <h3>Standard Reservations</h3>
+          <p>
+            Our cancellation policy for standard reservations is as follows:
+          </p>
+          <ul>
+            <li><strong>48+ hours before pickup:</strong> Full refund</li>
+            <li><strong>24-48 hours before pickup:</strong> 80% refund</li>
+            <li><strong>12-24 hours before pickup:</strong> 50% refund</li>
+            <li>
+              <strong>Less than 12 hours before pickup:</strong> No refund
+            </li>
+          </ul>
+
+          <h3>Prepaid Reservations</h3>
+          <p>For prepaid reservations (discounted rates):</p>
+          <ul>
+            <li><strong>7+ days before pickup:</strong> 90% refund</li>
+            <li><strong>3-7 days before pickup:</strong> 70% refund</li>
+            <li><strong>1-3 days before pickup:</strong> 40% refund</li>
+            <li>
+              <strong>Less than 24 hours before pickup:</strong> No refund
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Modification Policy:</strong> Reservations can be modified
+              free of charge if done at least 24 hours before pickup, subject to
+              vehicle availability. Rate differences may apply.
+            </p>
+          </div>
+
+          <h3>No-Show Policy</h3>
+          <p>
+            If you fail to pick up your rental vehicle within 2 hours of the
+            scheduled pickup time without notifying us, it will be considered a
+            no-show, and the full rental amount will be charged with no refund.
+          </p>
+
+          <a href="#" class="btn-terms">View Cancellation Details</a>
+        </div>
+
+        <div id="damages" class="tab-content">
+          <h2>Damages & Liability</h2>
+
+          <h3>Vehicle Inspection</h3>
+          <p>
+            All vehicles undergo a thorough inspection before each rental. We
+            document the vehicle's condition, including any existing damage. We
+            encourage customers to participate in this inspection at pickup and
+            note any concerns before leaving the premises.
+          </p>
+
+          <h3>Customer Liability</h3>
+          <p>The renter is responsible for:</p>
+          <ul>
+            <li>
+              All damage to the vehicle during the rental period not covered by
+              the selected insurance option
+            </li>
+            <li>Loss or damage to vehicle keys, documents, or accessories</li>
+            <li>Interior damage, including stains, burns, or tears</li>
+            <li>Damage resulting from prohibited uses or negligence</li>
+            <li>
+              Towing or recovery costs if not covered by roadside assistance
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Important:</strong> Using the vehicle for prohibited
+              purposes (off-road driving, towing, racing, etc.) voids all
+              insurance coverage and makes the renter fully liable for any
+              resulting damage.
+            </p>
+          </div>
+
+          <h3>Reporting Accidents</h3>
+          <p>In case of an accident, theft, or damage to the vehicle:</p>
+          <ul>
+            <li>Contact local authorities immediately if required by law</li>
+            <li>Notify HV Car Rental within 24 hours</li>
+            <li>
+              Complete an accident report form (available in the vehicle's glove
+              compartment)
+            </li>
+            <li>Do not admit fault or liability at the scene</li>
+            <li>
+              Collect information from other parties involved, including
+              insurance details
+            </li>
+          </ul>
+
+          <a href="#" class="btn-terms">View Damage Policy Details</a>
+        </div>
+
+        <div id="privacy" class="tab-content">
+          <h2>Privacy Policy</h2>
+
+          <h3>Information We Collect</h3>
+          <p>HV Car Rental collects the following types of information:</p>
+          <ul>
+            <li>
+              Personal identification information (name, address, email, phone
+              number)
+            </li>
+            <li>Driver's license information</li>
+            <li>Payment information</li>
+            <li>Rental history and preferences</li>
+            <li>
+              GPS data from vehicle tracking systems (for fleet management only)
+            </li>
+          </ul>
+
+          <h3>How We Use Your Information</h3>
+          <p>The information we collect is used for:</p>
+          <ul>
+            <li>Processing rental transactions</li>
+            <li>Verifying driver eligibility</li>
+            <li>Communicating about your reservation</li>
+            <li>Managing our fleet and business operations</li>
+            <li>Marketing our services (with your consent)</li>
+            <li>Complying with legal obligations</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Your Rights:</strong> You have the right to access,
+              correct, or delete your personal information. You may also
+              withdraw consent for marketing communications at any time. Contact
+              our privacy office at privacy@hvcarrental.com for assistance.
+            </p>
+          </div>
+
+          <h3>Information Sharing</h3>
+          <p>
+            We do not sell your personal information to third parties. We may
+            share information with:
+          </p>
+          <ul>
+            <li>Service providers who assist in our business operations</li>
+            <li>Financial institutions for payment processing</li>
+            <li>Legal authorities when required by law</li>
+            <li>Insurance providers in case of accidents or claims</li>
+          </ul>
+
+          <a href="#" class="btn-terms">View Full Privacy Policy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer fetch -->
+    <div id="footer"></div>
+
+    <script src="vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/main-script.js" type="module"></script>
+    <script src="assets/JS/load-navbar.js"></script>
+    <script src="assets/JS/load-footer.js"></script>
+    <script src="assets/JS/terms.js"></script>
+  </body>
+</html>
