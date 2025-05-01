@@ -11,9 +11,14 @@ const emailError = document.getElementById("email-error-message");
 const phoneError = document.getElementById("phone-error-message");
 const subjectError = document.getElementById("subject-error-message");
 const messageError = document.getElementById("message-error-message");
+const submitBtn = document.getElementById("submit-btn");
 
-contactForm.addEventListener("submit", async function (e) {
+contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  confirmSubmit();
+});
+
+async function confirmSubmit() {
   let isValid = true;
   const contactData = {
     firstName: firstName.value.trim(),
@@ -26,9 +31,6 @@ contactForm.addEventListener("submit", async function (e) {
     read: false,
     starred: false,
   };
-
-  const userId = await getUserId();
-  contactData.userId = userId;
   [
     firstNameError,
     lastNameError,
@@ -72,10 +74,12 @@ contactForm.addEventListener("submit", async function (e) {
     isValid = false;
   }
 
-  if (!isValid) return;
-
-  try {
+  if (isValid) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
     const result = await sendContact(contactData);
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Send Message";
     if (result.success) {
       Swal.fire({
         title: "Success!",
@@ -86,24 +90,17 @@ contactForm.addEventListener("submit", async function (e) {
         timerProgressBar: true,
       });
       contactForm.reset();
+      return;
     } else {
       Swal.fire({
         title: "Error!",
-        text: result.error || "Failed to send message.",
+        text: result?.error || "Failed to send message.",
         icon: "error",
         confirmButtonText: "Try Again",
       });
     }
-  } catch (error) {
-    Swal.fire({
-      title: "Error!",
-      text: "An error occurred while sending the message.",
-      icon: "error",
-      confirmButtonText: "Retry",
-    });
-    console.error("Submission error:", error);
   }
-});
+}
 
 // helper functions
 async function sendContact(contactData) {
@@ -113,13 +110,7 @@ async function sendContact(contactData) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contactData),
     });
-    if (!res.ok) {
-      const errorData = await res.json();
-      return {
-        success: false,
-        error: errorData.message || "API request failed",
-      };
-    }
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
     return { success: true, data: await res.json() };
   } catch (error) {
@@ -137,21 +128,6 @@ const validatePhone = (phone) => {
   return regex.test(phone.trim());
 };
 
-async function getUserId() {
-  try {
-    const userMail = JSON.parse(localStorage.getItem("currentUser"));
-    if (!userMail) {
-      console.warn("No user email in localStorage");
-      return null;
-    }
-    const users = await getUsers();
-    const user = users.find((u) => u.email === userMail);
-    return user?.id || null;
-  } catch (error) {
-    console.error("Failed to fetch user ID:", error);
-    return null;
-  }
-}
 
 async function getUsers() {
   try {
@@ -163,3 +139,33 @@ async function getUsers() {
     throw error;
   }
 }
+
+const contactData = {
+  firstName: firstName.value.trim(),
+  lastName: lastName.value.trim(),
+  email: email.value.trim(),
+  phone: phone.value.trim(),
+  subject: subject.value.trim(),
+  message: message.value.trim(),
+  date: new Date().toISOString().slice(0, 10),
+  read: false,
+  starred: false,
+};
+
+// const userId = await getUserId();
+// contactData.userId = userId;
+// async function getUserId() {
+//   try {
+//     const userMail = JSON.parse(localStorage.getItem("currentUser"));
+//     if (!userMail) {
+//       console.warn("No user email in localStorage");
+//       return null;
+//     }
+//     const users = await getUsers();
+//     const user = users.find((u) => u.email === userMail);
+//     return user?.id || null;
+//   } catch (error) {
+//     console.error("Failed to fetch user ID:", error);
+//     return null;
+//   }
+// }
