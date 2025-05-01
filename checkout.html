@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/vendors/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="/vendors/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/assets/css/global-styles.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/checkout.css" />
+  </head>
+  <body>
+    <div id="checkoutContainer" class="checkout container d-none">
+      <div class="checkout-header">
+        <a href="index.html" class="logo">
+          <img src="/assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp" alt="Swipgle">
+        </a>
+      </div>
+      <div class="checkout-container">
+        <div class="checkout-content">
+          <div class="checkout-body">
+            <div class="checkout-card mb-4">
+              <h5>Contact information</h5>
+              <div class="d-flex align-items-center mt-4">
+                <div class="checkout-avatar me-3">
+                  <img id="checkoutUserImage" />
+                </div>
+                <div class="info">
+                  <p class="mb-2">
+                    <span id="checkoutUserName"></span>
+                    <span id="checkoutUserEmail" class="text-muted"></span>
+                  </p>
+                  <button class="btn btn-danger btn-sm">
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+            <form id="checkoutForm">
+              <div class="checkout-card mb-4">
+                <h5>Billing address</h5>
+                <div class="mt-4">
+                  <div class="row row-cols-1 g-3">
+                    <div class="col">
+                      <div class="row row-cols-1 row-cols-lg-2 g-3">
+                        <div class="col">
+                          <div class="form-floating">
+                            <input id="firstName" type="text" class="form-control" placeholder="First Name">
+                            <label class="form-label v3">First Name</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-floating">
+                            <input id="lastName" type="text" class="form-control" placeholder="Last Name">
+                            <label class="form-label v3">Last Name</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating">
+                        <input id="address" type="text" class="form-control" placeholder="Address">
+                        <label class="form-label v3">Address</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row row-cols-1 row-cols-lg-2 g-3">
+                        <div class="col">
+                          <div class="form-floating">
+                            <input id="zipCode" type="text" class="form-control" placeholder="Postal Code">
+                            <label class="form-label v3">Postal Code</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-floating">
+                            <input id="city" type="text" class="form-control" placeholder="City">
+                            <label class="form-label v3">City</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating">
+                        <select id="country" type="text" class="form-select v3 fw-bold">
+                          <option value="">Select Country</option>
+                          <option value="Egypt">Egypt</option>
+                        </select>
+                        <label>Country</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating">
+                        <input id="pickupDate" type="date" class="form-control" />
+                        <label>Pick Day</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating">
+                        <input id="returnDate" type="date" class="form-control" />
+                        <label>End Day</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn--primary btn-lg px-5">Confirm</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <aside class="checkout-sidebar">
+          <div class="checkout-plan">
+            <div class="checkout-plan-header">
+              <div class="checkout-plan-title">
+                <h5 class="mb-0">Order Summary</h5>
+              </div>
+            </div>
+            <div class="checkout-plan-body">
+              <div class="checkout-card mb-4">
+                <div class="d-flex gap-3">
+                  <img class="checkout-car-img flex-shrink-0" class="checkout-plan-image me-3" />
+                  <div class="checkout-plan-info">
+                    <h6 class="checkout-plan-model mb-1"></h6>
+                    <p class="checkout-plan-desc text-muted mb-0 small"></p> 
+                  </div>
+                </div>
+              </div>
+              <div class="checkout-card mb-4">
+                <div class="checkout-plan-total">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted">Car Rental</span>
+                    <span class="checkout-plan-price text-muted"></span>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-danger">Taxes & Fees</span>
+                    <span class="checkout-plan-tax text-danger"></span>
+                  </div>
+                </div>
+                <div class="checkout-plan-total">
+                  <div class="d-flex align-items-center justify-content-between fw-bold">
+                    <span>Total</span>
+                    <span class="checkout-plan-totalprice"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="checkout-card mb-4">
+                <ul class="list-unstyled">
+                  <li id="checkoutDuration" class="d-flex align-items-center gap-3 mb-3 d-none">
+                    <i class="fa-solid fa-calendar-days text-muted"></i>
+                    <div class="checkout-plan-info">
+                      <span id="pick-date"></span>
+                      to
+                      <span id="end-date"></span>
+                    </div>
+                  </li>
+                  <li id="checkoutLocation" class="d-flex align-items-center gap-3 mb-3 d-none">
+                    <i class="fa-solid fa-location-dot text-muted"></i>
+                    <div class="checkout-plan-info">
+                      <span id="rentalLocationAddress"></span>
+                      <span id="rentalLocationCity"></span>
+                      <span id="rentalLocationCountry"></span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/assets/JS/checkout.js" type="module"></script>
+  </body>
+</html>
