@@ -13,7 +13,7 @@ async function loadDetailsPage() {
       renderCar(car, cars, bookings)
       renderReviews(car.reviews, users)
       const topRatedCars = getTopRatedCars(cars);
-      renderCars(topRatedCars);
+      // renderCars(topRatedCars);
     } else {
       console.error('Car not found');
     }
