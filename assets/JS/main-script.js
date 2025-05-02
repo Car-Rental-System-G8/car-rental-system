@@ -122,14 +122,14 @@ applyFiltersButton.addEventListener("click", applyFilters);
 }
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    
+
+  if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
+    loadTrendingSection();
+  }
   if (window.location.href.includes('car-listing.html')) {
     loadListingPage();
   } else if (window.location.href.includes('car-details.html')) {
     loadDetailsPage();
-  } if (window.location.href.includes('index.html')) {
-    loadTrendingSection();
   } 
 });

@@ -88,7 +88,7 @@ export function renderCars(carsData) {
 
 //  ================== Add to Cart Function =========================
 function AddToCart(id) {
-  sessionStorage.setItem("cart", JSON.stringify(id));
+  sessionStorage.setItem("checkout", JSON.stringify(id));
   window.location.href=`checkout.html?id=${id}`
 }
 
@@ -109,7 +109,6 @@ function checkFavourite() {
 
 
 //  ================== Add to Favourites Function =========================
-
 
 
 function addToFavourites(ele, carsData,  id) {
@@ -364,7 +363,6 @@ const bookBtn = document.querySelector('.rentCar');
   });
 
   addEventToCartBtn(carDetails, bookBtn)
-
 }
 
 
@@ -374,7 +372,7 @@ function addEventToCartBtn(carDetails, bookBtn ) {
       bookBtn.innerHTML = " Choose Date "
     } else {
       bookBtn.innerHTML = "Book Now"
-      bookBtn.addEventListener('click', function() {
+      bookBtn.addEventListener('click', function(e) {
         AddToCart(carDetails.id)
       });
     }

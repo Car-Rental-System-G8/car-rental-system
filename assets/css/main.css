@@ -735,7 +735,7 @@ a {
   background: var(--gradient-bg-2);
   transition: var(--transition);
   cursor: pointer;
-  min-height: 350px;
+  min-height: 360px;
 }
 
 /*  Animate Card when enter screen  */
@@ -757,7 +757,7 @@ a {
 }
 
 .carCard img {
- height: 160px;
+ min-height: 160px;
 }
 
 @media (max-width: 1200px) {
@@ -909,13 +909,11 @@ a {
 }
 
 .carCard .notAvilable {
-.carCard .notAvilable {
   background-color: rgb(223, 100, 100);
   border-color: rgb(223, 100, 100);
   box-shadow: none;
 }
-
-.carCard .notAvilable:hover {
+.Car-listing .notAvilable:hover {
   background-color: rgb(223, 100, 100);
   border-color: rgb(223, 100, 100);
 }

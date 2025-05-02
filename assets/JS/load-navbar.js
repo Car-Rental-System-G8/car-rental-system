@@ -39,7 +39,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // Updating the counter in the navbar
 function updateFavouriteCount() {
     const favourites = JSON.parse(sessionStorage.getItem('favourites')) || []; //works
-    console.log(favourites);
-    console.log(document.getElementById('favourite-count'));
     document.getElementById('favourite-count').textContent = favourites.length;
 }
