@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+function notifications() {
   const notificationDropdownList = document.getElementById("notificationDropdownList");
   const notificationDropdown = document.getElementById("notificationDropdown");
   const notificationCount = document.getElementById("notificationCount");
@@ -78,4 +78,4 @@ window.addEventListener("load", () => {
           month: "short",
         });
   }
-});
+}
