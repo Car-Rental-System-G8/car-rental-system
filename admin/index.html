@@ -10,114 +10,14 @@
         <link rel="stylesheet" href="/vendors/toastr/toastr.min.css" />
         <link rel="stylesheet" href="/assets/css/dashboard.css" />
     </head>
-    <body>
+    <body data-bs-theme>
         <div id="loader">
             <span class="loader-spinner"></span>
         </div>
         <div id="content" class="dashboard-container">
-            <aside class="dashboard-sidebar">
-                <div class="dashboard-sidebar-inner">
-                    <header class="dashboard-sidebar-header">
-                        <a href="./" class="logo d-flex">
-                            <img src="/assets/images/logo-dark.png" alt="Car Rental" />
-                        </a>
-                    </header>
-                    <div class="dashboard-sidebar-body">
-                        <ul class="dashboard-sidebar-links list-unstyled mb-0">
-                            <h6 class="dashboard-sidebar-links-title">Admin</h6>
-                            <li>
-                                <a href="./" class="dashboard-sidebar-link active">
-                                    <i class="fa-regular fa-chart-bar"></i>
-                                    <span>Analytics</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cars.html" class="dashboard-sidebar-link">
-                                    <i class="fa-solid fa-car-side"></i>
-                                    <span>Cars</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="dashboard-sidebar-link">
-                                    <i class="fa-solid fa-people-line"></i>
-                                    <span>Users</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="bookingCars.html" class="dashboard-sidebar-link">
-                                    <i class="fa-solid fa-car-on"></i>
-                                    <span>Booking Cars</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="dashboard-sidebar-link">
-                                    <i class="fa fa-cog"></i>
-                                    <span>Settings</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="dashboard-sidebar-link logout-btn">
-                                    <i class="fa-solid fa-power-off"></i>
-                                    <span>Logout</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dashboard-sidebar-overlay"></div>
-            </aside>
+            <div id="sidebar" data-active="#home"></div>
             <section class="dashboard-content">
-                <div class="dashboard-navbar">
-                    <div class="dashboard-container-fluid w-100">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <button class="btn btn-dashboard dashboard-toggle-btn">
-                                <i class="fa-solid fa-bars"></i>
-                            </button>
-                            <div class="d-flex align-items-center gap-2">
-                                <div class="dropdown" id="notificationDropdown">
-                                    <button
-                                      class="btn btn-dashboard position-relative"
-                                      type="button"
-                                      data-bs-toggle="dropdown"
-                                      aria-expanded="false"
-                                    >
-                                      <i class="fa-solid fa-bell"> </i>
-                                      <span
-                                        class="position-absolute top-0 start-100 translate-middle p-2 border border-light rounded-circle"
-                                        id="notificationCount"
-                                      >
-                                        <span class="visually-hidden">New alerts</span>
-                                      </span>
-                                    </button>
-                                    <ul class="dropdown-menu notification-dropdown p-0" id="notificationDropdownList"></ul>
-                                  </div>
-                                <button class="btn btn-dashboard">
-                                    <i class="fa-solid fa-moon"></i>
-                                </button>
-                                <div class="drop-down" data-dropdown>
-                                    <div class="drop-down-btn">
-                                        <img src="https://placehold.co/100x100" class="user-img current-user-img" alt="">
-                                    </div>
-                                    <div class="drop-down-menu">
-                                        <div class="d-flex align-items-center gap-2 pt-2 pb-3">
-                                            <img src="" class="user-img user-img-md current-user-img" alt="">
-                                            <div>
-                                                <h6 class="user-title current-user-title mb-1"></h6>
-                                                <p class="user-text current-user-email mb-0 text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="drop-down-item">
-                                            <i class="fa fa-cog"></i> Account Settings
-                                        </a>
-                                        <div class="drop-down-item text-danger logout-btn">
-                                            <i class="fa fa-power-off"></i> Logout
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="navbar"></div>
                 <div class="dashboard-body">
                     <div class="dashboard-container-fluid py-4">
                         <div class="mb-4">
@@ -127,7 +27,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Dashboard</a>
+                                        <a href="./">Dashboard</a>
                                     </li>
                                     <li class="breadcrumb-item active">Analytics</li>
                                     </ol>
@@ -210,25 +110,19 @@
                         </div>
                     </div>
                 </div>
-                <footer class="dashboard-footer">
-                    <div class="dashboard-container-fluid">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                            <p class="mb-0">© <span data-year="">2025</span> Dashboard - All rights reserved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                <div id="footer"></div>
             </section>
         </div>
+        <script src="/vendors/jquery/jquery-3.7.1.min.js"></script>
         <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/vendors/chartJs/chart.umd.min.js"></script>
+        <script src="/assets/JS/notification.js"></script>
+        <script src="/components/dashboard/navbar.js" type="module"></script>
+        <script src="/components/dashboard/sidebar.js"></script>
+        <script src="/components/dashboard/footer.js"></script>
         <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="/vendors/toastr/toastr.min.js"></script>
-        <script src="../assets/JS/notification.js"></script>
         <script src="/assets/JS/admin.js" type="module"></script>
-        <script src="/assets/JS/cars.js" type="module"></script>
-        <!-- linking -->
-        <script src="/vendors/chartJs/chart.umd.min.js"></script>        
         <script src="/assets/JS/charts.js"></script>
     </body>
 </html>

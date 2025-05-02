@@ -4,6 +4,7 @@ import { renderCars } from "./renderCarCards.js";
     
 
 async function loadfavourites() {
+
     if(sessionStorage.getItem("favourites")) {
         const favourites = JSON.parse(sessionStorage.getItem("favourites"));
         renderCars(favourites); 
@@ -11,8 +12,9 @@ async function loadfavourites() {
         favourites.forEach(car => {
             
             const favIcon = document.querySelector(`.fav${car.id}`);
-            console.log(favIcon);
+            console.log(`hi${favIcon}`);
             if (favIcon) {
+              console.log(`hi${favIcon}`);
               favIcon.classList.add('text-danger');
             }
         })
@@ -24,3 +26,4 @@ async function loadfavourites() {
 
 }
 loadfavourites();
+

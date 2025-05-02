@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.body.classList.remove("overflow-hidden");
   } catch (err) {
     console.log(err);
-    window.location = "/";
+    // window.location = "/";
   }
 });
 
@@ -34,62 +34,24 @@ document.querySelectorAll(".logout-btn").forEach(btn => {
   });
 });
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "progressBar": true,
-  "newestOnTop": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "showDuration": "1000",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-};
-
-const dashboardToggleBtn = document.querySelector(".dashboard-toggle-btn");
-const dashboardContainer = document.querySelector(".dashboard-container");
-const dashboardSidebarOvlary = document.querySelector(".dashboard-sidebar-overlay");
-
-dashboardToggleBtn.addEventListener("click", () => dashboardContainer.classList.toggle("toggle"));
-dashboardSidebarOvlary.addEventListener("click", () => dashboardContainer.classList.remove("toggle"));
-
-
-// Dropdown
-document.querySelectorAll('[data-dropdown]').forEach((el) => {
-  const dropdownClose = el.querySelectorAll('[data-dropdown-close]');
-
-  const closeDropdown = () => {
-    el.classList.remove('active', 'animated');
+if (window.toastr) {
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "progressBar": true,
+    "newestOnTop": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "showDuration": "1000",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
   };
-
-  window.addEventListener('click', (e) => {
-    const isInside = el.contains(e.target);
-    const isPropagationAllowed = el.hasAttribute('data-dropdown-propagation');
-    const clickedMenu = e.target.closest('.drop-down-menu');
-
-    if (isInside) {
-      if (!clickedMenu && isPropagationAllowed) {
-        el.classList.toggle('active');
-        setTimeout(() => el.classList.toggle('animated'), 0);
-      } else if (!isPropagationAllowed) {
-        el.classList.toggle('active');
-        setTimeout(() => el.classList.toggle('animated'), 0);
-      }
-    } else {
-      closeDropdown();
-    }
-  });
-
-  dropdownClose.forEach((btn) => {
-    btn.addEventListener('click', closeDropdown);
-  });
-});
-
+}
 
 // Dashboard Stats
 window.addEventListener("load", async () => {
