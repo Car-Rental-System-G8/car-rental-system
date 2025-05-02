@@ -48,7 +48,7 @@ function createNotificationCard(msg) {
                       </div>
                       <p class="notification-subject overflow-x-hidden">${msg.subject}</p>`;
     notificationItem.addEventListener("click", () => {
-      window.location.href = `./notification-details.html?id=${msg.id}`
+      window.location.href = `./message-details.html?id=${msg.id}`
     })
   return notificationItem;
 }
