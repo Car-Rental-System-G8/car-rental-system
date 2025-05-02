@@ -3,6 +3,7 @@ const allMsgsBtn = document.getElementById("all-msgs-btn");
 const starredMsgsBtn = document.getElementById("starred-msgs-btn");
 const clearAllBtn = document.getElementById("clear-all-btn");
 const paginationContainer = document.getElementById("paginationControls");
+const loader = document.getElementById("loader");
 
 getMessages();
 let isStarred = false;
@@ -10,6 +11,7 @@ let currentMsgsPage = 1;
 
 async function getMessages(page = 1) {
   const result = await getContacts();
+  loader.style.display = "none";
   currentMsgsPage = page;
   if (result.success) {
     const messages = isStarred

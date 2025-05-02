@@ -7,13 +7,11 @@
 .message-row{
     cursor: pointer;
     transition: var(--transition);
-    
-
 }
 
 .message-row:hover{
-    box-shadow: var(--shadow);
-    scale: 1.01;
+    transform: translateX(-3px);
+    /* scale: 0.99; */
 }
 
 .starred-btn{
