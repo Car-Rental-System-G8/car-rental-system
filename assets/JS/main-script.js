@@ -1,7 +1,8 @@
-import { loadListingPage } from './listingPage.js';
-import { loadDetailsPage } from './detailsPage.js';
-import { initCars } from './getCarsData.js';
-import { renderCars } from "./renderCarCards.js";
+import { loadListingPage } from './listing-page.js';
+import { loadDetailsPage } from './details-page.js';
+import { loadTrendingSection } from './trending-section.js';
+import { initCars } from './get-data.js';
+import { renderCars } from "./render-car-data.js";
 
 $(document).ready(function () {
   // Auto-cycle the carousel
@@ -46,6 +47,13 @@ $(".nav-link").click(function (e) {
 
 //   ================ Car Listing Page   ===========================
 
+let cars = [];
+async function getCars() {
+  const data = await initCars();
+  cars = data;
+  return cars;
+}
+getCars()
 // ================= Filter Cars : name - type - price range - avilabilty =========================
 
 const applyFiltersButton = document.querySelector(".filters button");
@@ -56,7 +64,6 @@ const carTypeSelect = document.getElementById("carType");
 
 async function applyFilters() {
 
-const cars = await initCars();
 let filtered = [...cars];
 
 const availableCheckbox = document.querySelector('input[name="Availability"]:checked');
@@ -117,9 +124,12 @@ applyFiltersButton.addEventListener("click", applyFilters);
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    
   if (window.location.href.includes('car-listing.html')) {
     loadListingPage();
   } else if (window.location.href.includes('car-details.html')) {
     loadDetailsPage();
-  }
+  } if (window.location.href.includes('index.html')) {
+    loadTrendingSection();
+  } 
 });
