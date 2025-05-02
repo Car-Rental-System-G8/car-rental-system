@@ -48,7 +48,6 @@ async function getUserBooking() {
 
 async function displayBookingHistory(bookings) {
   if (bookings.length === 0) {
-    console.log(bookings);
     displayNoHistory();
   } else {
     const bookingWrapper = document.createElement("div");
