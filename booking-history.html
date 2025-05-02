@@ -6,11 +6,15 @@
     <title>Booking History</title>
     <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendors/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="./vendors/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="./assets/css/global-styles.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/booking-history.css" />
   </head>
   <body>
+    <div id="loader">
+      <span class="loader-spinner"></span>
+    </div>
     <header id="navbar"></header>
     <main class="booking-history pt-5">
       <div class="container p-md-5 pt-5" id="main-content">
@@ -19,8 +23,9 @@
     </main>
     <footer id="footer"></footer>
     <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="./assets/JS/loadNavbar.js"></script>
-    <script src="./assets/JS/loadFooter.js"></script>
+    <script src="./vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="./assets/JS/load-navbar.js"></script>
+    <script src="./assets/JS/load-footer.js"></script>
     <script src="./assets/JS/booking-history.js"></script>
   </body>
 </html>

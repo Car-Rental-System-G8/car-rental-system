@@ -1,18 +1,45 @@
 const mainContent = document.getElementById("main-content");
+const header = document.getElementById("navbar");
+const loader = document.getElementById("loader");
 
 getUserBooking();
 
 async function getUserBooking() {
   const userMail = JSON.parse(localStorage.getItem("currentUser"));
   if (userMail) {
-    const users = await getUsers();
-    const user = users.find((u) => u.email === userMail);
-    if (user) {
-      const bookings = await getBookings();
-      const userBookings = bookings.filter(
-        (booking) => booking.userId === user.id
-      );
-      displayBookingHistory(userBookings);
+    const res = await getUsers();
+    if (res.success) {
+      const users = res.data;
+      const user = users.find((u) => u.email === userMail);
+      if (user) {
+        const res = await getBookings();
+        if (res.success) {
+          const bookings = res.data;
+          const userBookings = bookings.filter(
+            (booking) => booking.userId === user.id
+          );
+          loader.style.display = "none";
+          mainContent.style.display = "block";
+          header.style.display = "block";
+          displayBookingHistory(userBookings);
+        } else {
+          loader.style.display = "none";
+          Swal.fire({
+            title: "Error!",
+            text: res.error || "Can't get last Bookings.",
+            icon: "error",
+            confirmButtonText: "Try Again",
+          });
+        }
+      }
+    } else {
+      loader.style.display = "none";
+      Swal.fire({
+        title: "Error!",
+        text: res.error || "Can't get last Bookings.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
     }
   } else {
     displayNotLogin();
@@ -21,16 +48,28 @@ async function getUserBooking() {
 
 async function displayBookingHistory(bookings) {
   if (bookings.length === 0) {
+    console.log(bookings);
     displayNoHistory();
   } else {
     const bookingWrapper = document.createElement("div");
     bookingWrapper.classList.add("row", "gy-3");
-    const cars = await getCars();
-    bookings.forEach((booking) => {
-      const car = cars.filter((car) => car.id === booking.carId)[0];
-      bookingWrapper.append(createBookingCard(booking, car));
-    });
-    mainContent.appendChild(bookingWrapper);
+    const response = await getCars();
+    if (response.success) {
+      const cars = response.data;
+      bookings.forEach((booking) => {
+        const car = cars.filter((car) => car.id === booking.carId)[0];
+        bookingWrapper.append(createBookingCard(booking, car));
+      });
+      mainContent.appendChild(bookingWrapper);
+    } else {
+      loader.style.display = "none";
+      Swal.fire({
+        title: "Error!",
+        text: response.error || "Can't get last Bookings.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
   }
 }
 
@@ -41,8 +80,10 @@ function createBookingCard(booking, car) {
   bookingCard.innerHTML = `
             <div class="row align-items-center p-3 flex-md-row flex-column">
               <div class="col-md-3">
-                <a href="#"
-                  ><img src="${car.image}" alt="${car.brand} ${car.model} photo" class="img-fluid"
+                <a href="./car-details.html?id=${car.id}"
+                  ><img src="${car.image}" alt="${car.brand} ${
+    car.model
+  } photo" class="img-fluid"
                 /></a>
               </div>
               <div class="col-md-7 d-flex flex-column justify-content-between">
@@ -78,7 +119,9 @@ function createBookingCard(booking, car) {
                   booking.returnDate,
                   car.pricePerDay
                 )} EGP</strong>
-                <button class="btn"><a href="./" class="text-white text-decoration-none">Rent Again</a></button>
+                <button class="btn"><a href="./car-details.html?id=${
+                  car.id
+                }" class="text-white text-decoration-none">Rent Again</a></button>
               </div>
             </div>`;
   // edit img link to car details
@@ -98,7 +141,7 @@ function displayNoHistory() {
             adventure?
           </p>
           <button class="btn my-4 py-2 px-4 m-auto">
-            <a href="#" class="text-white text-decoration-none"
+            <a href="./car-listing.html" class="text-white text-decoration-none"
               >Rent Your First Car Now</a
             >
           </button>
@@ -116,7 +159,7 @@ function displayNotLogin() {
         >
         <h3>You must login first</h3>
         <button class="btn my-4 py-2 px-4 m-auto">
-        <a href="#" class="text-white text-decoration-none"
+        <a href="./login.html" class="text-white text-decoration-none"
         >Login</a
         >
         </button>
@@ -126,38 +169,34 @@ function displayNotLogin() {
   mainContent.appendChild(wrapper);
 }
 
-
 // helper functions
 async function getUsers() {
   try {
     const response = await fetch("http://localhost:3000/users");
-    const users = await response.json();
-    return users;
+    if (!response.ok) throw new Error("Failed to get users.");
+    return { success: true, data: await response.json() };
   } catch (error) {
-    console.log(error);
-    // sweet alert
+    return { success: false, error: "Network error. Please try again." };
   }
 }
 
 async function getBookings() {
   try {
     const response = await fetch("http://localhost:3000/bookings");
-    const bookings = await response.json();
-    return bookings;
+    if (!response.ok) throw new Error("Failed to get Bookings.");
+    return { success: true, data: await response.json() };
   } catch (error) {
-    console.log(error);
-    // sweet alert
+    return { success: false, error: "Network error. Please try again." };
   }
 }
 
 async function getCars() {
   try {
     const response = await fetch("http://localhost:3000/cars");
-    const cars = await response.json();
-    return cars;
+    if (!response.ok) throw new Error("Failed to get Cars.");
+    return { success: true, data: await response.json() };
   } catch (error) {
-    console.log(error);
-    // sweet alert
+    return { success: false, error: "Network error. Please try again." };
   }
 }
 
