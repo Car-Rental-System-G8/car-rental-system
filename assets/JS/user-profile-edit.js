@@ -8,6 +8,7 @@ let passField = document.querySelector("#password");
 let imageField = document.querySelector("#image");
 let saveButton = document.querySelector(".save-button");
 
+
 const currentUserEmail = JSON.parse(localStorage.getItem("currentUser"));
 
 async function fetchAndHandleUser() {
