@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
+    <meta name="description" content="Contact Us" />
     <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="./vendors/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="./vendors/sweetalert2/sweetalert2.min.css" />
     <link rel="stylesheet" href="./vendors/toastr/toastr.min.css" />
     <link rel="stylesheet" href="./assets/css/global-styles.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -100,7 +101,11 @@
                   class="error text-danger mt-2 ps-2"
                 ></p>
               </div>
-              <button type="submit" class="btn col-6 col-md-3 send-message-btn p-3 mb-5 m-auto m-md-0">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="btn col-6 col-md-3 send-message-btn p-3 mb-5 m-auto m-md-0"
+              >
                 Send Message
               </button>
             </form>
@@ -109,7 +114,9 @@
             class="col-11 col-md-4 contact-info rounded p-4 align-self-stretch d-flex flex-column justify-content-center"
           >
             <article class="d-flex align-items-start my-3">
-              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
                 <i class="fa-regular fa-clock"></i>
               </div>
               <div>
@@ -121,7 +128,9 @@
               </div>
             </article>
             <article class="d-flex align-items-start my-3">
-              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
                 <i class="fa-solid fa-phone"></i>
               </div>
               <div>
@@ -133,7 +142,9 @@
               </div>
             </article>
             <article class="d-flex align-items-start my-3">
-              <div class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
                 <i class="fa-solid fa-location-dot"></i>
               </div>
               <div>
@@ -145,6 +156,17 @@
               </div>
             </article>
           </section>
+          <div class="text-center pt-5 mt-5 col-md-10">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.647101393784!2d31.3696777705072!3d31.041454356318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79db2a4a552a1%3A0x7acb65869f42f8f3!2sITI%20Mansoura%20Branch%20(New%20Building)!5e0!3m2!1sar!2seg!4v1746149666680!5m2!1sar!2seg"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="map w-100"
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>
@@ -153,8 +175,8 @@
     <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./vendors/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="./vendors/toastr/toastr.min.js"></script>
-    <script src="assets/JS/loadNavbar.js"></script>
-    <script src="./assets/JS/loadFooter.js"></script>
+    <script src="assets/JS/load-navbar.js"></script>
+    <script src="./assets/JS/load-footer.js"></script>
     <script src="./assets/JS/contact.js"></script>
   </body>
 </html>

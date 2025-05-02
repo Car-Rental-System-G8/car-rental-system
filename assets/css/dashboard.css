@@ -6,6 +6,7 @@
   --primary-opacity: rgba(48, 71, 224, 0.1);
   --body-bg: #f8fafc;
   --elements-bg: #fff;
+  --elements-bg2: #f8fafc;
   --elements-border: #e3e7ed;
   --sidebar-text: #3d4a61;
   --navbar-color: #222;
@@ -757,18 +758,6 @@ a:hover {
   height: 100%;
   z-index: 10000;
 }
-
-/* .loader-spinner {
-  width: 48px;
-  height: 48px;
-  border: 3px dotted #fff;
-  border-style: solid solid dotted dotted;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  box-sizing: border-box;
-  animation: rotation 2s linear infinite;
-} */
 .loader-spinner::after {
   content: "";
   box-sizing: border-box;
@@ -903,8 +892,8 @@ a:hover {
 }
 
 .notification.read {
-  background: #f9f9f9;
-  color: #666;
+  background: var(--elements-bg2);
+  color: var(--text-muted);
   opacity: 0.8;
 }
 
@@ -950,6 +939,7 @@ a:hover {
 
 [data-bs-theme="dark"] {
   --elements-bg: #151d2b;
+  --elements-bg2: #1f2a3d;
   --elements-border: #293346;
   --body-bg: #172030;
   --sidebar-text: #8796b1;

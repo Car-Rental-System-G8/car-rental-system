@@ -39,20 +39,20 @@ function notifications() {
       notificationCount.classList.remove("bg-danger");
   })
 
-  function createNotificationCard(msg) {
-    const notificationItem = document.createElement("li");
-    notificationItem.classList.add("dropdown-item", "d-flex","flex-column", "notification");
-    notificationItem.classList.add(msg.read ? "read" : "unread");
-    notificationItem.innerHTML = `<div class="d-flex justify-content-between align-items-center mb-2">
-                          <h6 class="mb-0 fw-bold">${msg.firstName} ${msg.lastName}</h6>
-                          <p class="text-muted mb-0">${dateFormatter(msg.date)}</p>
-                        </div>
-                        <p class="notification-subject overflow-x-hidden">${msg.subject}</p>`;
-      notificationItem.addEventListener("click", () => {
-        window.location.href = `./notification-details.html?id=${msg.id}`
-      })
-    return notificationItem;
-  }
+function createNotificationCard(msg) {
+  const notificationItem = document.createElement("li");
+  notificationItem.classList.add("dropdown-item", "d-flex","flex-column", "notification");
+  notificationItem.classList.add(msg.read ? "read" : "unread");
+  notificationItem.innerHTML = `<div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="mb-0 fw-bold">${msg.firstName} ${msg.lastName}</h6>
+                        <p class="text-muted mb-0">${dateFormatter(msg.date)}</p>
+                      </div>
+                      <p class="notification-subject overflow-x-hidden">${msg.subject}</p>`;
+    notificationItem.addEventListener("click", () => {
+      window.location.href = `./message-details.html?id=${msg.id}`
+    })
+  return notificationItem;
+}
 
   async function getContacts() {
     try {
