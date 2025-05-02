@@ -50,3 +50,7 @@ form textarea {
   color: red;
   font-size: 12px;
 }
+
+.map{
+  border-radius: 1.5em;
+}
