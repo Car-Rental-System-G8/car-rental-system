@@ -33,6 +33,38 @@
       "phone": "01056436465",
       "password": "4?c#S%:8d8Z>M!E",
       "role": "user"
+    },
+    {
+      "id": "9f73",
+      "name": "Victoria",
+      "email": "Sara456456@gmail.com",
+      "phone": "01089457620",
+      "password": "GDt'rTg2Rk7J}r9",
+      "role": "user"
+    },
+    {
+      "id": "7163",
+      "name": "Victoria",
+      "email": "Sara45645677@gmail.com",
+      "phone": "01089456798",
+      "password": "GDt'rTg2Rk7J}r9",
+      "role": "user"
+    },
+    {
+      "id": "4b9b",
+      "name": "Max5687",
+      "email": "asaa12@email.com",
+      "phone": "01089456794",
+      "password": "GDt'rTg2R57J}r956",
+      "role": "user"
+    },
+    {
+      "id": "fce3",
+      "name": "linamona",
+      "email": "linaaaa12345@gmail.com",
+      "phone": "01056456465",
+      "password": "GDt'rTg2457J}r956",
+      "role": "user"
     }
   ],
   "bookings": [
@@ -49,7 +81,7 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-23",
-      "status": "confirmed",
+      "status": "pending",
       "paymentMethod": "cash"
     },
     {
@@ -65,7 +97,7 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-30",
-      "status": "confirmed",
+      "status": "canceled",
       "paymentMethod": "cash"
     },
     {
@@ -97,7 +129,7 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-21",
-      "status": "confirmed",
+      "status": "pending",
       "paymentMethod": "cash"
     },
     {
