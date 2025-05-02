@@ -92,7 +92,6 @@ function AddToCart(id) {
   window.location.href=`checkout.html?id=${id}`
 }
 
-
 function checkFavourite() {
   if(sessionStorage.getItem("favourites")) {
     const favourites = JSON.parse(sessionStorage.getItem("favourites"));
@@ -363,7 +362,7 @@ const bookBtn = document.querySelector('.rentCar');
   fav.addEventListener('click', function(event) {
     addToFavourites(fav, carsData, carDetails.id);
   });
-  
+
   addEventToCartBtn(carDetails, bookBtn)
 
 }
