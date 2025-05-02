@@ -74,6 +74,9 @@ function updateFavouriteCount() {
     const favouriteCount = document.getElementById('favourite-count');
     if (favouriteCount) {
         favouriteCount.textContent = favourites.length;
+        if(favourites.length > 0){
+            document.querySelector(".fa-heart").classList.add("text-danger")
+        }
     } else {
         console.warn('Element with ID "favourite-count" not found');
     }
