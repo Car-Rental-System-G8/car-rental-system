@@ -115,6 +115,7 @@ function addToFavourites(ele, carsData,  id) {
     favourites = favourites.filter(car => car.id !== id);
       sessionStorage.setItem("favourites", JSON.stringify(favourites));
       $(ele).removeClass('text-danger');
+      updateFavouriteCount()
       return;
   }
 
@@ -129,6 +130,7 @@ function addToFavourites(ele, carsData,  id) {
   setTimeout(() => {
       $(ele).removeClass('heartbeat');
     }, 300);
+  updateFavouriteCount()
 }
 
 

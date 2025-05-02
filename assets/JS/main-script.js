@@ -129,3 +129,5 @@ if (window.location.href.includes('car-listing.html')) {
   loadDetailsPage();
   } 
 })
+
+
