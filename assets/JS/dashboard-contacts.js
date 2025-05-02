@@ -100,6 +100,7 @@ function createMessageRow(message, currentPage) {
   const row = document.createElement("tr");
   row.classList.add("message-row");
   row.addEventListener("click", () => {
+    updateContact(message.id, { read: true });
     window.location.href = `./message-details.html?id=${message.id}`;
   });
   row.innerHTML = `
