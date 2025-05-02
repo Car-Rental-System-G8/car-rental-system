@@ -42,4 +42,8 @@ function updateFavouriteCount() {
     console.log(favourites);
     console.log(document.getElementById('favourite-count'));
     document.getElementById('favourite-count').textContent = favourites.length;
+    if(favourites.length > 0){
+        document.querySelector(".fa-heart").classList.add("text-danger")
+    }
+
 }
