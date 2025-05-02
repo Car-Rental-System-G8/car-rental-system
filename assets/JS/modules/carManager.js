@@ -83,7 +83,7 @@ export const displayCars = async (_cars, options = {}) => {
     if (carsToDisplay.length === 0) {
       const noDataMessage = document.createElement("tr");
       noDataMessage.innerHTML = `
-        <td colspan="9" class="text-center text-muted">No cars to display!</td>
+        <td colspan="10" class="text-center text-muted">No cars to display!</td>
       `;
       container.appendChild(noDataMessage);
     } else {

@@ -294,18 +294,6 @@
       "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "ada9",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80",
-      "description": "Spacious and powerful SUV suitable for family."
     }
   ]
 }

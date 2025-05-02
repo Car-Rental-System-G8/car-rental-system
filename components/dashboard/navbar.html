@@ -1,0 +1,56 @@
+<div class="dashboard-navbar">
+  <div class="dashboard-container-fluid w-100">
+      <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-dashboard dashboard-toggle-btn">
+              <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="d-flex gap-2">
+                <div class="dropdown" id="notificationDropdown">
+                  <button
+                    class="btn btn-dashboard position-relative"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fa-solid fa-bell"> </i>
+                    <span
+                      class="position-absolute top-0 start-100 translate-middle p-2 border border-light rounded-circle"
+                      id="notificationCount"
+                    >
+                      <span class="visually-hidden">New alerts</span>
+                    </span>
+                  </button>
+                  <ul class="dropdown-menu notification-dropdown p-0" id="notificationDropdownList"></ul>
+              </div>
+              <div class="theme-switcher dashboard-nav-btn btn btn-dashboard">
+                <div class="theme-switcher-button active" data-bs-theme-dark="">
+                  <i class="fa fa-moon fa-sm"></i>
+                </div>
+                <div class="theme-switcher-button" data-bs-theme-light="">
+                  <i class="fa fa-sun fa-sm"></i>
+                </div>
+              </div>
+              <div class="drop-down" data-dropdown>
+                  <div class="drop-down-btn">
+                      <img src="" class="user-img current-user-img" alt="">
+                  </div>
+                  <div class="drop-down-menu">
+                      <div class="d-flex align-items-center gap-2 pt-2 pb-3">
+                        <img src="" class="user-img user-img-md current-user-img" alt="">
+                        <div>
+                          <h6 class="user-title current-user-title mb-1"></h6>
+                          <p class="user-text current-user-email mb-0 text-muted"></p>
+                        </div>
+                      </div>
+                      <a href="#" class="drop-down-item">
+                          <i class="fa fa-cog"></i> Account Settings
+                      </a>
+                      <div class="drop-down-item text-danger logout-btn">
+                          <i class="fa fa-power-off"></i> Logout
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
