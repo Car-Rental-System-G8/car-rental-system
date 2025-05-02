@@ -6,67 +6,6 @@ const bookingsUrl = "http://localhost:3000/bookings";
 const usersUrl = "http://localhost:3000/users";
 
 
-
-
-
-
-// // initiate Cars Function to get data from the API and render it
-// export async function initCars() {
-//   try {
-//     const data = await fetchData(carsUrl);
-//     return data;
-//   } catch (error) {
-//     console.error('Failed to fetch cars:', error);
-//     return [];
-//   }
-// }
-
-
-// // get bookings 
-// export async function initBookings() {
-//   try {
-//     const data = await fetchData(bookingsUrl);
-//     return data;
-//   } catch (error) {
-//     console.error('Failed to fetch cars:', error);
-//     return [];
-//   }
-// }
-
-
-// // get bookings 
-// export async function initUsers() {
-//   try {
-//     const data = await fetchData(usersUrl);
-//     return data;
-//   } catch (error) {
-//     console.error('Failed to fetch cars:', error);
-//     return [];
-//   }
-// }
-
-
-
-
-// async function fetchData(api) {
-//   try {
-//     const response = await fetch(api);
-
-//     if (!response.ok) {
-//       throw new Error(`Error Please Reload the page`);
-//     }
-//     const data = await response.json();
-//     if (Array.isArray(data) && data.length > 0) {
-//         return data;
-//     } else {
-//          console.log(" No cars data found");
-//     }
-//   } catch (error) {
-//     console.log(" Error fetching cars");
-//   }
-// }
-
-
 class APIHandler {
   constructor(endpoint) {
     this.endpoint = endpoint;
@@ -95,7 +34,6 @@ class APIHandler {
   }
 
 }
-
 
 
 const carsAPI = new APIHandler("http://localhost:3000/cars");
