@@ -83,7 +83,7 @@ export const displayCars = async (_cars, options = {}) => {
     if (carsToDisplay.length === 0) {
       const noDataMessage = document.createElement("tr");
       noDataMessage.innerHTML = `
-        <td colspan="9" class="text-center text-muted">No cars to display!</td>
+        <td colspan="10" class="text-center text-muted">No cars to display!</td>
       `;
       container.appendChild(noDataMessage);
     } else {
@@ -281,6 +281,7 @@ const fillForm = (form, car) => {
   form.querySelector("[name=status]").value = car.availability;
   form.querySelector("[name=rating]").value = car.rating;
   form.querySelector("[name=image]").value = car.image;
+  form.querySelector("[name=description]").value = car.description;
 };
 
 const getFormData = (form) => ({
@@ -291,11 +292,12 @@ const getFormData = (form) => ({
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
   availability: form.querySelector("[name=status]").value === "true",
   rating: parseFloat(form.querySelector("[name=rating]").value),
-  image: form.querySelector("[name=image]").value.trim()
+  image: form.querySelector("[name=image]").value.trim(),
+  description: form.querySelector("[name=description]").value.trim()
 });
 
-const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating }) => {
-  if (!brand || !model || !type || !image) {
+const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating, description }) => {
+  if (!brand || !model || !type || !image || !description) {
     toastr.error("Please fill in all required fields!");
     return false;
   }
