@@ -1,36 +1,58 @@
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp" alt="HV Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../how-it-works.html">How It Works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../rental-deals.html">Rental Deals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Feedbacks.html">Feedbacks</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <a href="#" class="search-icon me-2">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <a href="#" class="profile-icon me-3">
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/cars/ai-generated-car-logo-isolated-no-background-ai-generated-free-png.webp" alt="HV Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../car-listing.html">Our Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../terms.html">Our Terms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../contact.html">Contact Us</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="search-icon me-2">
+                    <i class="fas fa-search"></i>
+                </a>
+                <!-- Profile dropdown -->
+                <div class="dropdown profile-dropdown">
+                    <a href="#" class="profile-icon me-2" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a href="#" class="btn btn-contact">Contact Us</a>
+                    <ul class="dropdown-menu profile-dropdown-menu" aria-labelledby="profileDropdown">
+                        <li>
+                            <a class="dropdown-item" href="../profile.html">
+                                <i class="fas fa-user-circle me-2"></i>My Profile
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item logout-btn" href="../login-page.html" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <a href="#" class="favorite-icon me-3">
+                    <i class="fas fa-heart ps-2"></i>
+                    <span id="favourite-count" class="badge text-black">0</span>
+
+                </a>
+
+                <a href="../contact.html" class="btn btn-contact">Contact Us</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>

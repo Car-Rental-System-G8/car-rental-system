@@ -1,16 +1,12 @@
 import { getAvaliableCarsLength, getCarsLength } from "./modules/carManager.js";
 import { fetchData } from "./modules/fetchData.js";
+import { getCurrentUser } from "./modules/userManager.js";
 
 // Acess to Dashboard & Admin Details
 document.addEventListener("DOMContentLoaded", async () => {
   document.body.classList.add("overflow-hidden");
   try {
-    const users = await fetchData("http://localhost:3000/users");
-
-    const storedEmail = JSON.parse(localStorage.getItem("currentUser"));
-    const currentUser = users.find((user) => {
-      return user.email === storedEmail;
-    });
+    const currentUser = await getCurrentUser();
 
     if (!currentUser || currentUser.role !== "admin") {
       window.location = "/";
@@ -120,5 +116,4 @@ window.addEventListener("load", async () => {
     totalProfit.textContent = `${totalConfirmedCost}$`;
     bookingCars.textContent = getCarsBookings.length;
   }
-
 });

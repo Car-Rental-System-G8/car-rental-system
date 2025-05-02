@@ -22,6 +22,9 @@ contactForm.addEventListener("submit", async function (e) {
     phone: phone.value.trim(),
     subject: subject.value.trim(),
     message: message.value.trim(),
+    date: new Date().toISOString().slice(0, 10),
+    read: false,
+    starred: false,
   };
 
   const userId = await getUserId();
@@ -71,34 +74,24 @@ contactForm.addEventListener("submit", async function (e) {
 
   if (!isValid) return;
 
-  try {
-    const result = await sendContact(contactData);
-    if (result.success) {
-      Swal.fire({
-        title: "Success!",
-        text: "Your message has been sent successfully.",
-        icon: "success",
-        confirmButtonColor: "#28a745",
-        timer: 3000,
-        timerProgressBar: true,
-      });
-      contactForm.reset();
-    } else {
-      Swal.fire({
-        title: "Error!",
-        text: result.error || "Failed to send message.",
-        icon: "error",
-        confirmButtonText: "Try Again",
-      });
-    }
-  } catch (error) {
+  const result = await sendContact(contactData);
+  if (result.success) {
+    Swal.fire({
+      title: "Success!",
+      text: "Your message has been sent successfully.",
+      icon: "success",
+      confirmButtonColor: "#28a745",
+      timer: 3000,
+      timerProgressBar: true,
+    });
+    contactForm.reset();
+  } else {
     Swal.fire({
       title: "Error!",
-      text: "An error occurred while sending the message.",
+      text: result.error || "Failed to send message.",
       icon: "error",
-      confirmButtonText: "Retry",
+      confirmButtonText: "Try Again",
     });
-    console.error("Submission error:", error);
   }
 });
 
