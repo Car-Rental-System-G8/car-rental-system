@@ -51,8 +51,6 @@ function displaymsgs(msgs, options = {}) {
     container.innerHTML = "";
 
     let msgsToDisplay = msgs;
-
-    console.log(isStarred);
     if (isPagination && msgsLimit > 0 && msgsLimit < msgs.length) {
       const startIndex = (currentPage - 1) * msgsLimit;
       const endIndex = startIndex + msgsLimit;
