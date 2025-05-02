@@ -35,12 +35,10 @@ loginForm.addEventListener("submit", (e) => {
 });
 
 async function login(email, password) {
-  try {
-    const response = await fetch("http://localhost:3000/users");
-    const users = await response.json();
-
+  const result = await getUsers();
+  if (result.success) {
+    const users = result.data;
     const user = users.find((u) => u.email === email);
-
     if (!user) {
       mailError.textContent = "*Invalid email*";
       return;
@@ -50,16 +48,20 @@ async function login(email, password) {
     }
 
     if (user.role === "admin") {
-      //   window.location.href = "/admin-dashboard.html";
-      console.log("admin dashbord");
+        window.location.href = "./admin/index.html";
     } else {
-      //   window.location.href = "/user-dashboard.html";
-      console.log("USER dashbord");
+      window.location.href = "./index.html";
+      
     }
 
     localStorage.setItem("currentUser", JSON.stringify(user.email));
-  } catch (error) {
-    console.error("Login failed:", error);
+  } else {
+    Swal.fire({
+      title: "Error!",
+      text: result.error || "Can't Login.",
+      icon: "error",
+      confirmButtonText: "Try Again",
+    });
   }
 }
 
@@ -72,3 +74,16 @@ const validateEmail = (email) => {
 const validatePassword = (password) => {
   return password.length >= 8;
 };
+
+
+// Api
+async function getUsers() {
+  try {
+    const response = await fetch("http://localhost:3000/users");
+    if (!response.ok) throw new Error("Failed to Log in.");
+
+    return { success: true, data: await response.json() };
+  } catch (error) {
+    return { success: false, error: "Network error. Please try again." };
+  }
+}

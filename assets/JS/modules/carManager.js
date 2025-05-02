@@ -44,7 +44,7 @@ export const deleteCar = async (_id) => {
 
       if (success) {
         const carsData = await getCars();
-        displayCars(carsData, { inDashboard: true });
+        displayCars(carsData);
       }
     } else {
       Swal.fire('Cancelled', 'Your car is safe :)', 'info');
@@ -57,16 +57,12 @@ export const deleteCar = async (_id) => {
 
 // ========= DOM Rendering =========
 export const displayCars = async (_cars, options = {}) => {
-  const { 
-    currentPage = 1, 
+  const {
+    currentPage = 1,
     carsLimit = 5, 
-    carsOrder = "oldest",
-    isPagination = true,
-    inDashboard } = options;
+    isPagination = true } = options;
 
-  const container = inDashboard
-    ? document.querySelector("#carsTableContainer")
-    : document.querySelector("#carsContainer");
+  const container = document.querySelector("#carsTableContainer");
 
   if (!container) return;
 
@@ -76,71 +72,57 @@ export const displayCars = async (_cars, options = {}) => {
     container.innerHTML = "";
 
     let carsToDisplay = _cars;
-
-    if (carsOrder === "newest") {
-      carsToDisplay = _cars.slice().reverse().slice(0, carsLimit || _cars.length);
-    } else if (carsOrder === "oldest") {
-      carsToDisplay = _cars.slice(0, carsLimit || _cars.length);
-    }
     
     if (isPagination && carsLimit > 0 && carsLimit < _cars.length) {
       const startIndex = (currentPage - 1) * carsLimit;
       const endIndex = startIndex + carsLimit ;
       carsToDisplay = _cars.slice(startIndex, endIndex);
-      createPaginationControls(_cars.length, carsLimit , currentPage, inDashboard);
     }
+    createPaginationControls(_cars, _cars.length, carsLimit , currentPage);
 
     if (carsToDisplay.length === 0) {
-      if (inDashboard) {
-        const noDataMessage = document.createElement("tr");
-        noDataMessage.innerHTML = `
-          <td colspan="9" class="text-center text-muted">No cars to display!</td>
-        `;
-        container.appendChild(noDataMessage);
-      } else {
-        // No cars to display Code Here
-      }
+      const noDataMessage = document.createElement("tr");
+      noDataMessage.innerHTML = `
+        <td colspan="9" class="text-center text-muted">No cars to display!</td>
+      `;
+      container.appendChild(noDataMessage);
     } else {
       carsToDisplay.forEach((car) => {
         const { id, image, brand, model, type, year, pricePerDay, availability, rating } = car;
 
-        if (inDashboard) {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${id}</td>
-            <td><img class="table-img" src="${image}" /></td>
-            <td>${brand}</td>
-            <td>${model}</td>
-            <td>${type}</td>
-            <td>${year}</td>
-            <td>${pricePerDay}</td>
-            <td>
-              <div class="badge ${String(availability) === "true" ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
-                ${String(availability) === "true" ? 'Available' : 'Not Available'}
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${id}</td>
+          <td><img class="table-img" src="${image}" /></td>
+          <td>${brand}</td>
+          <td>${model}</td>
+          <td>${type}</td>
+          <td>${year}</td>
+          <td>${pricePerDay}</td>
+          <td>
+            <div class="badge ${availability === true ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
+              ${availability === true ? 'Available' : 'Not Available'}
+            </div>
+          </td>
+          <td class="text-start"><div class="dashboard-rating"><i class="fa fa-star"></i> ${rating}</div></td>
+          <td>
+            <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
+              <div class="col">
+                <button class="btn btn--primary btn-sm edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
               </div>
-            </td>
-            <td class="text-start"><div class="dashboard-rating"><i class="fa fa-star"></i> ${rating}</div></td>
-            <td>
-              <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
-                <div class="col">
-                  <button class="btn btn--primary edit-car-btn" data-id="${id}" data-bs-toggle="modal" data-bs-target="#carEditModal">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-danger delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
-                </div>
+              <div class="col">
+                <button class="btn btn-danger btn-sm delete-car-btn" data-id="${id}"><i class="fas fa-trash-alt"></i></button>
               </div>
-            </td>
-          `;
-          container.appendChild(tr);
-        } else {
-          // عرض الكروت لو مش داشبورد
-        }
+            </div>
+          </td>
+        `;
+        container.appendChild(tr);
       });
     }
 
-    if (inDashboard) setupCarEventListeners();
+    setupCarEventListeners();
 
     container.classList.remove("fade-out");
     container.classList.add("fade-in");
@@ -151,7 +133,7 @@ export const displayCars = async (_cars, options = {}) => {
   }, 400);
 };
 
-const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboard) => {
+const createPaginationControls = (cars, totalCars, carsLimit , currentPage) => {
   const paginationContainer = document.getElementById("paginationControls");
   
   if (!paginationContainer) return;
@@ -173,8 +155,7 @@ const createPaginationControls = (totalCars, carsLimit , currentPage, inDashboar
     }
     btn.addEventListener("click", async () => {
       currentCarsPage = page;
-      const carsData = await getCars();
-      displayCars(carsData, { currentPage: page, carsLimit, inDashboard });
+      displayCars(cars, { currentPage: page, carsLimit });
     });
     return btn;
   };
@@ -247,7 +228,7 @@ export const updateForm = async (_id) => {
       bootstrap.Modal.getInstance(document.getElementById("carEditModal")).hide();
       toastr.success("Car updated successfully!");
       const carsData = await getCars();
-      displayCars(carsData, { currentPage: currentCarsPage, inDashboard: true });
+      displayCars(carsData, { currentPage: currentCarsPage });
     } else {
       toastr.error("Something went wrong, please try again.");
     }
@@ -272,7 +253,7 @@ export const addCarForm = async () => {
       bootstrap.Modal.getInstance(document.getElementById("carAddModal")).hide();
       toastr.success("Car added successfully!");
       const carsData = await getCars();
-      displayCars(carsData, { inDashboard: true });
+      displayCars(carsData);
     } else {
       toastr.error("Something went wrong, please try again.");
     }
@@ -286,7 +267,7 @@ export const getCarsLength = async () =>  {
 };
 export const getAvaliableCarsLength = async () =>  { 
   const cars = await getCars();
-  const avaliable =  cars.filter((car) => String(car.availability) === "true");
+  const avaliable =  cars.filter((car) => car.availability === true);
   return await avaliable.length;
 };
 
@@ -308,7 +289,7 @@ const getFormData = (form) => ({
   type: form.querySelector("[name=type]").value.trim(),
   year: parseInt(form.querySelector("[name=year]").value),
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
-  availability: form.querySelector("[name=status]").value,
+  availability: form.querySelector("[name=status]").value === "true",
   rating: parseFloat(form.querySelector("[name=rating]").value),
   image: form.querySelector("[name=image]").value.trim()
 });
@@ -335,4 +316,36 @@ const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating 
   }
 
   return true;
+};
+
+export const filterCars = async (_filters = {}) => {
+  const cars = await getCars();
+
+  return cars.filter((car) => {
+    return Object.entries(_filters).every(([key, value]) => {
+      const rawValue = car[key];
+      const carValue = !isNaN(parseFloat(rawValue)) ? parseFloat(rawValue) : rawValue;
+
+      if (key === "rating" && !isNaN(parseFloat(value))) {
+        return carValue >= parseFloat(value);
+      }
+
+      if (key === "year" && !isNaN(parseFloat(value))) {
+        return carValue == parseFloat(value);
+      }
+
+      // فلتر Range
+      if (Array.isArray(value) && !isNaN(parseFloat(value[0])) && !isNaN(parseFloat(value[1]))) {
+        const [min, max] = value;
+        return carValue >= parseInt(min) && carValue <= parseInt(max);
+      }
+
+      // مقارنة نصوص بدون حساسية لحالة الأحرف
+      if (typeof value === 'string' && typeof carValue === 'string') {
+        return carValue.toLowerCase() === value.toLowerCase();
+      }
+
+      return carValue === value;
+    });
+  });
 };

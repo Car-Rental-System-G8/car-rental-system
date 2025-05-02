@@ -17,47 +17,113 @@
       "password": "user123",
       "role": "user",
       "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Sara",
+      "email": "ahem@gmail.com",
+      "phone": "01089457686",
+      "password": "NcTwv3n@c5u5M8p",
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "name": "Max",
+      "email": "max@gmail.com",
+      "phone": "01056436465",
+      "password": "4?c#S%:8d8Z>M!E",
+      "role": "user"
     }
   ],
   "bookings": [
     {
-      "id": "1",
-      "carId": "1",
-      "userId": "2",
-      "pickupDate": "2025-04-30",
-      "returnDate": "2025-05-05",
-      "status": "confirmed",
-      "totalCost": 3000
-    },
-    {
-      "id": "2",
-      "carId": "2",
-      "userId": "2",
+      "id": "9421",
+      "carId": 1,
+      "userId": 1,
+      "totalCost": 9680,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
       "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-03",
+      "returnDate": "2025-05-23",
       "status": "pending",
-      "totalCost": 1600
+      "paymentMethod": "cash"
     },
     {
-      "id": "3",
-      "carId": "3",
-      "userId": "2",
+      "id": "d3f2",
+      "carId": 2,
+      "userId": 1,
+      "totalCost": 17545,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
       "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-03",
-      "status": "canceled",
-      "totalCost": 3000
+      "returnDate": "2025-05-30",
+      "status": "pending",
+      "paymentMethod": "cash"
     },
     {
-      "id": "4",
-      "carId": "1",
-      "userId": "2",
-      "pickupDate": "2025-04-30",
-      "returnDate": "2025-05-03",
-      "status": "confirmed",
-      "totalCost": 3000
+      "id": "ee67",
+      "carId": 3,
+      "userId": 2,
+      "totalCost": 10890,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-31",
+      "status": "pending",
+      "paymentMethod": "cash"
     }
   ],
-  "contacts": [],
+  "contacts": [
+    {
+      "id": "a030",
+      "firstName": "Sara",
+      "lastName": "rezk",
+      "email": "3535sade@gmail.com",
+      "phone": "01089456798",
+      "subject": "the service is bad",
+      "message": "peovhex lvb;ewpi4 gpyq;i la;Gaqet",
+      "userId": "1",
+      "starred": true
+    },
+    {
+      "id": "52a2",
+      "firstName": "Shaima",
+      "lastName": "ahmed",
+      "email": "minalona@gmail.com",
+      "phone": "01089456798",
+      "subject": "problem",
+      "message": "Sure! Here are some engaging and suitable topics for a presentation in a presentation skills course. The focus should be on how well you organize and deliver the content, so choose something you're comfortable with or passionate about:",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    },
+    {
+      "id": "4f73",
+      "firstName": "Max",
+      "lastName": "fury",
+      "email": "3535sade@gmail.com",
+      "phone": "01089456798",
+      "subject": "the service is bad",
+      "message": "ayhag;dvbd vdbaidfga efeg;eago qeg;qeohgqg",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    }
+  ],
   "cars": [
     {
       "id": "1",
@@ -132,16 +198,70 @@
       "description": "Spacious and powerful SUV suitable for family trips."
     },
     {
-      "id": "7",
-      "brand": "BMW 7",
-      "model": "2013",
-      "type": "Sedan",
-      "year": 2025,
-      "image": "/assets/images/cars/cars listing/BMW 7 Sedan 2013 black.png",
-      "pricePerDay": 700,
+      "id": "71a8",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
       "availability": true,
-      "rating": 2,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "0f95",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "5d2c",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "db72",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "ed3f",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "e942",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "image": "https://placehold.co/80x80"
     }
   ]
 }
