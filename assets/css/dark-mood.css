@@ -42,6 +42,7 @@
   
   [data-theme="dark"] .navbar {
     background-color: var(--primary-color-opacity);
+    backdrop-filter: blur(50px);
   }
   
   [data-theme="dark"] .navbar .nav-link:not(.active) {
@@ -229,7 +230,8 @@
       ;
     }
     
-  /* [data-theme="dark"] .list-unstyled li{
-    background-color: var(--secondary-color);
-  } */
+  [data-theme="dark"] .filters input ,#carType{
+    background-color: var(--primary-color-opacity);
+    color: var(--text-light);
+  }
 
