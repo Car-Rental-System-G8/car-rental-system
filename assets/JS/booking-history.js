@@ -81,7 +81,7 @@ function createBookingCard(booking, car) {
             <div class="row align-items-center p-3 flex-md-row flex-column">
               <div class="col-md-3">
                 <a href="./car-details.html?id=${car.id}"
-                  ><img src="${car.image}" alt="${car.brand} ${
+                  ><img src="${car.images[0]}" alt="${car.brand} ${
     car.model
   } photo" class="img-fluid"
                 /></a>
