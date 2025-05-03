@@ -76,6 +76,7 @@ function createBookingCard(booking, car) {
   const bookingCard = document.createElement("div");
   bookingCard.classList.add("card");
   bookingCard.classList.add("rounded");
+  const rate = calculateRate(car.reviews);
   bookingCard.innerHTML = `
             <div class="row align-items-center p-3 flex-md-row flex-column">
               <div class="col-md-3">
@@ -96,7 +97,7 @@ function createBookingCard(booking, car) {
                   .map(
                     (_, i) =>
                       `<i class="fa-solid fa-star ${
-                        i < Math.round(car.rating)
+                        i < Math.round(rate)
                           ? "text-warning"
                           : "text-secondary"
                       }"></i>`
@@ -213,4 +214,9 @@ function getTotalPrice(pickupDate, returnDate, pricePerDay) {
   const timeDifference = endDate - startDate;
   const daysDifference = timeDifference / (1000 * 3600 * 24);
   return daysDifference * pricePerDay;
+}
+
+function calculateRate(reviews){
+  const rate = reviews.reduce((acc, review) => acc + parseInt(review.rating) , 0);
+  return reviews.length === 0 ? "5" : rate / reviews.length;
 }
