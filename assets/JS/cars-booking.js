@@ -14,7 +14,7 @@ function loadBookings() {
 
                 const car = cars.find(car => car.id === booking.carId);
                 const carName = car ? `${car.brand} ${car.model}` : 'Unknown Car';
-                const carImage = car ? car.image : 'https://placehold.co/100x100';
+                const carImage = car ? car.images[0] : 'https://placehold.co/100x100';
 
                 const pickupDate = booking.pickupDate;
                 const returnDate = booking.returnDate;
