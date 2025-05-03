@@ -69,30 +69,6 @@
                     />
                   </div>
                 </div>
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carCarousel"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carCarousel"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
               </div>
               <!-- Car Info Badges -->
               <div class="car-info-badge transmission">
@@ -113,7 +89,7 @@
       <div class="container search-form-container">
         <div class="search-form">
           <div class="row">
-            <div class="col-md-3 mb-3 mb-md-0">
+            <!-- <div class="col-md-3 mb-3 mb-md-0">
               <h5>Location</h5>
               <div class="input-group">
                 <span class="input-group-text border-end-0 bg-transparent">
@@ -125,38 +101,39 @@
                   placeholder="Choose a Location"
                 />
               </div>
-            </div>
-            <div class="col-md-3 mb-3 mb-md-0">
+            </div> -->
+            <div class="col-md-4 mb-3 mb-md-0">
               <h5>Pick-Up Date</h5>
               <div class="input-group">
                 <span class="input-group-text border-end-0 bg-transparent">
                   <i class="far fa-calendar-alt"></i>
                 </span>
                 <input
-                  type="text"
+                type="date" id="pickupDateHome"
                   class="form-control border-start-0"
                   placeholder="Add Date"
                 />
               </div>
             </div>
-            <div class="col-md-3 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0">
               <h5>Return Date</h5>
               <div class="input-group">
                 <span class="input-group-text border-end-0 bg-transparent">
                   <i class="far fa-calendar-alt"></i>
                 </span>
                 <input
-                  type="text"
+                  type="date" id="returnDateHome"
                   class="form-control border-start-0"
                   placeholder="Add Date"
                 />
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <h5>&nbsp;</h5>
               <button class="btn btn-search">Search</button>
             </div>
           </div>
+          <p id="errorSearch" class="errorSearch py-1 text-danger fw-bold">  </p>
         </div>
       </div>
 
@@ -216,7 +193,7 @@
         </div>
 
         <div class="text-center mt-5">
-          <a href="booking.html" class="btn btn-booking">Start Booking</a>
+          <a href="car-listing.html" class="btn btn-booking">Start Booking</a>
         </div>
       </div>
 
@@ -502,7 +479,6 @@
     <script src="components/user/load-navbar.js"></script>
     <script src="components/user/load-footer.js"></script>
     <script src="assets/JS/testimonials.js"></script>
-    <script src="assets/JS/trending-section.js"></script>
     <script src="assets/JS/dark-mood-hoom.js"></script>
   </body>
 </html>

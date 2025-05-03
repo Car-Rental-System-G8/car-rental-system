@@ -1,4 +1,3 @@
-/* Dark Mode CSS Variables */
 :root {
     /* Light Mode (Default) */
     --primary-color: #5eccc9;
@@ -42,8 +41,11 @@
   
   [data-theme="dark"] .navbar {
     background-color: var(--primary-color-opacity);
+    backdrop-filter: blur(50px);
   }
   
+
+
   [data-theme="dark"] .navbar .nav-link:not(.active) {
     color: #e4e6eb;
   }
@@ -134,7 +136,11 @@
     cursor: pointer;
   }
   
-  .theme-toggle:hover {
+  .theme-toggle:hover,
+  .search-icon:hover,
+.profile-icon:hover,
+.favorite-icon:hover,
+.login-link:hover {
     background-color: var(--primary-color);
     color: var(--text-light);
     transform: scale(1.1);
@@ -210,6 +216,28 @@
 
   [data-theme="dark"] #profileDetails, .profile-container{
     background-color: var(--secondary-color);
+  }
+
+
+  [data-theme="dark"] .box-styles , #reviews{
+    background-color: var(--primary-color-opacity);
+  }
+
+  [data-theme="dark"] #car-recommendation{
+    background-color: var(--footer-bg);
+  } 
+
+  [data-theme="dark"] #reviews .box-styles{
+    background-color: var(--primary-color-opacity);
+  }
+  [data-theme="dark"] .list-unstyled li:nth-child(odd) {
+    background-color: var(--light-bg)
+      ;
+    }
+    
+  [data-theme="dark"] .filters input ,#carType{
+    background-color: var(--primary-color-opacity);
+    color: var(--text-light);
   }
 
 
