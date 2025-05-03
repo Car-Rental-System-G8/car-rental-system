@@ -377,6 +377,7 @@ a {
   background-color: transparent;
   border-right: none;
   color: var(--primary-color);
+  /* border: var(--primary-color-opacity); */
 }
 
 .btn-search {
