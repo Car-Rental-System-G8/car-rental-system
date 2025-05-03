@@ -5,7 +5,7 @@ const passField = document.getElementById("password");
 const imageField = document.getElementById("image");
 const saveButton = document.getElementById("form-button");
 const inputs = [nameField, phoneField, passField, imageField];
-const loader = document.getElementById("loader")
+const loader = document.getElementById("loader");
 // errors
 const nameError = document.getElementById("name-error");
 const phoneError = document.getElementById("phone-error");
@@ -26,7 +26,7 @@ async function fetchAndHandleUser() {
       emailField.value = currentUser.email;
       phoneField.value = currentUser.phone;
       passField.value = currentUser.password;
-      imageField.value = currentUser.image;
+      // imageField.value = currentUser.image;
       saveButton.addEventListener("click", async (e) => {
         if (e.target.textContent == "Edit") {
           e.target.textContent = "Save";
@@ -73,6 +73,7 @@ async function confirmSignup(id) {
     name: nameField.value,
     phone: phoneField.value,
     password: passField.value,
+    image: `/assets/images/avatar/${imageField.files[0].name}`,
   };
 
   const nameValidation = validateName(userData.name);

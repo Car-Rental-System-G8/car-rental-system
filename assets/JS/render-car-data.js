@@ -184,7 +184,7 @@ function getCarHTML(car) {
     <div class="header box-styles px-5 py-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
       <div class="title">
         <h6 class="text-uppercase text-secondary mb-1 fw-semibold">${car.model}</h6>
-        <h3 class="fs-2 fw-bold text-dark">${car.brand}</h3>
+        <h3 class="fs-2 fw-bold ">${car.brand}</h3>
         <p class="text-secondary mb-0 fs-6">G3 (${car.year})</p>
       </div>
 
@@ -192,15 +192,15 @@ function getCarHTML(car) {
         <div class="row text-center text-md-end">
           <div class="col-md-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Year</h6>
-            <p class="text-muted mb-0">${car.year}</p>
+            <p class=" mb-0">${car.year}</p>
           </div>
           <div class="col-md-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Type</h6>
-            <p class="text-muted mb-0">${car.type}</p>
+            <p class=" mb-0">${car.type}</p>
           </div>
           <div class="col-md-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Brand</h6>
-            <p class="text-muted mb-0">${car.brand}</p>
+            <p class=" mb-0">${car.brand}</p>
           </div>
         </div>
       </div>
@@ -273,23 +273,23 @@ function getCarHTML(car) {
             <p class="text-secondary mb-0">Full details about this vehicle</p>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Brand</span><span>${car.brand}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Brand</span><span>${car.brand}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Model</span><span>${car.model}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Year</span><span>${car.year}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Year</span><span>${car.year}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Gearbox</span><span>${car.gearbox}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Type</span><span>${car.type}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Type</span><span>${car.type}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Fuel Type</span><span>${car.fuelType}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Color</span><span>${car.color}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Color</span><span>${car.color}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Seats</span><span>${car.seats}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Price/Day</span><span>$${car.pricePerDay}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Price/Day</span><span>$${car.pricePerDay}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Rating</span><span>⭐ ${car.rating}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 bg-light">
+            <li class="d-flex justify-content-between py-2 px-3 ">
               <span class="fw-semibold">Availability</span>
               <span style="font-size: 14px;" class="p-1 px-2 ${car.availability ? 'bg-success' : 'bg-danger '} text-white">
                 ${car.availability ? 'Available' : 'Unavailable'}
               </span>
             </li>
-            <li class="text-muted py-2 px-3"><span>${car.description}</span></li>
+            <li class=" py-2 px-3"><span>${car.description}</span></li>
           </ul>
         </div>
       </div>
