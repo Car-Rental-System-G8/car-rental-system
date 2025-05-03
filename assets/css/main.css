@@ -17,7 +17,7 @@
   --border-radius: 8px;
   --footer-bg: #e7e7e7;
   --navbar-bg: rgba(255, 255, 255, 0.95);
-
+--other-bg:rgba(255, 255, 255, 0.938);
 }
 
 * {
@@ -1033,7 +1033,7 @@ right: 10px !important;
 
 /* page styles */
 .box-styles {
-  background-color: rgba(255, 255, 255, 0.938);
+  background-color: var(--navbar-bg);
   /* background: var(--gradient-bg-2); */
   backdrop-filter: blur(5px);
   border-radius: 10px;
@@ -1043,16 +1043,10 @@ right: 10px !important;
   position: relative;
   z-index: 3;
 }
-
-
-.header {
-
+#car-recommendation{
+  background-color: var(--light-bg);
 }
 
-.car-slider-container {
-
-
-}
 .Car-details .carCard:hover {
   transform: none;
 }
@@ -1067,6 +1061,17 @@ right: 10px !important;
 .carCard .notAvilable:hover {
   cursor: not-allowed;
   color: white;
+}
+
+.list-unstyled li:nth-child(odd) {
+background-color: var(--light-bg)
+  ;
+}
+#carWrapper h3 {
+  color: var(--text-dark);
+}
+#carWrapper .data p, h6{
+  color: var(--text-dark);
 }
 
 

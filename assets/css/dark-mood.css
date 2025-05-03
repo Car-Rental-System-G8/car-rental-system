@@ -213,4 +213,23 @@
   }
 
 
+  [data-theme="dark"] .box-styles , #reviews{
+    background-color: var(--primary-color-opacity);
+  }
+
+  [data-theme="dark"] #car-recommendation{
+    background-color: var(--footer-bg);
+  } 
+
+  [data-theme="dark"] #reviews .box-styles{
+    background-color: var(--primary-color-opacity);
+  }
+  [data-theme="dark"] .list-unstyled li:nth-child(odd) {
+    background-color: var(--light-bg)
+      ;
+    }
+    
+  /* [data-theme="dark"] .list-unstyled li{
+    background-color: var(--secondary-color);
+  } */
 
