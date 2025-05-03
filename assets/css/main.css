@@ -116,7 +116,7 @@ a {
 .search-icon,
 .profile-icon,
 .favorite-icon,
-.login-link {
+.login-link{
   width: 40px;
   height: 40px;
   display: flex;
@@ -127,6 +127,10 @@ a {
   color: var(--text-dark);
   margin: 0 5px;
   transition: var(--transition);
+}
+
+.favorite-icon .badge{
+  color: var(--text-dark);
 }
 
 a {
