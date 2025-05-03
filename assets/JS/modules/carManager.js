@@ -1,6 +1,6 @@
+// carManager.js
 import { fetchData } from "./fetchData.js";
 
-// carManager.js
 let currentCarsPage = 1;
 
 // ========= Car Operations =========
@@ -88,17 +88,17 @@ export const displayCars = async (_cars, options = {}) => {
       container.appendChild(noDataMessage);
     } else {
       carsToDisplay.forEach((car) => {
-        const { id, image, brand, model, type, year, pricePerDay, availability, rating } = car;
+        const { id, images, brand, model, type, year, pricePerDay, availability, rating } = car;
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${id}</td>
-          <td><img class="table-img" src="${image}" /></td>
+          <td><img class="table-img" src="${images ? images[0] : ""}" /></td>
           <td>${brand}</td>
           <td>${model}</td>
           <td>${type}</td>
           <td>${year}</td>
-          <td>${pricePerDay}</td>
+          <td>${pricePerDay} EGP</td>
           <td>
             <div class="badge ${availability === true ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} fw-medium px-3 py-2">
               ${availability === true ? 'Available' : 'Not Available'}
@@ -144,14 +144,13 @@ const createPaginationControls = (cars, totalCars, carsLimit , currentPage) => {
   totalCars ? paginationContainer.classList.remove("d-none") : paginationContainer.classList.add("d-none");
   const totalPages = Math.ceil(totalCars / carsLimit);
 
-  // Helper function to create pagination buttons
   const createPageButton = (text, page, disabled = false, isActive = false) => {
     const btn = document.createElement("button");
     btn.className = `btn btn-sm btn-outline--primary ${isActive ? 'active' : ''}`;
     btn.textContent = text;
     btn.disabled = disabled;
     if (isActive) {
-      btn.style.pointerEvents = 'none'; // Disable click on active button
+      btn.style.pointerEvents = 'none';
     }
     btn.addEventListener("click", async () => {
       currentCarsPage = page;
@@ -160,38 +159,30 @@ const createPaginationControls = (cars, totalCars, carsLimit , currentPage) => {
     return btn;
   };
 
-  // Previous button
   paginationContainer.appendChild(createPageButton('« Previous', currentPage - 1, currentPage === 1));
 
-  // Always show the first page
   paginationContainer.appendChild(createPageButton(1, 1, false, currentPage === 1));
 
-  // Show ellipsis (...) if there are many pages before the current page
   if (currentPage - 1 > 2) {
-    paginationContainer.appendChild(createPageButton('...', 0, true)); // Disable the "..." button
+    paginationContainer.appendChild(createPageButton('...', 0, true));
   }
 
-  // Display only the previous, current, and next pages
-  const startPage = Math.max(2, currentPage - 1); // The page before current
-  const endPage = Math.min(totalPages - 1, currentPage + 1); // The page after current
+  const startPage = Math.max(2, currentPage - 1);
+  const endPage = Math.min(totalPages - 1, currentPage + 1);
 
-  // Append the page buttons to the pagination container
   for (let i = startPage; i <= endPage; i++) {
     const btn = createPageButton(i, i, false, i === currentPage);
     paginationContainer.appendChild(btn);
   }
 
-  // Show ellipsis (...) if there are many pages after the current page
   if (currentPage + 1 < totalPages - 1) {
-    paginationContainer.appendChild(createPageButton('...', 0, true)); // Disable the "..." button
+    paginationContainer.appendChild(createPageButton('...', 0, true));
   }
 
-  // Always show the last page
   if (totalPages > 1) {
     paginationContainer.appendChild(createPageButton(totalPages, totalPages, false, currentPage === totalPages));
   }
 
-  // Next button
   paginationContainer.appendChild(createPageButton('Next »', currentPage + 1, currentPage === totalPages));
 };
 
@@ -217,13 +208,29 @@ export const updateForm = async (_id) => {
   const updateCarBtn = document.getElementById("updateCarBtn");
   updateCarBtn.replaceWith(updateCarBtn.cloneNode(true));
 
+  let imagePaths = [];
+  carEditForm.querySelector("[name=image]").addEventListener('change', function(e) {
+    const files = e.target.files;
+  
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.startsWith("image/")) {
+        imagePaths.push(`/assets/images/cars/${file.webkitRelativePath}`);
+      }
+    }
+  });
+
   document.getElementById("updateCarBtn").addEventListener("click", async (e) => {
     e.preventDefault();
 
     const updatedData = getFormData(carEditForm);
     if (!validateCarData(updatedData)) return;
 
-    const res = await updateCar(_id, updatedData);
+    let res;
+    imagePaths.length ?
+      res = await updateCar(_id, { ...updatedData, images: imagePaths }) :
+      res = await updateCar(_id, updatedData);
+
     if (res) {
       bootstrap.Modal.getInstance(document.getElementById("carEditModal")).hide();
       toastr.success("Car updated successfully!");
@@ -232,6 +239,7 @@ export const updateForm = async (_id) => {
     } else {
       toastr.error("Something went wrong, please try again.");
     }
+
   });
 };
 
@@ -241,13 +249,25 @@ export const addCarForm = async () => {
   
   if (!addCarButton) return;
 
+  let imagePaths = [];
+  carAddForm.querySelector("[name=image]").addEventListener('change', function(e) {
+    const files = e.target.files;
+  
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.startsWith("image/")) {
+        imagePaths.push(`/assets/images/cars/${file.webkitRelativePath}`);
+      }
+    }
+  });
+
   addCarButton.addEventListener("click", async (e) => {
     e.preventDefault();
-
+    
     const newCarData = getFormData(carAddForm);
     if (!validateCarData(newCarData)) return;
 
-    const res = await addCar(newCarData);
+    const res = await addCar({...newCarData, images: imagePaths});
     if (res) {
       carAddForm.reset();
       bootstrap.Modal.getInstance(document.getElementById("carAddModal")).hide();
@@ -257,6 +277,7 @@ export const addCarForm = async () => {
     } else {
       toastr.error("Something went wrong, please try again.");
     }
+    imagePaths = [];
   });
 };
 
@@ -280,7 +301,6 @@ const fillForm = (form, car) => {
   form.querySelector("[name=price]").value = car.pricePerDay;
   form.querySelector("[name=status]").value = car.availability;
   form.querySelector("[name=rating]").value = car.rating;
-  form.querySelector("[name=image]").value = car.image;
   form.querySelector("[name=description]").value = car.description;
 };
 
@@ -292,12 +312,11 @@ const getFormData = (form) => ({
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
   availability: form.querySelector("[name=status]").value === "true",
   rating: parseFloat(form.querySelector("[name=rating]").value),
-  image: form.querySelector("[name=image]").value.trim(),
   description: form.querySelector("[name=description]").value.trim()
 });
 
-const validateCarData = ({ brand, model, type, image, year, pricePerDay, rating, description }) => {
-  if (!brand || !model || !type || !image || !description) {
+const validateCarData = ({ brand, model, type, year, pricePerDay, rating, description }) => {
+  if (!brand || !model || !type || !description) {
     toastr.error("Please fill in all required fields!");
     return false;
   }
@@ -336,13 +355,11 @@ export const filterCars = async (_filters = {}) => {
         return carValue == parseFloat(value);
       }
 
-      // فلتر Range
       if (Array.isArray(value) && !isNaN(parseFloat(value[0])) && !isNaN(parseFloat(value[1]))) {
         const [min, max] = value;
         return carValue >= parseInt(min) && carValue <= parseInt(max);
       }
 
-      // مقارنة نصوص بدون حساسية لحالة الأحرف
       if (typeof value === 'string' && typeof carValue === 'string') {
         return carValue.toLowerCase() === value.toLowerCase();
       }

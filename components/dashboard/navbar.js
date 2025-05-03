@@ -1,5 +1,6 @@
 import { theme } from "/assets/JS/modules/theme.js";
 import { dropdown } from "/assets/JS/modules/dropdown.js";
+import { logout } from "/assets/JS/modules/userManager.js";
 
 (async function () {
   const navbarContainer = document.getElementById("navbar");
@@ -20,6 +21,7 @@ import { dropdown } from "/assets/JS/modules/dropdown.js";
 
     notifications();
     dropdown();
+    logout();
     theme();
   } catch (err) {
     console.error("Error loading navbar:", err);
