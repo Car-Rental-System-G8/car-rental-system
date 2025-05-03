@@ -5,6 +5,7 @@ const passField = document.getElementById("password");
 const imageField = document.getElementById("image");
 const saveButton = document.getElementById("form-button");
 const inputs = [nameField, phoneField, passField, imageField];
+const loader = document.getElementById("loader")
 // errors
 const nameError = document.getElementById("name-error");
 const phoneError = document.getElementById("phone-error");
@@ -16,6 +17,7 @@ fetchAndHandleUser();
 
 async function fetchAndHandleUser() {
   const response = await getUsers();
+  loader.style.display = "none";
   if (response.success) {
     const users = response.data;
     const currentUser = users.find((user) => user.email === currentUserEmail);
