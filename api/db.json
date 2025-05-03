@@ -289,7 +289,6 @@
       ],
       "pricePerDay": 550,
       "availability": true,
-      "rating": 4.7,
       "description": "Elegant and smooth sedan with advanced safety and infotainment features.",
       "seats": 5,
       "fuelType": "Gas",
@@ -322,7 +321,6 @@
       ],
       "pricePerDay": 600,
       "availability": true,
-      "rating": 4.6,
       "description": "The 2023 BMW 3 Series offers a blend of performance and luxury, featuring a turbocharged engine and advanced technology.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -355,7 +353,6 @@
       ],
       "pricePerDay": 580,
       "availability": false,
-      "rating": 4.5,
       "description": "The 2023 Audi A4 combines elegant design with cutting-edge technology, offering a comfortable and dynamic driving experience.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -388,7 +385,6 @@
       ],
       "pricePerDay": 570,
       "availability": true,
-      "rating": 4.4,
       "description": "The 2023 Lexus IS offers a refined ride with a focus on comfort and reliability, featuring a sleek design and advanced safety features.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -421,7 +417,6 @@
       ],
       "pricePerDay": 620,
       "availability": true,
-      "rating": 4.8,
       "description": "The 2023 Tesla Model 3 offers impressive electric range, cutting-edge technology, and exhilarating performance.",
       "seats": 5,
       "fuelType": "Electric",
@@ -436,7 +431,7 @@
         {
           "userId": "11",
           "comment": "Minimalist interior design is refreshing.",
-          "rating": 4
+          "rating": 2
         }
       ]
     },
@@ -454,7 +449,6 @@
       ],
       "pricePerDay": 560,
       "availability": true,
-      "rating": 4.5,
       "description": "The 2023 Volvo S60 combines Scandinavian design with advanced safety features, offering a comfortable and secure ride.",
       "seats": 5,
       "fuelType": "Gasoline",

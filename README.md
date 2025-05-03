@@ -1,153 +1,87 @@
-# Car Manager Module
 
-This module is responsible for managing car-related operations in a JavaScript-based car rental dashboard application. It provides functionalities to handle data retrieval, UI rendering, CRUD operations, filtering, pagination, and interaction with modals.
+# 🚗 Car Rental System
 
-## 📁 File Overview
+A responsive and interactive web application that allows users to browse, book, and manage car rentals while providing administrative tools for overseeing the system. Built with modern web technologies, it supports role-based access, dark mode, and interactive dashboards.
 
-**File:** `carManager.js`  
-**Dependencies:**  
-- `fetchData.js` - A wrapper for fetch API
-- SweetAlert2 - For confirmation and alerts
-- Toastr - For toast notifications
-- Bootstrap - For modal management
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Car-Rental-System-G8/car-rental-system.git
+cd car-rental-system
+```
+
+### 2. Install JSON Server (if not installed)
+
+```bash
+npm install -g json-server
+```
+
+### 3. Start Backend Server
+
+```bash
+json-server --watch db.json
+```
+
+### 4. Open in Browser Using Live Server
+
+To open the project using Live Server:
+
+1. Install **Live Server** extension in VS Code.
+2. Right-click on `index.html` (for customer view) or `admin.html` (for the admin dashboard).
+3. Select **Open with Live Server**.
 
 ---
 
-## ✅ Features
+## 🔧 Technologies Used
 
-- Fetch all cars or a single car by ID
-- Add a new car
-- Update existing car data
-- Delete a car with confirmation
-- Display cars in a paginated table
-- Attach edit and delete button listeners
-- Populate modals with car data
-- Client-side car filtering with multiple conditions
-- Form data extraction and validation
-
----
-
-## 🚀 How to Use
-
-### Importing
-```js
-import * as CarManager from './carManager.js';
-```
-
-### Get Cars
-```js
-CarManager.getCars(); // fetch all cars
-CarManager.getCars("123"); // fetch a single car by ID
-```
-
-### Add a New Car
-```js
-CarManager.addCar({ brand, model, type, year, pricePerDay, availability, rating, image });
-```
-
-### Update an Existing Car
-```js
-CarManager.updateCar(carId, updatedData);
-```
-
-### Delete a Car
-```js
-CarManager.deleteCar(carId); // Uses SweetAlert2 for confirmation
-```
-
-### Display Cars in the Table
-```js
-CarManager.displayCars(carArray, {
-  currentPage: 1,
-  carsLimit: 5,
-  isPagination: true
-});
-```
-
-### Attach Add Car Form Logic
-```js
-CarManager.addCarForm();
-```
-
-### Attach Update Car Form Logic
-```js
-CarManager.updateForm(carId);
-```
-
-### Get Car Count
-```js
-await CarManager.getCarsLength(); // total cars
-await CarManager.getAvaliableCarsLength(); // only available cars
-```
-
-### Filter Cars
-```js
-CarManager.filterCars({ brand: "Toyota", year: 2022, rating: 4 });
-```
+- HTML5 & CSS3
+- JavaScript (ES6)
+- Bootstrap (local files)
+- jQuery
+- Font Awesome (as files)
+- Google Fonts (imported as files)
+- SweetAlert2
+- Toastr
+- Chart.js
+- JSON Server (for backend simulation)
 
 ---
 
-## 🧠 Implementation Notes
+## 📦 Features
 
-- `displayCars()` includes dynamic pagination via `createPaginationControls()`
-- Pagination buttons adapt to page context with "..." if necessary
-- `fillForm()` pre-fills the modal forms using DOM selectors
-- `validateCarData()` ensures valid inputs before add/update
-- `filterCars()` supports string, numeric, and range-based filters
+### 🔐 User Features
 
----
+- **Register/Login**: Create an account with email, password, and phone number.
+- **Session Management**: Uses localStorage to manage user sessions.
+- **Car Browsing**: View all available cars, with filtering by name, brand, price, and availability.
+- **Search & Recommendations**: Tailored recommendations based on selected car specs.
+- **Booking**: Choose rental dates and get booking confirmation with conflict checks.
+- **Favorites**: Save cars to a personal favorites list.
+- **Profile Management**: View and edit user details.
+- **Booking History**: See a history of previous bookings.
+- **Reviews**: View and submit reviews for cars.
+- **Checkout**: Calculates total cost based on rental duration and car.
+- **Dark Mode**: Toggle between light and dark themes.
 
-## 🔧 Required DOM Elements
+### 🛠 Admin Features
 
-Ensure the following elements exist in your HTML:
-
-- `#carsTableContainer` – Table body container
-- `#paginationControls` – For pagination buttons
-- `#carAddForm`, `#carEditForm` – Modal forms
-- `#addCarBtn`, `#updateCarBtn` – Buttons inside modals
-
----
-
-## 📌 Example Workflow
-
-```js
-const allCars = await CarManager.getCars();
-CarManager.displayCars(allCars, { currentPage: 1, carsLimit: 5 });
-```
+- **Admin Dashboard**: Accessible via admin login (defined in db.json).
+- **Car Management**: Add, edit, delete car listings.
+- **Booking Management**: View, confirm, or delete bookings.
+- **Contact Messages**: View user-submitted queries and issues.
+- **Analytics Dashboard**: Visual reports for bookings, profits, availability using Chart.js.
+- **Toastr Alerts**: Admin gets instant alerts for user interactions.
 
 ---
 
-## 📎 Tip
+This will open the project in your browser with live reloading.
 
-This module expects a backend running at:
-```
-http://localhost:3000/cars
-```
+📂 **File Structure (No CDN Usage)**
 
----
+All assets like Bootstrap, jQuery, Font Awesome, and Google Fonts are imported locally as files to ensure offline compatibility and faster performance.
 
-## 🧼 Clean Code Practices
+✉ **Contact**
 
-- Separated concerns: UI, logic, data
-- Asynchronous handling with `async/await`
-- Graceful error handling with fallback alerts
-- Modular structure, reusable helpers
-
----
-
-## 🛡️ Validations
-
-- Year should be between 1900 and current year
-- Price should be a positive number
-- Rating should be between 0 and 5
-- All required fields must be filled
-
----
-
-## 📞 Contact
-
-For improvements or issues, please reach out to the development team.
-
----
-
-Happy coding!
+For questions or contributions, feel free to open an issue or submit a pull request.
