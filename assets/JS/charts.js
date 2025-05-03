@@ -168,14 +168,15 @@ async function loadData_2() {
         if (!response) throw new Error('Network response was not ok');
         const data = await response.json();
 
-        const cars = data;
+        const cars = data.slice(0, 15);
 
         function gettingPrices() {
             let prices = []
             let carsLabels = []
             for (let i in cars) {
                 prices.push(cars[i].pricePerDay)
-                carsLabels.push(`car ID-${cars[i].id}`)
+                // carsLabels.push(`car ID-${cars[i].id}`)
+                carsLabels.push(`${cars[i].brand} ${cars[i].model}`)
             }
         
             const ctx = document.getElementById('myChart-1');
