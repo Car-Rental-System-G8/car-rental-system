@@ -7,7 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
-      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
+      "images": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
     },
     {
       "id": "2",
@@ -191,141 +191,206 @@
   "cars": [
     {
       "id": "1",
-      "brand": "audi",
-      "model": "luxury",
+      "brand": "mercedes",
+      "model": "C-Class",
       "type": "Sedan",
-      "year": 2022,
-      "image": "/assets/images/cars/cars listing/red-edition-audi-luxury-car-jdc.png",
-      "pricePerDay": 400,
-      "availability": false,
-      "rating": 4.5,
-      "description": "Comfortable and fuel-efficient sedan, perfect for city rides."
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/merceds c-class 2021 - 1/slider1.png", 
+        "/assets/images/cars/merceds c-class 2021 - 1/slider2.webp",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider3.png",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider4.png",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider4.png"
+      ],
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 4.7,
+      "description": "Elegant and smooth sedan with advanced safety and infotainment features.",
+      "seats": 5,
+      "fuelType": "Gas",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "2",
+          "comment": "Stylish and powerful. Loved the driving experience.",
+          "rating": 5
+        },
+        {
+          "userId": "3",
+          "comment": "Premium feel and performance, though a bit pricey.",
+          "rating": 4
+        }
+      ]
     },
     {
       "id": "2",
-      "brand": "mercedes",
-      "model": "X-6",
-      "type": "SUV",
+      "brand": "BMW",
+      "model": "3 Series",
+      "type": "Sedan",
       "year": 2023,
-      "image": "/assets/images/cars/cars listing/mercedes gray.png",
-      "pricePerDay": 550,
-      "availability": false,
-      "rating": 4.7,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "images": [
+        "/assets/images/cars/bmw-3-series-2023/slider 1.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 2.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 3.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 4.png"
+      ],
+      "pricePerDay": 600,
+      "availability": true,
+      "rating": 4.6,
+      "description": "The 2023 BMW 3 Series offers a blend of performance and luxury, featuring a turbocharged engine and advanced technology.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "4",
+          "comment": "Smooth ride and impressive handling. The tech features are top-notch.",
+          "rating": 5
+        },
+        {
+          "userId": "5",
+          "comment": "A bit pricey, but the driving experience justifies it.",
+          "rating": 4
+        }
+      ]
     },
     {
       "id": "3",
-      "brand": "lancer",
-      "model": "Mitsubishi",
+      "brand": "Audi",
+      "model": "A4",
       "type": "Sedan",
-      "year": 2025,
-      "image": "/assets/images/cars/cars listing/lancer Mitsubishi gray.png",
-      "pricePerDay": 330,
-      "availability": true,
-      "rating": 5,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/audi-a4-2023/slider1.png",
+        "/assets/images/cars/audi-a4-2023/slider2.png",
+        "/assets/images/cars/audi-a4-2023/slider3.png",
+        "/assets/images/cars/audi-a4-2023/slider4.webp"
+      ],
+      "pricePerDay": 580,
+      "availability": false,
+      "rating": 4.5,
+      "description": "The 2023 Audi A4 combines elegant design with cutting-edge technology, offering a comfortable and dynamic driving experience.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Silver",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "6",
+          "comment": "Elegant design and smooth performance. Loved the interior quality.",
+          "rating": 5
+        },
+        {
+          "userId": "7",
+          "comment": "Great value for the features offered.",
+          "rating": 4
+        }
+      ]
     },
     {
       "id": "4",
-      "brand": "toyota",
-      "model": "fortuner",
-      "type": "SUV",
-      "year": 2024,
-      "image": "/assets/images/cars/cars listing/toyota fortuner .webp",
-      "pricePerDay": 650,
+      "brand": "Lexus",
+      "model": "IS",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/lexus-is-2023/slider1.webp",
+        "/assets/images/cars/lexus-is-2023/slider2.webp",
+        "/assets/images/cars/lexus-is-2023/slider3.png",
+        "/assets/images/cars/lexus-is-2023/slider4.webp"
+      ],
+      "pricePerDay": 570,
       "availability": true,
-      "rating": 4,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "rating": 4.4,
+      "description": "The 2023 Lexus IS offers a refined ride with a focus on comfort and reliability, featuring a sleek design and advanced safety features.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Red",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "8",
+          "comment": "Comfortable and quiet ride. The safety features are impressive.",
+          "rating": 5
+        },
+        {
+          "userId": "9",
+          "comment": "Stylish exterior but could use more power.",
+          "rating": 4
+        }
+      ]
     },
     {
       "id": "5",
-      "brand": "volkswagen",
-      "model": "GLI",
-      "type": "jetta",
-      "year": 2025,
-      "image": "/assets/images/cars/cars listing/volkswagen jetta GLI black.webp",
-      "pricePerDay": 1000,
+      "brand": "Tesla",
+      "model": "Model 3",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/tesla-model-3-2023/slider1.png",
+        "/assets/images/cars/tesla-model-3-2023/slider2.webp",
+        "/assets/images/cars/tesla-model-3-2023/slider3.png",
+        "/assets/images/cars/tesla-model-3-2023/slider4.png"
+      ],
+      "pricePerDay": 620,
       "availability": true,
-      "rating": 5,
-      "description": "Spacious and powerful SUV suitable for family trips."
+      "rating": 4.8,
+      "description": "The 2023 Tesla Model 3 offers impressive electric range, cutting-edge technology, and exhilarating performance.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Blue",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "10",
+          "comment": "Incredible acceleration and tech features. Charging is convenient.",
+          "rating": 5
+        },
+        {
+          "userId": "11",
+          "comment": "Minimalist interior design is refreshing.",
+          "rating": 4
+        }
+      ]
     },
     {
       "id": "6",
-      "brand": "bugatti",
-      "model": "g3",
-      "type": "SUV",
-      "year": 2025,
-      "image": "/assets/images/cars/cars listing/bugatti_PNG17.png",
-      "pricePerDay": 2500,
-      "availability": false,
-      "rating": 5,
-      "description": "Spacious and powerful SUV suitable for family trips."
-    },
-    {
-      "id": "71a8",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
+      "brand": "Volvo",
+      "model": "S60",
+      "type": "Sedan",
       "year": 2023,
-      "pricePerDay": 550,
+      "images": [
+        "/assets/images/cars/volvo-s60-2023/slider1.png",
+        "/assets/images/cars/volvo-s60-2023/slider2.png",
+        "/assets/images/cars/volvo-s60-2023/slider3.webp",
+        "/assets/images/cars/volvo-s60-2023/slider4.png"
+      ],
+      "pricePerDay": 560,
       "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "0f95",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "5d2c",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "db72",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "ed3f",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
-    },
-    {
-      "id": "082a",
-      "brand": "Kia",
-      "model": "Sportage",
-      "type": "SUV",
-      "year": 2023,
-      "pricePerDay": 550,
-      "availability": true,
-      "rating": 5,
-      "image": "https://placehold.co/80x80"
+      "rating": 4.5,
+      "description": "The 2023 Volvo S60 combines Scandinavian design with advanced safety features, offering a comfortable and secure ride.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "12",
+          "comment": "Elegant interior and top-notch safety features.",
+          "rating": 5
+        },
+        {
+          "userId": "13",
+          "comment": "Smooth ride but infotainment system could be more intuitive.",
+          "rating": 4
+        }
+      ]
     }
+    
+    
+    
+    
   ]
 }
