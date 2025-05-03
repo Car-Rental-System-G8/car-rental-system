@@ -8,3 +8,14 @@ export const getCurrentUser = async () => {
   });
   return currentUser;
 };
+
+// Logout Functionality
+export const logout = () => {
+  document.querySelectorAll(".logout-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("currentUser");
+      window.location = "/";
+    });
+  });
+};

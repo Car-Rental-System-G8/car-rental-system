@@ -21,17 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.body.classList.remove("overflow-hidden");
   } catch (err) {
     console.log(err);
-    // window.location = "/";
   }
-});
-
-// Logout Functionality
-document.querySelectorAll(".logout-btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.removeItem("currentUser");
-    window.location = "/";
-  });
 });
 
 if (window.toastr) {

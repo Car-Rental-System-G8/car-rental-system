@@ -115,20 +115,73 @@
       "returnDate": "2025-05-30",
       "status": "confirmed",
       "paymentMethod": "cash"
+    },
+    {
+      "id": "cb64",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 6600,
+      "pickupDate": "2025-05-02T21:20",
+      "returnDate": "2025-05-17T21:16",
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Egypt",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "2dc9",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 22880,
+      "pickupDate": "2025-05-09T21:38",
+      "returnDate": "2025-06-30T21:38",
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "f81c",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 7040,
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "returnDate": "2025-05-17T21:56",
+      "pickupDate": "2025-05-02T21:54",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "2cac",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 13640,
+      "pickupDate": "2025-06-30T21:57",
+      "returnDate": "2025-07-31T21:57",
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
     }
   ],
   "contacts": [
-    {
-      "id": "a030",
-      "firstName": "Sara",
-      "lastName": "rezk",
-      "email": "3535sade@gmail.com",
-      "phone": "01089456798",
-      "subject": "the service is bad",
-      "message": "peovhex lvb;ewpi4 gpyq;i la;Gaqet",
-      "userId": "1",
-      "starred": true
-    },
     {
       "id": "52a2",
       "firstName": "Shaima",
@@ -165,7 +218,7 @@
       "year": 2022,
       "image": "/assets/images/cars/cars listing/red-edition-audi-luxury-car-jdc.png",
       "pricePerDay": 400,
-      "availability": false,
+      "availability": true,
       "rating": 4.5,
       "description": "Comfortable and fuel-efficient sedan, perfect for city rides."
     },
@@ -294,6 +347,40 @@
       "availability": true,
       "rating": 5,
       "image": "https://placehold.co/80x80"
+    },
+    {
+      "id": "4715",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "description": "Spacious and powerful SUV suitable for family.",
+      "images": [
+        "/assets/images/cars/lexus-is-2023/slider1.webp",
+        "/assets/images/cars/lexus-is-2023/slider2.webp",
+        "/assets/images/cars/lexus-is-2023/slider3.webp",
+        "/assets/images/cars/lexus-is-2023/slider4.webp"
+      ]
+    },
+    {
+      "id": "413b",
+      "brand": "Kia",
+      "model": "Sportage",
+      "type": "SUV",
+      "year": 2023,
+      "pricePerDay": 550,
+      "availability": true,
+      "rating": 5,
+      "description": "Spacious and powerful SUV suitable for family.",
+      "images": [
+        "/assets/images/cars/tesla-model-3-2023/sldider2.webp",
+        "/assets/images/cars/tesla-model-3-2023/slider1.png",
+        "/assets/images/cars/tesla-model-3-2023/slider3.png",
+        "/assets/images/cars/tesla-model-3-2023/slider4.png"
+      ]
     }
   ]
 }
