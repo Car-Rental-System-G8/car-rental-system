@@ -241,4 +241,12 @@
   }
 
 
-
+  [data-theme="dark"] .input-group-text i {
+    border: var(--primary-color-opacity);
+  }
+  
+  [data-theme="dark"] #pickupDateHome, #returnDateHome {
+   
+    border: solid 1px var( --text-light);
+  }
+  

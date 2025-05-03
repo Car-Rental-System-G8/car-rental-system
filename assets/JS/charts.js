@@ -30,7 +30,7 @@ async function loadData() {
                     datasets: [{
                         data: status,
                         borderWidth: 0,
-                        borderColor: '#fff', // White border for each slice
+                        borderColor: '#fff', 
                         backgroundColor: ['#4caf50', '#f44336', '#ffc107'],
                         hoverBackgroundColor: ['#329536', '#de3225', '#edb717'],
                     }]
@@ -61,13 +61,13 @@ async function loadData() {
                                 let percentage = (value * 100 / sum).toFixed(1) + "%";
                                 return percentage;
                             },
-                            color: '#fff', // Label text color
+                            color: '#fff', 
                             font: {
                                 weight: 'bold',
                                 size: 14
                             },
-                            align: 'center', // Center align the labels in the pie slices
-                            anchor: 'center', // Center anchor position
+                            align: 'center', 
+                            anchor: 'center', 
                         },
                         title: {
                             display: false,
@@ -108,14 +108,14 @@ async function loadData() {
                     datasets: [{
                         label: 'Booking Duration (Days)',
                         data: bookingsTime,
-                        fill: true, // 👉 Fills the area under the line for a smooth look
-                        backgroundColor: 'rgba(48, 71, 224, 0.1)', // Light blue background
-                        borderColor: '#3047E0', // Stronger blue border
-                        pointBackgroundColor: '#3047E0', // Points color
-                        pointBorderColor: '#fff', // Point border color
-                        pointHoverBackgroundColor: '#fff', // Hover color
+                        fill: true, 
+                        backgroundColor: 'rgba(48, 71, 224, 0.1)', 
+                        borderColor: '#3047E0', 
+                        pointBackgroundColor: '#3047E0', 
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
                         pointHoverBorderColor: '#3047E0',
-                        tension: 0.4, // 👉 Smooth curved lines
+                        tension: 0.4, 
                         borderWidth: 2
                     }]
                 },
@@ -168,14 +168,15 @@ async function loadData_2() {
         if (!response) throw new Error('Network response was not ok');
         const data = await response.json();
 
-        const cars = data;
+        const cars = data.slice(0, 15);
 
         function gettingPrices() {
             let prices = []
             let carsLabels = []
             for (let i in cars) {
                 prices.push(cars[i].pricePerDay)
-                carsLabels.push(`car ID-${cars[i].id}`)
+                // carsLabels.push(`car ID-${cars[i].id}`)
+                carsLabels.push(`${cars[i].brand} ${cars[i].model}`)
             }
         
             const ctx = document.getElementById('myChart-1');
@@ -188,13 +189,13 @@ async function loadData_2() {
                         label: 'Car Cost per day',
                         data: prices,
                         borderWidth: 1,
-                        borderColor: '#3047E050', // Blue color for the border
+                        borderColor: '#3047E050', 
                         backgroundColor: '#3047E0',
-                        hoverBackgroundColor: 'rgba(48, 71, 224, 0.8)', // Hover color
-                        hoverBorderColor: '#3047E050', // Hover border color
-                        borderRadius: 0, // Rounded corners for bars
-                        barPercentage: 0.5, // Control the width of the bars
-                        categoryPercentage: 0.8, // Control the space between bars
+                        hoverBackgroundColor: 'rgba(48, 71, 224, 0.8)', 
+                        hoverBorderColor: '#3047E050', 
+                        borderRadius: 0,
+                        barPercentage: 0.5, 
+                        categoryPercentage: 0.8, 
                         
                     }]
                 },
