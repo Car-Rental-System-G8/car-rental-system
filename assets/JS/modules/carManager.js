@@ -56,6 +56,28 @@ export const deleteCar = async (_id) => {
 };
 
 // ========= DOM Rendering =========
+export function displayStars(rating) {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  const emptyStars = 5 - Math.ceil(rating);
+
+  let starsHTML = '';
+
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += '<i class="fa fa-star"></i>';
+  }
+
+  if (hasHalfStar) {
+    starsHTML += '<i class="fa fa-star-half-alt"></i>';
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    starsHTML += '<i class="far fa-star"></i>';
+  }
+
+  return starsHTML;
+}
+
 export const displayCars = async (_cars, options = {}) => {
   const {
     currentPage = 1,
@@ -88,7 +110,8 @@ export const displayCars = async (_cars, options = {}) => {
       container.appendChild(noDataMessage);
     } else {
       carsToDisplay.forEach((car) => {
-        const { id, images, brand, model, type, year, pricePerDay, availability, rating } = car;
+        const { id, images, brand, model, type, year, pricePerDay, availability, reviews } = car;
+        const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -104,7 +127,11 @@ export const displayCars = async (_cars, options = {}) => {
               ${availability === true ? 'Available' : 'Not Available'}
             </div>
           </td>
-          <td class="text-start"><div class="dashboard-rating"><i class="fa fa-star"></i> ${rating}</div></td>
+          <td>
+            <div class="dashboard-rating">
+              ${displayStars(averageRating)}
+            </div>
+          </td>
           <td>
             <div class="row row-cols-auto justify-content-end flex-nowrap g-2">
               <div class="col">
@@ -300,7 +327,6 @@ const fillForm = (form, car) => {
   form.querySelector("[name=year]").value = car.year;
   form.querySelector("[name=price]").value = car.pricePerDay;
   form.querySelector("[name=status]").value = car.availability;
-  form.querySelector("[name=rating]").value = car.rating;
   form.querySelector("[name=description]").value = car.description;
 };
 
@@ -311,7 +337,6 @@ const getFormData = (form) => ({
   year: parseInt(form.querySelector("[name=year]").value),
   pricePerDay: parseFloat(form.querySelector("[name=price]").value),
   availability: form.querySelector("[name=status]").value === "true",
-  rating: parseFloat(form.querySelector("[name=rating]").value),
   description: form.querySelector("[name=description]").value.trim()
 });
 
@@ -331,11 +356,6 @@ const validateCarData = ({ brand, model, type, year, pricePerDay, rating, descri
     return false;
   }
 
-  if (isNaN(rating) || rating < 0 || rating > 5) {
-    toastr.error("Please enter a rating between 0 and 5!");
-    return false;
-  }
-
   return true;
 };
 
@@ -348,7 +368,13 @@ export const filterCars = async (_filters = {}) => {
       const carValue = !isNaN(parseFloat(rawValue)) ? parseFloat(rawValue) : rawValue;
 
       if (key === "rating" && !isNaN(parseFloat(value))) {
-        return carValue >= parseFloat(value);
+        const filterRating = parseFloat(value); // القيمة التي سيتم الفلترة بناءً عليها
+
+        // حساب متوسط التقييم للسيارة من المراجعات
+        const averageRating = car.reviews.reduce((sum, review) => sum + review.rating, 0) / car.reviews.length;
+
+        // التصفية بناءً على التقييم
+        return averageRating >= filterRating; // إذا كان متوسط التقييم أكبر من أو يساوي الفلتر
       }
 
       if (key === "year" && !isNaN(parseFloat(value))) {
@@ -368,3 +394,5 @@ export const filterCars = async (_filters = {}) => {
     });
   });
 };
+
+
