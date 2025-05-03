@@ -38,11 +38,11 @@ $(document).ready(function () {
 });
 
 // Handle nav link clicks to update active state
-$(".nav-link").click(function (e) {
-  e.preventDefault();
-  $(".nav-link").removeClass("active");
-  $(this).addClass("active");
-});
+// $(".nav-link").click(function (e) {
+//   e.preventDefault();
+//   $(".nav-link").removeClass("active");
+//   $(this).addClass("active");
+// });
 
 
 //   ================ Car Listing Page   ===========================

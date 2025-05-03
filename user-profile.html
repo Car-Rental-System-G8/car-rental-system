@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendors/sweetalert2/sweetalert2.min.css" />
+    <link href="vendors/fontawesome/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/user-profile.css">
+    <title>User Profile | HV Car Rental</title>
+</head>
+<body>
+    <!-- Navigation Bar Fetch -->
+    <div id="navbar"></div>
+
+    <div class="container animate-fadeIn pt-5 mt-5">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-image-container">
+                    <img id="profileImage" src="assets/images/others/istockphoto-1051172208-612x612.jpg" alt="Profile Picture" class="profile-image">
+                </div>
+                <h2 id="headerName" class="user-name">Loading User...</h2>
+            </div>
+            
+            <div class="profile-body">
+                <div class="info-section">
+                    <h3 class="section-title">Personal Information</h3>
+                    <div id="profileDetails">
+                        <!-- User details will be injected here by JS -->
+                        <div class="text-center py-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading profile information...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a id="editProfileBtn" href="#" class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </a>
+                    <a href="index.html" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer fetch -->
+    <div id="footer"></div>
+
+
+    <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/JS/main-script.js" type="module"></script>
+    <script src="components/user/load-navbar.js"></script>
+    <script src="components/user/load-footer.js"></script>
+    <script src="assets/JS/user-profile.js"></script>
+</body>
+</html>

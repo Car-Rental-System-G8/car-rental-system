@@ -1,11 +1,12 @@
 
 let pp = document.querySelector(".profile-image");
-pp.src = "./assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg";
+pp.src = "";
+
 let nameField = document.querySelector("#name");
 let emailField = document.querySelector("#email");
 let phoneField = document.querySelector("#phone");
 let passField = document.querySelector("#password");
-let imageField = document.querySelector("#image");
+let imageField = document.querySelector("#imageUpload");
 let saveButton = document.querySelector(".save-button");
 
 
@@ -23,7 +24,12 @@ async function fetchAndHandleUser() {
       emailField.value = currentUser.email;
       phoneField.value = currentUser.phone;
       passField.value = currentUser.password;
-      imageField.value = currentUser.image;
+      // imageField.value = currentUser.image;
+      pp.src = currentUser.image;
+      if(!currentUser.image){
+        pp.src = "/assets/images/avatar/01.jpg"
+      }
+
       saveButton.addEventListener("click", (e) =>{
         e.preventDefault();
         updatingContact(currentUser.id)
@@ -37,16 +43,36 @@ async function fetchAndHandleUser() {
 }
 fetchAndHandleUser();
 
+
+
+let filePath;
+
+imageField.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      pp.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    filePath = `/assets/images/avatar/${file.name}`;
+  }
+});
+
+
 async function updatingContact(id) {
   const updatedUser = {
     name: nameField.value,
     email: emailField.value,
     phone: phoneField.value,
     password: passField.value,
-    image: imageField.value,
+    image: filePath,
   };
   const updateResult = await updateContact(id, updatedUser);
   if (updateResult.success) {
+    // alert(filePath)
     console.log("Success!", "user updated.", "success");
   } else {
     console.log("Error!", updateResult.error, "error");

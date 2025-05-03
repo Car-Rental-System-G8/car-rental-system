@@ -15,7 +15,7 @@
 
 <body>
     <!-- Navigation Bar Fetch -->
-    <div id="navbar"></div>
+    <div id="navbar" data-active="#index"></div>
 
 
     <!-- Hero Section -->
@@ -347,46 +347,58 @@
 
 
     <!-- --------------- starting-----    Customer Service Section -->
-    <section class="why-choose-us">
-        <div class="wcu-container">
-            <div class="wcu-left-column">
-                <div class="wcu-yellow-bg"></div>
+    <section class="why-choose-us pb-5">
+        
+        <div class="container text-center pt-5 ">
+            <h2 class="section-title m-auto">Customer  <span>Services</span></h2>
+            <p class="section-subtitle m-auto">Most Popular Car Rental Deals</p>
+            <div class="row align-items-center gy-5 pt-5 ">
+              <!-- Left Column -->
+              <div class="col-lg-5 position-relative">
+                <div class="wcu-yellow-bg position-absolute top-0 start-0 h-100" style="width: 40%; background-color: var(--primary-color); z-index: 1;"></div>
                 <img src="./assets/images/cars/cars listing/mercedes gray.png" alt="Jeep Image"
-                    class="wcu-jeep-image" />
-            </div>
-            <div class="wcu-right-column">
-                <h4 class="wcu-subtitle">Why To Choose Us</h4>
-                <h2 class="section-title">Customer Services</h2>
-                <div class="wcu-services-grid">
-                    <div class="wcu-service-box">
-                        <h3>Airport Transfer</h3>
-                        <p>Seamless pick-up and drop-off to and from the airport. Punctual drivers and comfortable vehicles ensure you never miss a flight.</p>
+                  class="img-fluid position-relative" style="z-index: 2;" />
+              </div>
+        
+              <!-- Right Column -->
+              <div class="col-lg-7">
+                <div class="row g-4">
+                  <!-- Service Box 1 -->
+                  <div class="col-md-6">
+                    <div class="wcu-service-box shadow-sm p-4 rounded text-center h-100">
+                      <h3 class="h5 fw-bold mb-2">Airport Transfer</h3>
+                      <p class="text-muted small">Seamless pick-up and drop-off to and from the airport. Punctual drivers and comfortable vehicles ensure you never miss a flight.</p>
                     </div>
-                    <div class="wcu-service-box">
-                        <h3>Luxury Drive</h3>
-                        <p>Experience premium travel with our top-tier vehicles. Ideal for business meetings, special occasions, or when you simply want to ride in style.</p>
+                  </div>
+        
+                  <!-- Service Box 2 -->
+                  <div class="col-md-6">
+                    <div class="wcu-service-box shadow-sm p-4 rounded text-center h-100">
+                      <h3 class="h5 fw-bold mb-2">Luxury Drive</h3>
+                      <p class="text-muted small">Experience premium travel with our top-tier vehicles. Ideal for business meetings, special occasions, or when you simply want to ride in style.</p>
                     </div>
-                    <div class="wcu-service-box">
-                        <h3>Pre booking Discount</h3>
-                        <p>Save more by booking your vehicle in advance. Enjoy exclusive early-bird discounts and secure your car before the rush.</p>
+                  </div>
+        
+                  <!-- Service Box 3 -->
+                  <div class="col-md-6">
+                    <div class="wcu-service-box shadow-sm p-4 rounded text-center h-100">
+                      <h3 class="h5 fw-bold mb-2">Pre booking Discount</h3>
+                      <p class="text-muted small">Save more by booking your vehicle in advance. Enjoy exclusive early-bird discounts and secure your car before the rush.</p>
                     </div>
-                    <div class="wcu-service-box">
-                        <h3>Wedding Trips</h3>
-                        <p>Make your big day unforgettable with our elegant wedding transport. Choose from a fleet of luxurious cars tailored for special occasions.</p>
+                  </div>
+        
+                  <!-- Service Box 4 -->
+                  <div class="col-md-6">
+                    <div class="wcu-service-box shadow-sm p-4 rounded text-center h-100">
+                      <h3 class="h5 fw-bold mb-2">Wedding Trips</h3>
+                      <p class="text-muted small">Make your big day unforgettable with our elegant wedding transport. Choose from a fleet of luxurious cars tailored for special occasions.</p>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-        <!-- Background Elements -->
-        <div class="bg-element bg-element-1"></div>
-        <div class="bg-element bg-element-2"></div>
-
+          </div>
     </section>
-
-
-
-
-
     <!-- ---------------  ending -----    Customer Service Section -->
 
 
@@ -401,8 +413,8 @@
     <script src="vendors/jquery/jquery-3.7.1.min.js"></script>
     <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="assets/JS/main-script.js" type="module"></script>
-    <script src="assets/JS/load-navbar.js"></script>
-    <script src="assets/JS/load-footer.js"></script>
+    <script src="components/user/load-navbar.js"></script>
+    <script src="components/user/load-footer.js"></script>
     <script src="assets/JS/testimonials.js"></script>
 
 </body>

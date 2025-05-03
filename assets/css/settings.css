@@ -1,0 +1,11 @@
+.profile-image{
+    width: 100px;
+    height: 100px;
+}
+
+input{
+    border: 2px solid var(--elements-border);
+    padding: 15px;
+    margin-block: 5px;
+    border-radius: 10px;
+}

@@ -15,6 +15,7 @@
   --input-shadow: 0 0 0 5px rgba(94, 204, 201, 0.2); 
   --transition: all 0.3s ease;
   --border-radius: 8px;
+  --footer-bg: #e7e7e7;
 }
 
 * {
@@ -1439,93 +1440,7 @@ right: 10px !important;
 }
 
 /*what Choose Us start */
-
-.why-choose-us {
-  padding: 60px 20px;
-  background: var(--primary-color-opacity);
-  font-family: Arial, sans-serif;
-
-  position: relative;
-  z-index: 1;
-}
-
-.why-choose-us .wcu-container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.why-choose-us .wcu-left-column {
-  position: relative;
-  flex: 1 1 40%;
-  min-width: 300px;
-}
-
-.why-choose-us .wcu-yellow-bg {
-  background-color: var(--primary-color);
-  height: 100%;
-  width: 40%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.why-choose-us .wcu-jeep-image {
-  width: 100%;
-  max-width: 500px;
-  position: relative;
-  z-index: 2;
-}
-
-.why-choose-us .wcu-right-column {
-  flex: 1 1 55%;
-  min-width: 300px;
-}
-
-.why-choose-us .wcu-subtitle {
-  color: var(--primary-color);
-  font-weight: bold;
-  margin: 0;
-  padding-bottom: 25px;
-}
-
-.why-choose-us .wcu-title {
-  font-size: 2.5rem;
-  margin: 10px 0 30px;
-}
-
-.why-choose-us .wcu-services-grid {
-  display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 20px;
-}
-
-.why-choose-us .wcu-service-box {
-  background: #fdfdfd;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  border-radius: 8px;
-}
-
-.why-choose-us .wcu-service-box h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.why-choose-us .wcu-service-box p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* cards shadow and hover */
-
-.wcu-service-box {
+ .wcu-service-box {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -1537,15 +1452,14 @@ right: 10px !important;
 .wcu-service-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
+}   
 /* what Choose Us end */
 
 
 /* Footer Styles */
 .footer-section {
   position: relative;
-  background: var(--gradient-bg);
+  background: var(--footer-bg);
   padding: 70px 0 0;
   margin-top: 80px;
   overflow: hidden;
@@ -1678,7 +1592,7 @@ right: 10px !important;
 /* Background Elements (Same as Header) */
 .footer-section .bg-element {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   opacity: 0.1;
 }
 
@@ -1707,7 +1621,7 @@ right: 10px !important;
   width: 60%;
   height: 100%;
   opacity: 0.05;
-  z-index: 1;
+  z-index: 10;
 }
 
 .footer-section .bg-lines::before,
