@@ -123,7 +123,6 @@ function createBookingCard(booking, car) {
                 }" class="text-white text-decoration-none">Rent Again</a></button>
               </div>
             </div>`;
-  // edit img link to car details
   return bookingCard;
 }
 
@@ -145,7 +144,6 @@ function displayNoHistory() {
             >
           </button>
           </div>`;
-  //   will edit link target
   mainContent.appendChild(wrapper);
 }
 
@@ -164,7 +162,6 @@ function displayNotLogin() {
         </button>
         <div>
         `;
-  //   will edit link target
   mainContent.appendChild(wrapper);
 }
 

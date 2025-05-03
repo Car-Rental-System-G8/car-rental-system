@@ -1,5 +1,3 @@
-
-
 /* Global CSS Variables */
 :root {
   --primary-color: #5eccc9;
@@ -10,14 +8,18 @@
   --text-dark: #333333;
   --text-light: #ffffff;
   --gradient-bg: linear-gradient(to right, #f8f9fa, #e9ecef);
-  --gradient-bg-2: radial-gradient(circle 304px at 41% 130%, var(--primary-color-opacity), #fff);
+  --gradient-bg-2: radial-gradient(
+    circle 304px at 41% 130%,
+    var(--primary-color-opacity),
+    #fff
+  );
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --input-shadow: 0 0 0 5px rgba(94, 204, 201, 0.2); 
+  --input-shadow: 0 0 0 5px rgba(94, 204, 201, 0.2);
   --transition: all 0.3s ease;
   --border-radius: 8px;
   --footer-bg: #e7e7e7;
   --navbar-bg: rgba(255, 255, 255, 0.95);
---other-bg:rgba(255, 255, 255, 0.938);
+  --other-bg: rgba(255, 255, 255, 0.938);
 }
 
 * {
@@ -70,7 +72,7 @@ body {
 
 .nav-link.active {
   background-color: var(--primary-color);
-  color: var(--text-light) !important;  
+  color: var(--text-light) !important;
   border-radius: 30px;
   padding-right: 15px !important;
   padding-left: 15px !important;
@@ -94,13 +96,13 @@ body {
   width: 60%;
 }
 .btn-contact {
-  background-color: var(--primary-color)!important;
-  color: var(--text-light)!important;
+  background-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
   border-radius: 30px !important;
   padding: 8px 24px;
   font-weight: 600;
   border: none;
-  transition: var(--transition)!important;
+  transition: var(--transition) !important;
 }
 
 .btn-contact:hover {
@@ -108,7 +110,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
 }
-a{
+a {
   text-decoration: none !important;
 }
 .search-icon,
@@ -140,9 +142,6 @@ a {
   transform: scale(1.1);
 }
 
-
-
-
 /* Profile Dropdown Styles */
 .profile-dropdown {
   position: relative;
@@ -162,7 +161,7 @@ a {
 }
 
 .profile-dropdown-menu::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -8px;
   left: 15px;
@@ -190,7 +189,7 @@ a {
   text-align: center;
 }
 
-.dropdown-item:hover, 
+.dropdown-item:hover,
 .dropdown-item:focus {
   background-color: rgba(94, 204, 201, 0.1);
   color: var(--primary-color);
@@ -209,7 +208,7 @@ a {
   color: #dc3545;
 }
 
-.logout-btn:hover, 
+.logout-btn:hover,
 .logout-btn:focus {
   background-color: rgba(220, 53, 69, 0.1);
   color: #dc3545;
@@ -225,23 +224,6 @@ a {
     transform: translateY(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Hero Section Styles */
 .hero-section {
@@ -410,7 +392,7 @@ a {
 }
 
 .btn-search:hover {
-  background-color: var(--primary-hover)!important;
+  background-color: var(--primary-hover) !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
 }
@@ -530,9 +512,7 @@ a {
   }
 }
 
-
 /*  ===================== Car Listing Page ==================== */
-
 
 .Car-listing .carWrapper {
   position: relative;
@@ -545,8 +525,8 @@ a {
   animation: carEntersScreen 1.3s ease-out forwards;
 }
 
-
-.Car-listing .carWrapper .wheel,.Car-listing .carWrapper .wheel-2 {
+.Car-listing .carWrapper .wheel,
+.Car-listing .carWrapper .wheel-2 {
   position: absolute;
   top: 182px;
   right: 92px;
@@ -554,7 +534,7 @@ a {
   height: 138px;
   border-radius: 50%;
   filter: brightness(0.8);
-  animation: carWheelSpin 1.3s ease-out forwards; 
+  animation: carWheelSpin 1.3s ease-out forwards;
 }
 
 .Car-listing .carWrapper .wheel-2 {
@@ -564,28 +544,25 @@ a {
   height: 137px;
 }
 
-
 @media (max-width: 1024px) {
   .Car-listing .carWrapper {
     width: 700px;
   }
 
-  .Car-listing .carWrapper .wheel{
+  .Car-listing .carWrapper .wheel {
     top: 179px;
     right: 72px;
     width: 115px;
     height: 115px;
   }
-  
+
   .Car-listing .carWrapper .wheel-2 {
     top: 188px;
     left: 76px;
     width: 110px;
     height: 110px;
   }
-
 }
-
 
 @media (max-width: 767px) {
   .Car-listing .carWrapper {
@@ -593,42 +570,38 @@ a {
     height: 200px;
   }
 
-  .Car-listing .carWrapper .wheel{
+  .Car-listing .carWrapper .wheel {
     top: 88px;
     right: 38px;
     width: 60px;
     height: 60px;
   }
-  
+
   .Car-listing .carWrapper .wheel-2 {
     top: 95px;
     left: 38px;
     width: 55px;
     height: 55px;
   }
-
 }
-
 
 @keyframes carEntersScreen {
   0% {
     transform: translateX(-100%);
   }
   100% {
-    transform:  translateX(0%);
+    transform: translateX(0%);
   }
 }
-
 
 @keyframes carWheelSpin {
   0% {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(720deg); 
+    transform: rotate(720deg);
   }
 }
-
 
 /* ============= Car Filters ======= */
 
@@ -673,27 +646,27 @@ a {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: var(--primary-color); 
+  background: var(--primary-color);
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: -7px; 
+  margin-top: -7px;
   transition: 0.3s;
 }
 
 .Car-listing .filters input[type="range"]::-webkit-slider-thumb:hover {
-  background: var(--primary-hover); 
+  background: var(--primary-hover);
 }
 
 /* Firefox */
 .Car-listing .filters input[type="range"]::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: var(--primary-color); 
+  background: var(--primary-color);
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: -7px; 
+  margin-top: -7px;
   transition: 0.3s;
 }
 
@@ -704,7 +677,6 @@ a {
 .Car-listing .filters .Availability {
   font-size: 14px;
 }
-
 
 .Car-listing .filters .Availability input[type="radio"] {
   width: 20px;
@@ -722,7 +694,7 @@ a {
 }
 
 .Car-listing .filters .Availability input[type="radio"]:checked::after {
-  content: '✔';
+  content: "✔";
   color: white;
   position: absolute;
   font-size: 14px;
@@ -731,11 +703,8 @@ a {
   transform: translate(-50%, -50%);
 }
 
-
-
-
 /*  ================== Car Card ================== */
- .carCard {
+.carCard {
   border-radius: 30px;
   box-shadow: var(--shadow);
   background: var(--gradient-bg-2);
@@ -759,11 +728,15 @@ a {
 .carCard:hover {
   box-shadow: 0px 0px 20px rgb(34 61 60 / 20%);
   transform: translateY(-5px) scale(1.02);
-  background: radial-gradient(circle 304px at 41% 120%, var(--primary-color-opacity), #fff);
+  background: radial-gradient(
+    circle 304px at 41% 120%,
+    var(--primary-color-opacity),
+    #fff
+  );
 }
 
 .carCard img {
- min-height: 160px;
+  min-height: 160px;
 }
 
 @media (max-width: 1200px) {
@@ -772,7 +745,7 @@ a {
   }
   .carCard img {
     height: 110px;
-   }
+  }
 }
 @media (max-width: 768px) {
   .carCard {
@@ -781,10 +754,10 @@ a {
   .carCard img {
     height: auto;
     min-height: 120px;
-   }
+  }
 }
 
- .fav {
+.fav {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -810,14 +783,12 @@ a {
   }
 }
 
-
-
 /* ======= Car Card Data ======= */
-.carCard  .carHeader h5  {
+.carCard .carHeader h5 {
   margin-bottom: -3px;
 }
 
-.carCard  .carHeader span  {
+.carCard .carHeader span {
   color: rgb(151, 151, 151);
   font-size: 14px;
 }
@@ -840,29 +811,27 @@ a {
   font-weight: bold;
 }
 
-
 @media (max-width: 1024px) {
-  .carCard  .carHeader h5  {
-   font-size: 16px;
+  .carCard .carHeader h5 {
+    font-size: 16px;
   }
-  .carCard  .carHeader span  {
+  .carCard .carHeader span {
     font-size: 12px;
   }
 }
 
-
 @media (max-width: 768px) {
-  .carCard  .carHeader h5  {
-   font-size: 18px;
+  .carCard .carHeader h5 {
+    font-size: 18px;
   }
-  .carCard  .carHeader span  {
+  .carCard .carHeader span {
     font-size: 16px;
   }
 }
 
-
 /* ======= Card Button ======= */
-.carCard button, .filters button {
+.carCard button,
+.filters button {
   padding: 15px;
   background: var(--primary-color);
   box-shadow: var(--shadow);
@@ -877,19 +846,21 @@ a {
   overflow: hidden;
   transform: translateY(50%);
   border: 1px solid transparent;
+}
 
- }
- 
- .carCard button:hover, .filters button:hover {
+.carCard button:hover,
+.filters button:hover {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
- }
+}
 
- .carCard button:hover a, .filters button:hover a {
+.carCard button:hover a,
+.filters button:hover a {
   color: var(--primary-color);
- }
- 
- .carCard button:after, .filters button:after {
+}
+
+.carCard button:after,
+.filters button:after {
   content: "";
   background: white;
   position: absolute;
@@ -900,15 +871,17 @@ a {
   bottom: 0;
   transform: skewX(-45deg) scale(0, 1);
   transition: all 0.5s;
- }
- 
- .carCard button:hover:after, .filters button:hover:after {
+}
+
+.carCard button:hover:after,
+.filters button:hover:after {
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
- }
+}
 
-.carCard  button a, .filters button a {
+.carCard button a,
+.filters button a {
   width: 100%;
   height: 100%;
   color: white;
@@ -928,7 +901,8 @@ a {
   color: white;
 }
 
-.carCard .notAvilable:hover::after, .carCard .notAvilable:hover::before {
+.carCard .notAvilable:hover::after,
+.carCard .notAvilable:hover::before {
   content: "";
   background: white;
   position: absolute;
@@ -944,7 +918,6 @@ a {
   transform: translateY(0);
 }
 
-
 .trending-section {
   background-color: #e6f7f7;
   padding: 80px 0;
@@ -952,9 +925,7 @@ a {
   overflow: hidden;
 }
 
-
 /*  ===================== End Car Listing  ==================== */
-
 
 /* ==================== Car Detais Page =============== */
 
@@ -988,8 +959,9 @@ a {
   border: 2px solid #007bff;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
-  background-color:rgb(61, 61, 61);
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  background-color: rgb(61, 61, 61);
   color: white;
   border-radius: 4px;
   padding: 10px;
@@ -998,13 +970,14 @@ a {
   font-size: 18px;
   font-weight: bold;
 }
-.swiper-button-next, .swiper-button-prev {
-top: auto;
-bottom: 20px;
+.swiper-button-next,
+.swiper-button-prev {
+  top: auto;
+  bottom: 20px;
 }
 
-.swiper-button-next{
-right: 10px !important;
+.swiper-button-next {
+  right: 10px !important;
 }
 .swiper-button-prev {
   right: 60px !important;
@@ -1029,8 +1002,6 @@ right: 10px !important;
   }
 }
 
-
-
 /* page styles */
 .box-styles {
   background-color: var(--navbar-bg);
@@ -1043,7 +1014,7 @@ right: 10px !important;
   position: relative;
   z-index: 3;
 }
-#car-recommendation{
+#car-recommendation {
   background-color: var(--light-bg);
 }
 
@@ -1064,20 +1035,17 @@ right: 10px !important;
 }
 
 .list-unstyled li:nth-child(odd) {
-background-color: var(--light-bg)
-  ;
+  background-color: var(--light-bg);
 }
 #carWrapper h3 {
   color: var(--text-dark);
 }
-#carWrapper .data p, h6{
+#carWrapper .data p,
+h6 {
   color: var(--text-dark);
 }
 
-
 /* ==================== Car Detais Page =============== */
-
-
 
 /* How It Works Section Styles */
 .how-it-works-section {
@@ -1192,45 +1160,43 @@ background-color: var(--light-bg)
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .how-it-works-section {
-      padding: 80px 0;
+    padding: 80px 0;
   }
   .section-title {
-      font-size: 36px;
+    font-size: 36px;
   }
 }
 
 @media (max-width: 768px) {
   .how-it-works-section {
-      padding: 60px 0;
+    padding: 60px 0;
   }
   .section-title {
-      font-size: 32px;
+    font-size: 32px;
   }
   .step-card {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 }
 
 @media (max-width: 576px) {
   .how-it-works-section {
-      padding: 50px 0;
+    padding: 50px 0;
   }
   .section-title {
-      font-size: 28px;
+    font-size: 28px;
   }
   .step-icon {
-      width: 70px;
-      height: 70px;
+    width: 70px;
+    height: 70px;
   }
   .step-icon i {
-      font-size: 26px;
+    font-size: 26px;
   }
   .step-title {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
-
-
 
 /* Testimonials Section Styles */
 .testimonials-section {
@@ -1309,10 +1275,10 @@ background-color: var(--light-bg)
   align-items: center;
   padding: 8px 20px;
   background-color: var(--primary-color);
-  border-top-left-radius:15px;
-  border-top-right-radius:15px;
-  border-bottom-left-radius:15px;
-    position: absolute;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  position: absolute;
   bottom: -15px;
 }
 
@@ -1407,52 +1373,52 @@ background-color: var(--light-bg)
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .testimonials-section {
-      padding: 80px 0;
+    padding: 80px 0;
   }
   .testimonial-card {
-      padding: 30px;
+    padding: 30px;
   }
 }
 
 @media (max-width: 768px) {
   .testimonials-section {
-      padding: 60px 0;
+    padding: 60px 0;
   }
   .testimonial-avatar {
-      width: 80px;
-      height: 80px;
-      margin-top: -60px;
+    width: 80px;
+    height: 80px;
+    margin-top: -60px;
   }
   .testimonial-text {
-      font-size: 14px;
+    font-size: 14px;
   }
   .testimonial-name {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 576px) {
   .testimonials-section {
-      padding: 50px 0;
+    padding: 50px 0;
   }
   .testimonial-card {
-      padding: 25px 15px;
+    padding: 25px 15px;
   }
   .testimonial-avatar {
-      width: 70px;
-      height: 70px;
-      margin-top: -50px;
+    width: 70px;
+    height: 70px;
+    margin-top: -50px;
   }
   .testimonial-rating {
-      padding: 6px 15px;
+    padding: 6px 15px;
   }
   .rating-number {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 
 /*what Choose Us start */
- .wcu-service-box {
+.wcu-service-box {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -1464,9 +1430,8 @@ background-color: var(--light-bg)
 .wcu-service-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}   
+}
 /* what Choose Us end */
-
 
 /* Footer Styles */
 .footer-section {
@@ -1495,7 +1460,6 @@ background-color: var(--light-bg)
   padding-bottom: 10px;
   display: inline-block;
 }
-
 
 .footer-heading::after {
   content: "";
@@ -1543,7 +1507,6 @@ background-color: var(--light-bg)
   transition: var(--transition);
   position: relative;
   padding-left: 15px;
-
 }
 
 .footer-links li a::before {
@@ -1661,29 +1624,153 @@ background-color: var(--light-bg)
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .footer-section {
-      padding-top: 50px;
-      margin-top: 60px;
+    padding-top: 50px;
+    margin-top: 60px;
   }
 }
 
 @media (max-width: 768px) {
   .social-icons {
-      justify-content: center;
-      margin-top: 30px;
+    justify-content: center;
+    margin-top: 30px;
   }
-  
+
   .footer-heading {
-      margin-top: 20px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 576px) {
   .footer-section {
-      padding-top: 40px;
-      margin-top: 40px;
+    padding-top: 40px;
+    margin-top: 40px;
   }
-  
+
   .footer-logo {
-      height: 50px;
+    height: 50px;
   }
+}
+
+/* adding reviews */
+
+.review-submit-btn {
+  background-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+  border-radius: var(--border-radius);
+  padding: 8px 24px;
+  font-weight: 600;
+  border: none;
+  transition: var(--transition) !important;
+}
+
+.review-submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
+}
+
+/* Popup styles */
+.modal-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 40px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  top: 10%;
+}
+
+.close-popup {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.star-rating {
+  margin: 20px 0;
+  font-size: 30px;
+  text-align: center;
+}
+
+.rate {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 30px;
+  text-align: center;
+}
+
+.rate label{
+  margin-inline: 5px;
+}
+
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+/* Textarea styling */
+#popup-review-msg {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 100px;
+  color: var(--text-gray);
+  background-color: var(--gradient-bg);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+#popup-review-msg:focus {
+  outline: 0;
+  transform: scale(1.02);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  display: none;
 }
