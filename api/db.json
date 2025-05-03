@@ -7,7 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
-      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
+      "image": "/assets/images/avatar/00.avif"
     },
     {
       "id": "2",
@@ -113,38 +113,6 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-15",
-      "status": "confirmed",
-      "paymentMethod": "cash"
-    },
-    {
-      "id": "e22d",
-      "carId": null,
-      "userId": "1",
-      "totalCost": 12100,
-      "firstName": "Mohamed",
-      "lastName": "Abdelqader",
-      "address": "Talkha",
-      "zipCode": 7650001,
-      "city": "Mansoura",
-      "country": "Egypt",
-      "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-21",
-      "status": "pending",
-      "paymentMethod": "cash"
-    },
-    {
-      "id": "d201",
-      "carId": "7",
-      "userId": "1",
-      "totalCost": 12760,
-      "lastName": "Abdelqader",
-      "firstName": "Mohamed",
-      "address": "Talkha",
-      "zipCode": 7650001,
-      "city": "Mansoura",
-      "country": "Egypt",
-      "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-12",
       "status": "confirmed",
       "paymentMethod": "cash"
     },
