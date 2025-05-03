@@ -7,7 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
-      "images": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
+      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
     },
     {
       "id": "2",
@@ -249,7 +249,7 @@
       "type": "Sedan",
       "year": 2023,
       "images": [
-        "/assets/images/cars/merceds c-class 2021 - 1/slider1.png", 
+        "/assets/images/cars/merceds c-class 2021 - 1/slider1.png",
         "/assets/images/cars/merceds c-class 2021 - 1/slider2.webp",
         "/assets/images/cars/merceds c-class 2021 - 1/slider3.png",
         "/assets/images/cars/merceds c-class 2021 - 1/slider4.png",
