@@ -968,3 +968,17 @@ a:hover {
     --bs-modal-border-color: var(--elements-border);
   }
 }
+
+
+
+
+ /* booking cars status colors */
+select.form-select.status-select.bg-success {
+  background-color: #28a745 !important;
+}
+select.form-select.status-select.bg-warning {
+  background-color: #ffc107 !important; 
+}
+select.form-select.status-select.bg-danger {
+  background-color: #dc3545 !important; 
+}

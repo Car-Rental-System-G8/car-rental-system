@@ -14,6 +14,8 @@
         <link href="vendors/fontawesome/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/userProfileEdit.css">
+        <link rel="stylesheet" href="assets/css/dark-mood.css" />
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
 
     <div class="profile-container">
         <div class="profile-header">
-            <img src="./assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg" alt="User Image" class="profile-image">
+            <img src="" alt="User Image" class="profile-image">
             <h2 id="ph-profilename"></h2>
         </div>
 
@@ -49,7 +51,7 @@
 
             <div class="form-group">
                 <label for="image">Change Image</label>
-                <input type="text" id="image">
+                <input type="file" id="imageUpload" accept="image/*" />
             </div>
 
             <button type="submit" class="save-button">Save Changes</button>
@@ -61,9 +63,10 @@
     <script src="./assets/JS/user-profile-edit.js"></script>
     <script src="vendors/jquery/jquery-3.7.1.min.js"></script>
     <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="assets/JS/main-script.js" type="module"></script>
-    <script src="assets/JS/load-navbar.js"></script>
-    <script src="assets/JS/load-footer.js"></script>
+    <script src="components/user/load-navbar.js"></script>
+    <script src="components/user/load-footer.js"></script>
+    <script src="assets/JS/dark-mood-hoom.js"></script>
+
 </body>
 
 </html>

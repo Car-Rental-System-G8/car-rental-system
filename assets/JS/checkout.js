@@ -3,6 +3,8 @@ import { getCurrentUser } from "./modules/userManager.js";
 
 // sessionStorage.setItem("cart", JSON.stringify({"carId": "1"}))
 const checkoutItem = JSON.parse(sessionStorage.getItem("cart"));
+console.log('checkoutItem:', checkoutItem);
+
 const taxRate = 0.10;
 let hasConflict = false;
 

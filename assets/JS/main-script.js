@@ -1,15 +1,10 @@
-import { loadListingPage } from './listingPage.js';
-import { loadDetailsPage } from './detailsPage.js';
-import { initCars } from './getCarsData.js';
-import { renderCars } from "./renderCarCards.js";
+import { loadListingPage } from './listing-page.js';
+import { loadDetailsPage } from './details-page.js';
 import { loadTrendingSection } from './trending-section.js';
-
-
-
-
+import { initCars } from './get-data.js';
+import { renderCars } from "./render-cars-cards.js";
 
 $(document).ready(function () {
-  // Auto-cycle the carousel
   $(".carousel").carousel({
     interval: 3000,
   });
@@ -22,16 +17,6 @@ $(document).ready(function () {
     }, 600);
   });
 
-  // Smooth navbar background change on scroll
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 50) {
-      $(".navbar").css("background-color", "rgba(255, 255, 255, 0.98)");
-      $(".navbar").css("box-shadow", "0 4px 12px rgba(0, 0, 0, 0.1)");
-    } else {
-      $(".navbar").css("background-color", "rgba(255, 255, 255, 0.95)");
-      $(".navbar").css("box-shadow", "0 2px 8px rgba(0, 0, 0, 0.05)");
-    }
-  });
 
   // Animate elements on page load
   setTimeout(function () {
@@ -41,16 +26,17 @@ $(document).ready(function () {
   }, 300);
 });
 
-// Handle nav link clicks to update active state
-$(".nav-link").click(function (e) {
-  e.preventDefault();
-  $(".nav-link").removeClass("active");
-  $(this).addClass("active");
-});
 
 
 //   ================ Car Listing Page   ===========================
 
+let cars = [];
+async function getCars() {
+  const data = await initCars();
+  cars = data;
+  return cars;
+}
+getCars()
 // ================= Filter Cars : name - type - price range - avilabilty =========================
 
 const applyFiltersButton = document.querySelector(".filters button");
@@ -61,7 +47,6 @@ const carTypeSelect = document.getElementById("carType");
 
 async function applyFilters() {
 
-const cars = await initCars();
 let filtered = [...cars];
 
 const availableCheckbox = document.querySelector('input[name="Availability"]:checked');
@@ -120,14 +105,13 @@ applyFiltersButton.addEventListener("click", applyFilters);
 }
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  loadTrendingSection();   
-if (window.location.href.includes('car-listing.html')) {
-  loadListingPage();
-} else if (window.location.href.includes('car-details.html')) {
-  loadDetailsPage();
-  } 
-})
-
-
+  if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
+    loadTrendingSection();
+  }
+  if (window.location.href.includes('car-listing.html')) {
+    loadListingPage();
+  } else if (window.location.href.includes('car-details.html')) {
+    loadDetailsPage();
+  } 
+});

@@ -1,0 +1,216 @@
+/* Dark Mode CSS Variables */
+:root {
+    /* Light Mode (Default) */
+    --primary-color: #5eccc9;
+    --primary-hover: #4bb3b0;
+    --primary-color-opacity: #5eccc833;
+    --secondary-color: #343a40;
+    --light-bg: #f8f9fa;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --gradient-bg: linear-gradient(to right, #f8f9fa, #e9ecef);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --input-shadow: 0 0 0 5px rgba(94, 204, 201, 0.2); 
+    --border-radius: 8px;
+    --footer-bg: #e7e7e7;
+    --card-bg: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+  }
+  
+  /* Dark Mode Variables */
+  [data-theme="dark"] {
+    --primary-color: #52908f;
+    --primary-hover: #4fcdc8;
+    --primary-color-opacity: #39aca933;
+    --secondary-color: #6c757d;
+    --light-bg: #151d2b;
+    --text-dark: #e4e6eb;
+    --text-light: #ffffff;
+    --gradient-bg: linear-gradient(to right, #121212, #1e2124);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --input-shadow: 0 0 0 5px rgba(57, 172, 169, 0.3);
+    --footer-bg: #343a40;
+    --card-bg: #2a2d31;
+    --navbar-bg: rgba(22, 24, 28, 0.95);
+  }
+  
+  /* Dark Mode Specific Styles */
+  [data-theme="dark"] body {
+    color: var(--text-dark);
+    background: var(--gradient-bg);
+  }
+  
+  [data-theme="dark"] .navbar {
+    background-color: var(--primary-color-opacity);
+  }
+  
+  [data-theme="dark"] .navbar .nav-link:not(.active) {
+    color: #e4e6eb;
+  }
+  
+  [data-theme="dark"] .search-icon,
+  [data-theme="dark"] .profile-icon,
+  [data-theme="dark"] .favorite-icon,
+  [data-theme="dark"] .login-link,
+  [data-theme="dark"] .theme-toggle {
+    background-color: #2a2d31;
+    color: #e4e6eb;
+  }
+
+
+  [data-theme="dark"] .dropdown-menu {
+    background-color: #2a2d31;
+    border-color: #3a3d42;
+  }
+  
+  [data-theme="dark"] .dropdown-item {
+    color: #e4e6eb;
+  }
+  
+  [data-theme="dark"] .dropdown-menu::before {
+    background-color: #2a2d31;
+    border-color: #3a3d42;
+  }
+  
+  [data-theme="dark"] .dropdown-item:hover,
+  [data-theme="dark"] .dropdown-item:focus {
+    background-color: rgba(57, 172, 169, 0.2);
+    color: var(--primary-color);
+  }
+  
+  [data-theme="dark"] .dropdown-divider {
+    border-color: #3a3d42;
+  }
+  
+  [data-theme="dark"] .carCard {
+    background: radial-gradient(circle 304px at 41% 130%, var(--primary-color-opacity), var(--card-bg));
+  }
+  
+  [data-theme="dark"] .carCard:hover {
+    background: radial-gradient(circle 304px at 41% 120%, var(--primary-color-opacity), var(--card-bg));
+  }
+  
+  [data-theme="dark"] .search-form {
+    background-color: var(--card-bg);
+  }
+  
+  [data-theme="dark"] .form-control {
+    background-color: #262a2d;
+    border-color: #3a3d42;
+    color: #e4e6eb;
+  }
+  
+  [data-theme="dark"] .form-control:focus {
+    border-color: var(--primary-color);
+  }
+  
+  [data-theme="dark"] .step-card,
+  [data-theme="dark"] .testimonial-card,
+  [data-theme="dark"] .wcu-service-box {
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .step-icon {
+    background-color: rgba(57, 172, 169, 0.2);
+  }
+  
+  [data-theme="dark"] .testimonial-avatar {
+    border-color: var(--card-bg);
+  }
+  
+  /* Dark Mode Toggle Button */
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    margin: 0 5px;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    transform: scale(1.1);
+  }
+  
+  /* Animation for theme toggle */
+  .theme-toggle i {
+    transition: transform 0.5s ease;
+  }
+  
+  .theme-toggle:hover i {
+    transform: rotate(180deg);
+  }
+  
+  /* Hide appropriate icon based on theme */
+  [data-theme="dark"] .theme-toggle .fa-moon {
+    display: none;
+  }
+  
+  [data-theme="light"] .theme-toggle .fa-sun {
+    display: none;
+  }
+
+
+
+  [data-theme="dark"] .wcu-service-box{
+    background-color: var(--primary-color);
+    color: #e4e6eb;
+  }
+
+
+  [data-theme="dark"] .testimonials-section{
+    background-color:var(--primary-color-opacity);
+  }
+
+  [data-theme="dark"] .trending-section{
+    background-color: var( --footer-bg);
+  }
+
+  [data-theme="dark"] .how-it-works-section{
+    background-color: var(--primary-color-opacity);
+  }
+
+  [data-theme="dark"] .car-info-badge{
+    color: var( --footer-bg);
+  }
+
+  [data-theme="dark"] .form-control{
+    background-color: var(--primary-color);
+  }
+
+
+  [data-theme="dark"] .contact-form input , .contact-form textarea{ 
+    background-color: var(--primary-color-opacity);
+    color: var(--text-light);
+  }
+
+  [data-theme="dark"] #rental-terms, #insurance, #cancellation, #damages, #privacy{
+    background-color: var(--primary-color-opacity);
+  
+  }
+
+  [data-theme="dark"] .highlight-box{
+    background-color: var(--secondary-color);
+  }
+
+
+  [data-theme="dark"] #login-form input, #signup-form input{
+    color: var(--text-light);
+    background-color: var(--primary-color-opacity);
+  }
+
+
+  [data-theme="dark"] #profileDetails, .profile-container{
+    background-color: var(--secondary-color);
+  }
+
+
+

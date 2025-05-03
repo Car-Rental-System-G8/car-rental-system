@@ -16,9 +16,8 @@ function loadBookings() {
                 const carName = car ? `${car.brand} ${car.model}` : 'Unknown Car';
                 const carImage = car ? car.image : 'https://placehold.co/100x100';
 
-                const pickupDate = new Date(booking.pickupDate);
-                const returnDate = new Date(booking.returnDate);
-                const durationDays = Math.ceil((returnDate - pickupDate) / (1000 * 60 * 60 * 24));
+                const pickupDate = booking.pickupDate;
+                const returnDate = booking.returnDate;
 
                 const totalCost = booking.totalCost;
                 let status = booking.status;
@@ -28,7 +27,7 @@ function loadBookings() {
                     <td>${userName}</td>
                      <td><img src="${carImage}" alt="${carName}" style="width: 100px; height: 50px; object-fit: cover;" /></td>
                     <td>${carName}</td>
-                    <td>${durationDays} days</td>
+                    <td>From: ${pickupDate} to: ${returnDate}</td>
                     <td>$${totalCost}</td>
                     <td>
                         <select class="form-select form-select-sm status-select badge ${

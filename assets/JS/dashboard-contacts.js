@@ -51,8 +51,6 @@ function displaymsgs(msgs, options = {}) {
     container.innerHTML = "";
 
     let msgsToDisplay = msgs;
-
-    console.log(isStarred);
     if (isPagination && msgsLimit > 0 && msgsLimit < msgs.length) {
       const startIndex = (currentPage - 1) * msgsLimit;
       const endIndex = startIndex + msgsLimit;
@@ -100,6 +98,7 @@ function createMessageRow(message, currentPage) {
   const row = document.createElement("tr");
   row.classList.add("message-row");
   row.addEventListener("click", () => {
+    updateContact(message.id, { read: true });
     window.location.href = `./message-details.html?id=${message.id}`;
   });
   row.innerHTML = `

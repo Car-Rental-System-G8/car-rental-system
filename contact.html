@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="./vendors/toastr/toastr.min.css" />
     <link rel="stylesheet" href="./assets/css/global-styles.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/dark-mood.css" />
+
     <!-- Font Awesome -->
     <link href="vendors/fontawesome/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/contact.css" />
   </head>
   <body>
-    <header id="navbar"></header>
+    <header id="navbar" data-active="#ContactUs"></header>
 
     <main class="contact pt-5 mt-5">
       <section class="container pt-5">
-        <h2 class="text-center pb-3">Contact Us</h2>
+        <h2 class="section-title text-center">Contact <span>Us</span></h2>
         <div class="row my-5 justify-content-center">
           <section class="col-md-6 px-4">
             <form id="contact-form" class="contact-form row">
@@ -175,8 +177,9 @@
     <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./vendors/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="./vendors/toastr/toastr.min.js"></script>
-    <script src="assets/JS/load-navbar.js"></script>
-    <script src="./assets/JS/load-footer.js"></script>
+    <script src="components/user/load-navbar.js"></script>
+    <script src="components/user/load-footer.js"></script>
+    <script src="assets/JS/dark-mood-hoom.js"></script>
     <script src="./assets/JS/contact.js"></script>
   </body>
 </html>

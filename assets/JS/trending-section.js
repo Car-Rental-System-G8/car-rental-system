@@ -1,5 +1,5 @@
-import { initCars } from './getCarsData.js';
-import { renderCars } from "./renderCarCards.js";
+import { initCars } from './get-data.js';
+import { renderCars } from "./render-cars-cards.js";
 
 async function loadTrendingSection() {
     const cars = await initCars();
@@ -10,12 +10,9 @@ async function loadTrendingSection() {
 
 export { loadTrendingSection };
 
-
-
 function getTopRatedCars(cars, ) {
-    // let avilable = []
     let avilable = cars.filter(car => car.availability === true) || [];
     return avilable
       .sort((a, b) => b.rating - a.rating) 
-      .slice(0, 8); 
-  }
+      .slice(0, 4); 
+}
