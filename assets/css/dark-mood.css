@@ -1,4 +1,3 @@
-/* Dark Mode CSS Variables */
 :root {
     /* Light Mode (Default) */
     --primary-color: #5eccc9;
@@ -45,6 +44,8 @@
     backdrop-filter: blur(50px);
   }
   
+
+
   [data-theme="dark"] .navbar .nav-link:not(.active) {
     color: #e4e6eb;
   }
@@ -135,7 +136,11 @@
     cursor: pointer;
   }
   
-  .theme-toggle:hover {
+  .theme-toggle:hover,
+  .search-icon:hover,
+.profile-icon:hover,
+.favorite-icon:hover,
+.login-link:hover {
     background-color: var(--primary-color);
     color: var(--text-light);
     transform: scale(1.1);
@@ -234,4 +239,6 @@
     background-color: var(--primary-color-opacity);
     color: var(--text-light);
   }
+
+
 
