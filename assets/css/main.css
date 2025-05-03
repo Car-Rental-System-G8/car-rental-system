@@ -16,6 +16,8 @@
   --transition: all 0.3s ease;
   --border-radius: 8px;
   --footer-bg: #e7e7e7;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+
 }
 
 * {
@@ -37,7 +39,7 @@ body {
 
 /* Header Styles */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--navbar-bg);
   box-shadow: var(--shadow);
   padding: 15px 0;
   transition: var(--transition);
@@ -328,6 +330,7 @@ a {
   font-weight: 600;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  color: var(--text-dark);
 }
 
 .car-info-badge:hover {
@@ -391,6 +394,7 @@ a {
 .input-group-text {
   background-color: transparent;
   border-right: none;
+  color: var(--primary-color);
 }
 
 .btn-search {
@@ -633,6 +637,7 @@ a {
   position: relative;
   z-index: 2;
   border-radius: var(--border-radius);
+  background-color: var(--light-bg);
 }
 
 .Car-listing .filters .searchBox {
@@ -1075,6 +1080,7 @@ right: 10px !important;
   background-color: var(--bg-light);
   position: relative;
   overflow: hidden;
+  background-color: var(--light-bg);
 }
 
 .section-title {
@@ -1227,6 +1233,7 @@ right: 10px !important;
   background-color: var(--bg-light);
   position: relative;
   overflow: hidden;
+  background-color: var(--light-bg);
 }
 
 .testimonial-card {

@@ -5,7 +5,6 @@ import { initCars } from './get-data.js';
 import { renderCars } from "./render-cars-cards.js";
 
 $(document).ready(function () {
-  // Auto-cycle the carousel
   $(".carousel").carousel({
     interval: 3000,
   });
@@ -18,16 +17,6 @@ $(document).ready(function () {
     }, 600);
   });
 
-  // Smooth navbar background change on scroll
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 50) {
-      $(".navbar").css("background-color", "rgba(255, 255, 255, 0.98)");
-      $(".navbar").css("box-shadow", "0 4px 12px rgba(0, 0, 0, 0.1)");
-    } else {
-      $(".navbar").css("background-color", "rgba(255, 255, 255, 0.95)");
-      $(".navbar").css("box-shadow", "0 2px 8px rgba(0, 0, 0, 0.05)");
-    }
-  });
 
   // Animate elements on page load
   setTimeout(function () {
@@ -37,12 +26,6 @@ $(document).ready(function () {
   }, 300);
 });
 
-// Handle nav link clicks to update active state
-// $(".nav-link").click(function (e) {
-//   e.preventDefault();
-//   $(".nav-link").removeClass("active");
-//   $(this).addClass("active");
-// });
 
 
 //   ================ Car Listing Page   ===========================
@@ -123,7 +106,6 @@ applyFiltersButton.addEventListener("click", applyFilters);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
   if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
     loadTrendingSection();
   }
