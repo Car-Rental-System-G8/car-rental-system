@@ -91,7 +91,7 @@ function createBookingCard(booking, car) {
                     <p >${car.year} - ${car.type}</p>
                 </div>
                 <p><strong>${car.pricePerDay} EGP/Day</strong></p>
-                <p class="star-rating">${Array(5)
+                <p>${Array(5)
                   .fill()
                   .map(
                     (_, i) =>
