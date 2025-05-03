@@ -3,6 +3,7 @@ import { loadDetailsPage } from './details-page.js';
 import { loadTrendingSection } from './trending-section.js';
 import { initCars } from './get-data.js';
 import { renderCars } from "./render-cars-cards.js";
+import {homeSearch} from "./search.js"
 
 $(document).ready(function () {
   $(".carousel").carousel({
@@ -29,14 +30,15 @@ $(document).ready(function () {
 
 
 //   ================ Car Listing Page   ===========================
-
 let cars = [];
 async function getCars() {
   const data = await initCars();
   cars = data;
   return cars;
 }
+
 getCars()
+
 // ================= Filter Cars : name - type - price range - avilabilty =========================
 
 const applyFiltersButton = document.querySelector(".filters button");
@@ -94,7 +96,6 @@ function updatePriceValue(value) {
   priceValue.innerText = `$${value}`;
 }
 
-
 if(priceRange) {
   priceRange.addEventListener("input", (e) => updatePriceValue(e.target.value));
 }
@@ -105,6 +106,8 @@ applyFiltersButton.addEventListener("click", applyFilters);
 }
 
 
+
+//  Add cards to each page on load 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
     loadTrendingSection();
@@ -115,3 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDetailsPage();
   } 
 });
+
+
+// ======== Search 
+
+const searchBtn = document.querySelector(".btn-search");
+
+if(searchBtn) {
+  // put filter function to work
+      searchBtn.addEventListener("click", homeSearch);
+}
