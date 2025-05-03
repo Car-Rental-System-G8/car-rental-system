@@ -1,12 +1,10 @@
 import { fetchData } from "./modules/fetchData.js";
 import { getCurrentUser } from "./modules/userManager.js";
 
-// sessionStorage.setItem("cart", JSON.stringify({"carId": "1"}))
 const checkoutItem = JSON.parse(sessionStorage.getItem("cart"));
 console.log('checkoutItem:', checkoutItem);
 
 const taxRate = 0.10;
-let hasConflict = false;
 
 const calculateDays = (pickup, dropoff) => {
   const start = new Date(pickup);
@@ -15,7 +13,7 @@ const calculateDays = (pickup, dropoff) => {
   return diff > 0 ? Math.ceil(diff / (1000 * 60 * 60 * 24)) : null;
 };
 
-const showSwal = (icon, title, text, redirect = false, path = "/", buttonText = "Go to Home") => {
+const showSwal = (icon, title, text, buttonText, redirect = false, path = "/") => {
   Swal.fire({
     icon,
     title,
@@ -58,16 +56,16 @@ const updatePriceDisplay = (pricePerDay, days = 1) => {
 
 const handleCheckout = async () => {
   const user = await getCurrentUser();
-  if (!user) return showSwal("warning", "Oops!", "Please log in to proceed with the checkout.", true, "login.html", "Go to Login");
+  if (!user) return showSwal("warning", "Oops!", "Please log in to proceed with the checkout.", "Go to Login", true, "login.html",);
 
   if (!checkoutItem || !checkoutItem.carId) {
-    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", true, "index.html", "Go to Home");
+    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", "Go to Home", true, "index.html");
   }
 
   const car = await fetchData(`http://localhost:3000/cars/${checkoutItem.carId}`);
   const bookings = await fetchData(`http://localhost:3000/bookings`);
 
-  if (!car.availability) return showSwal("warning", "Oops!", "Car is not Available Right Now!", true, "index.html", "Go to Home");
+  if (!car.availability) return showSwal("warning", "Oops!", "Car is not Available Right Now!", "Go to Home", true, "index.html");
 
   toggleCheckoutVisibility(true);
   checkoutItem.userId = user.id;
@@ -82,8 +80,6 @@ const handleCheckout = async () => {
   document.querySelector(".checkout-plan-model").textContent = `${car.brand} ${car.model}`;
   document.querySelector(".checkout-plan-desc").textContent = car.description;
 
-  const pickupDateInput = document.getElementById("pickupDate");
-  const returnDateInput = document.getElementById("returnDate");
   const pickupDateDisplay = document.querySelector("#pick-date");
   const returnDateDisplay = document.querySelector("#end-date");
   const durationDisplay = document.getElementById("checkoutDuration");
@@ -112,103 +108,34 @@ const handleCheckout = async () => {
     });
   });
 
-  const isOverlapping = (start1, end1, start2, end2) => {
-    return start1 < end2 && start2 < end1;
-  };
+  const days = calculateDays(checkoutItem.pickupDate, checkoutItem.returnDate);
+  const validDates = checkoutItem.pickupDate && checkoutItem.returnDate && days;
 
-  const updateDateRange = () => {
-    const pickup = new Date(pickupDateInput.value);
-    const dropoff = new Date(returnDateInput.value);
+  function isDateConflict(carId, newStart, newEnd) {
+    const newStartDate = new Date(newStart);
+    const newEndDate = new Date(newEnd);
   
-    hasConflict = bookings.some((b) => {
-      const bookedStart = new Date(b.pickupDate);
-      const bookedEnd = new Date(b.returnDate);
-      return (
-        b.carId == checkoutItem.carId &&
-        isOverlapping(pickup, dropoff, bookedStart, bookedEnd)
-      );
+    return bookings.some(booking => {
+      console.log(bookings)
+      if (booking.carId !== carId) return false;
+  
+      const existingStart = new Date(booking.pickupDate);
+      const existingEnd = new Date(booking.returnDate);
+
+      return newStartDate <= existingEnd && newEndDate >= existingStart;
     });
-  
-    if (hasConflict) {
-      pickupDateInput.setCustomValidity("This car is already booked in this period.");
-      returnDateInput.setCustomValidity("This car is already booked in this period.");
-      Swal.fire({
-        icon: 'warning',
-        title: 'Oops!',
-        text: 'This car is already booked during the selected period. Please choose different dates.',
-      });
-    } else {
-      pickupDateInput.setCustomValidity("");
-      returnDateInput.setCustomValidity("");
-    }
-  
-    const days = calculateDays(pickup, dropoff);
-    const validDates = pickup && dropoff && days;
-  
-    if (validDates) {
-      updatePriceDisplay(car.pricePerDay, days);
-      durationDisplay.classList.remove("d-none");
-    } else {
-      updatePriceDisplay(car.pricePerDay);
-      durationDisplay.classList.add("d-none");
-    }
-  
-    pickupDateDisplay.textContent = pickup.toLocaleString() || "";
-    returnDateDisplay.textContent = dropoff.toLocaleString() || "";
-  
-    const today = new Date().toISOString().slice(0, 16);
-  
-    if (pickupDateInput.value && pickupDateInput.value < today) {
-      pickupDateInput.setCustomValidity("Pickup date cannot be in the past.");
-    } else {
-      pickupDateInput.setCustomValidity("");
-    }
-  
-    if (pickupDateInput.value) {
-      returnDateInput.min = pickup.toISOString().slice(0, 16);
-    } else {
-      returnDateInput.removeAttribute("min");
-    }
-  
-    if (returnDateInput.value) {
-      pickupDateInput.max = dropoff.toISOString().slice(0, 16);
-    } else {
-      pickupDateInput.removeAttribute("max");
-    }
-  
-    pickupDateInput.min = today;
-  
-    if (returnDateInput.value) {
-      returnDateInput.setCustomValidity("");
-    }
-  
-    if (pickupDateInput.value && returnDateInput.value && new Date(pickupDateInput.value) >= new Date(returnDateInput.value)) {
-      returnDateInput.setCustomValidity("Return date must be after Pickup date.");
-    } else {
-      if (pickupDateInput.value === returnDateInput.value) {
-        returnDateInput.setCustomValidity("Return date must be later than Pickup date.");
-      } else {
-        returnDateInput.setCustomValidity("");
-      }
-    }
-  };
+  }
 
-  pickupDateInput.addEventListener("change", () => {
-    checkoutItem.pickupDate = pickupDateInput.value;
-    sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
-    updateDateRange();
-  });
+  if (validDates) {
+    updatePriceDisplay(car.pricePerDay, days);
+    durationDisplay.classList.remove("d-none");
+  } else {
+    updatePriceDisplay(car.pricePerDay);
+    durationDisplay.classList.add("d-none");
+  }
 
-  returnDateInput.addEventListener("change", () => {
-    checkoutItem.returnDate = returnDateInput.value;
-    sessionStorage.setItem("cart", JSON.stringify(checkoutItem));
-    updateDateRange();
-  });
-
-  if (checkoutItem.pickupDate) pickupDateInput.value = checkoutItem.pickupDate;
-  if (checkoutItem.returnDate) returnDateInput.value = checkoutItem.returnDate;
-
-  updateDateRange();
+  pickupDateDisplay.textContent = checkoutItem.pickupDate.toLocaleString() || "";
+  returnDateDisplay.textContent = checkoutItem.returnDate.toLocaleString() || "";
 
   const form = document.getElementById("checkoutForm");
   const inputs = form.querySelectorAll("input, select");
@@ -254,14 +181,20 @@ const handleCheckout = async () => {
       }
     });
 
-    if (hasConflict) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Booking Conflict!',
-        text: 'The selected dates conflict with an existing booking. Please choose different dates.',
-      });
+    const dateConflict = isDateConflict(checkoutItem.carId, checkoutItem.pickupDate, checkoutItem.returnDate);
+
+    if (dateConflict) {
+      showSwal(
+        "error",
+        "Date Conflict",
+        "This car is already booked during the selected period. Please choose different dates.",
+        "Try Again Later",
+        true,
+        "/"
+      );
       return;
     }
+
 
     if (!isValid) return;
 
