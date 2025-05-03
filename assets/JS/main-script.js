@@ -2,7 +2,7 @@ import { loadListingPage } from './listing-page.js';
 import { loadDetailsPage } from './details-page.js';
 import { loadTrendingSection } from './trending-section.js';
 import { initCars } from './get-data.js';
-import { renderCars } from "./render-car-data.js";
+import { renderCars } from "./render-cars-cards.js";
 
 $(document).ready(function () {
   // Auto-cycle the carousel

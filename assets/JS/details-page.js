@@ -1,5 +1,6 @@
 import { initCars, initBookings, initUsers } from './get-data.js';
-import { renderCar, renderCars } from './render-car-data.js';
+import { renderCar } from './render-car-data.js';
+import {renderCars } from './render-cars-cards.js';
 
 async function loadDetailsPage() {
   const cars = await initCars();
@@ -10,10 +11,10 @@ async function loadDetailsPage() {
   if (carId) {
     const car = cars.find(car => parseInt(car.id) === carId);
     if (car) {
-      renderCar(car, cars, bookings)
       renderReviews(car.reviews, users)
-      const topRatedCars = getTopRatedCars(cars);
-      // renderCars(topRatedCars);
+      const topRatedCars = getTopRatedCars(cars, car);
+      renderCars(topRatedCars);
+      renderCar(car, cars, bookings)
     } else {
       console.error('Car not found');
     }
@@ -66,11 +67,12 @@ function renderReviews(reviews, users) {
 
 
 
-function getTopRatedCars(cars, ) {
-  let avilable = cars.filter(car => car.availability === true) || [];
+function getTopRatedCars(cars, notThisCar) {
+  let carsToShow = cars.filter( car => car !== notThisCar)
+  let avilable = carsToShow.filter(car => car.availability === true) || [];
   return avilable
     .sort((a, b) => b.rating - a.rating) 
-    .slice(0, 8); 
+    .slice(0, 4); 
 }
 
 
