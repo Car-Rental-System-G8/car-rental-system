@@ -101,7 +101,7 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-10",
-      "status": "pending",
+      "status": "confirmed",
       "paymentMethod": "cash"
     },
     {
@@ -149,7 +149,7 @@
       "zipCode": 7650001,
       "city": "Mansoura",
       "country": "Egypt",
-      "status": "pending",
+      "status": "confirmed",
       "paymentMethod": "cash"
     },
     {
