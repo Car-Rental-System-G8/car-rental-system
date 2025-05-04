@@ -64,14 +64,13 @@ function bookingsHandler(carDetails, bookings, bookBtn) {
     input.addEventListener("change", () => {
     const errWraper = document.getElementById("ErrWraper");
   
-
     if (pickupDate.value && returnDate.value) {
 
       const pickupDate = pickupInput.value;
       const returnDate = returnInput.value;
   
-        const start = new Date(pickupDate);
-        const end = new Date(returnDate);
+      const start = new Date(pickupDate);
+      const end = new Date(returnDate);
   
         if (end < start) {
           showError("Return date cannot be earlier than pickup date ", errWraper, bookBtn)
@@ -171,7 +170,7 @@ function  initiateSlider() {
 //  car details HTML 
 
 function getCarHTML(car) {
-  
+let averageRating = (car.reviews.reduce((sum, review) => sum + parseInt(review.rating), 0) / car.reviews.length).toFixed(1);
   // slider images 
   let images = ""
   car.images.forEach(image => {
@@ -181,24 +180,24 @@ function getCarHTML(car) {
   return `
     <div id="carWrapper" class="container pt-5 mt-3">
 
-    <div class="header box-styles px-5 py-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
-      <div class="title">
+    <div class="header box-styles px-1 px-md-5 py-4 d-flex flex-column flex-md-row justify-content-between align-items-center flex-wrap gap-3">
+      <div class="title d-flex d-md-block justify-content-around align-items-center gap-3">
         <h6 class="text-uppercase text-secondary mb-1 fw-semibold">${car.model}</h6>
         <h3 class="fs-2 fw-bold ">${car.brand}</h3>
         <p class="text-secondary mb-0 fs-6">G3 (${car.year})</p>
       </div>
 
-      <div class="data fs-6 text-muted">
-        <div class="row text-center text-md-end">
-          <div class="col-md-4 mb-2 text-center">
+      <div class="data fs-6 text-muted  ">
+        <div class="row text-center text-md-end justify-content-between align-items-center ">
+          <div class="col-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Year</h6>
             <p class=" mb-0">${car.year}</p>
           </div>
-          <div class="col-md-4 mb-2 text-center">
+          <div class="col-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Type</h6>
             <p class=" mb-0">${car.type}</p>
           </div>
-          <div class="col-md-4 mb-2 text-center">
+          <div class="col-4 mb-2 text-center">
             <h6 class=" fw-bold mb-1">Brand</h6>
             <p class=" mb-0">${car.brand}</p>
           </div>
@@ -238,7 +237,7 @@ function getCarHTML(car) {
               <h5>Pick-Up Date</h5>
               <div class="input-group">
                 <span class="input-group-text border-end-0 bg-transparent">
-                  <i class="far fa-calendar-alt text-muted"></i>
+                  <i class="far fa-calendar-alt"></i>
                 </span>
                 <input type="date" id="pickupDate" class="form-control border-start-0" placeholder="Add Date">
               </div>
@@ -247,7 +246,7 @@ function getCarHTML(car) {
               <h5>Return Date</h5>
               <div class="input-group">
                 <span class="input-group-text border-end-0 bg-transparent">
-                  <i class="far fa-calendar-alt text-muted"></i>
+                  <i class="far fa-calendar-alt"></i>
                 </span>
                 <input type="date" id="returnDate" class="form-control border-start-0" placeholder="Add Date">
               </div>
@@ -273,17 +272,17 @@ function getCarHTML(car) {
             <p class="text-secondary mb-0">Full details about this vehicle</p>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Brand</span><span>${car.brand}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Brand</span><span>${car.brand}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Model</span><span>${car.model}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Year</span><span>${car.year}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Year</span><span>${car.year}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Gearbox</span><span>${car.gearbox}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Type</span><span>${car.type}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Type</span><span>${car.type}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Fuel Type</span><span>${car.fuelType}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Color</span><span>${car.color}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Color</span><span>${car.color}</span></li>
             <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Seats</span><span>${car.seats}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 "><span class="fw-semibold">Price/Day</span><span>$${car.pricePerDay}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Rating</span><span>⭐ ${car.rating}</span></li>
-            <li class="d-flex justify-content-between py-2 px-3 ">
+            <li class="d-flex justify-content-between py-2 px-3 bg-light"><span class="fw-semibold">Price/Day</span><span>$${car.pricePerDay}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3"><span class="fw-semibold">Rating</span><span>⭐ ${averageRating}</span></li>
+            <li class="d-flex justify-content-between py-2 px-3 bg-light">
               <span class="fw-semibold">Availability</span>
               <span style="font-size: 14px;" class="p-1 px-2 ${car.availability ? 'bg-success' : 'bg-danger '} text-white">
                 ${car.availability ? 'Available' : 'Unavailable'}

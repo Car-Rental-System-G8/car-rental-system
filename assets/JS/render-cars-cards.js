@@ -50,6 +50,7 @@ export function renderCars(carsData) {
 
   
   function getCarHTML(car) {
+    let averageRating = (car.reviews.reduce((sum, review) => sum + parseInt(review.rating), 0) / car.reviews.length).toFixed(1);
     return `
       <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
         <div class="carCard car-cards animateCard position-relative z-2 p-3" data-id="${car.id}">
@@ -70,7 +71,7 @@ export function renderCars(carsData) {
           <div class="row gap-3 justify-content-center align-items-center flex-md-nowrap gap-3">
             <div class="feature col-3 text-center">
               <i class="fas fa-star"></i>
-              <p class="small mb-0">${car.rating}</p>
+              <p class="small mb-0">${averageRating}</p>
             </div>
             <div class="feature col-3 text-center">
               <i class="fas fa-car"></i>

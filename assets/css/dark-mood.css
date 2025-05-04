@@ -220,7 +220,7 @@
 
 
   [data-theme="dark"] .box-styles , #reviews{
-    background-color: var(--primary-color-opacity);
+    /* background-color: var(--primary-color-opacity); */
   }
 
   [data-theme="dark"] #car-recommendation{
@@ -236,8 +236,8 @@
     }
     
   [data-theme="dark"] .filters input ,#carType{
-    background-color: var(--primary-color-opacity);
-    color: var(--text-light);
+    background-color: var(--light-bg);
+    color: var(--text-dark);
   }
 
 
@@ -246,7 +246,6 @@
   }
   
   [data-theme="dark"] #pickupDateHome, #returnDateHome {
-   
-    border: solid 1px var( --text-light);
+    /* border: solid 1px var( --text-light); */
   }
   
