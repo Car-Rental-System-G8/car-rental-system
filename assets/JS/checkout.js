@@ -1,9 +1,12 @@
 import { fetchData } from "./modules/fetchData.js";
 import { getCurrentUser } from "./modules/userManager.js";
 
-const checkoutItem = JSON.parse(sessionStorage.getItem("cart"));
-console.log('checkoutItem:', checkoutItem);
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem('currentUser');
+  window.location.href = '../login.html';
+});
 
+const checkoutItem = JSON.parse(sessionStorage.getItem("cart"));
 const taxRate = 0.10;
 
 const calculateDays = (pickup, dropoff) => {
@@ -59,7 +62,7 @@ const handleCheckout = async () => {
   if (!user) return showSwal("warning", "Oops!", "Please log in to proceed with the checkout.", "Go to Login", true, "login.html",);
 
   if (!checkoutItem || !checkoutItem.carId) {
-    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", "Go to Home", true, "index.html");
+    return showSwal("warning", "Oops!", "Please select a car before proceeding to checkout.", "Go Car Listing", true, "car-listing.html");
   }
 
   const car = await fetchData(`http://localhost:3000/cars/${checkoutItem.carId}`);
@@ -116,7 +119,6 @@ const handleCheckout = async () => {
     const newEndDate = new Date(newEnd);
   
     return bookings.some(booking => {
-      console.log(bookings)
       if (booking.carId !== carId) return false;
   
       const existingStart = new Date(booking.pickupDate);
@@ -206,7 +208,7 @@ const handleCheckout = async () => {
 
     if (res.ok) {
       sessionStorage.removeItem("cart");
-      showSwal("success", "Success!", "Your booking has been successfully created.", true, "booking-history.html", "Go to Bookings");
+      showSwal("success", "Success!", "Your booking has been successfully created.", "Go to Bookings", true, "booking-history.html");
     } else {
       showSwal("error", "Error!", "There was an error creating your booking. Please try again.");
     }
