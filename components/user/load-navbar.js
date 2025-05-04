@@ -15,7 +15,6 @@ async function getUserIdByEmail(email) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('load-navbar.js loaded');
     fetch("../components/user/user-nav.html")
         .then(response => response.text())
         .then(async data => {
@@ -70,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // Updating the counter in the navbar
 function updateFavouriteCount() {
     const favourites = JSON.parse(sessionStorage.getItem('favourites')) || [];
-    console.log('Favourites:', favourites);
     const favouriteCount = document.getElementById('favourite-count');
     if (favouriteCount) {
         favouriteCount.textContent = favourites.length;
