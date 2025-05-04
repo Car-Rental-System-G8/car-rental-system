@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Dashboard - Analytics</title>
+        <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/vendors/fontawesome/all.min.css" />
+        <link rel="stylesheet" href="/vendors/sweetalert2/sweetalert2.min.css" />
+        <link rel="stylesheet" href="/vendors/toastr/toastr.min.css" />
+        <link rel="stylesheet" href="/assets/css/dashboard.css" />
+    </head>
+    <body data-bs-theme>
+        <div id="loader">
+            <span class="loader-spinner"></span>
+        </div>
+        <div id="content" class="dashboard-container">
+            <div id="sidebar" data-active="#home"></div>
+            <section class="dashboard-content">
+                <div id="navbar"></div>
+                <div class="dashboard-body">
+                    <div class="dashboard-container-fluid py-4">
+                        <div class="mb-4">
+                            <div class="row row-cols-auto g-2 justify-content-between align-items-center">
+                                <div class="col">
+                                <h3>Analytics</h3>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item">
+                                        <a href="./">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Analytics</li>
+                                    </ol>
+                                </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-3 mb-3">
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Total Profit</h6>
+                                        <p id="totalProfit" class="dashboard-stat-amount"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-secondary-subtle text-secondary flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">All Cars</h6>
+                                        <p id="allCars" class="dashboard-stat-amount"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-success-subtle text-success flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Avaliable Cars</h6>
+                                        <p class="dashboard-stat-amount" id="avaliableCars"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dashboard-card dashboard-stat d-flex align-items-center gap-3 h-100">
+                                    <div class="dashboard-stat-icon bg-warning-subtle text-warning flex-shrink-0">
+                                        <i class="fa-solid fa-car"></i>
+                                    </div>
+                                    <div class="dashboard-stat-info">
+                                        <h6 class="dashboard-stat-title">Booking Cars</h6>
+                                        <p class="dashboard-stat-amount" id="bookingCars"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-12 col-lg-9">
+                                <div class="dashboard-card h-100">
+                                    <h5 class="mb-4">Cars Cost Comparison</h5>
+                                    <div >
+                                        <canvas id="myChart-1" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="dashboard-card d-flex flex-column h-100">
+                                    <h5 class="mb-3">Booking Status</h5>
+                                    <div class="my-auto">
+                                        <canvas id="myChart-2" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="dashboard-card">
+                                    <h5>Analytics Chart</h5>
+                                    <div >
+                                        <canvas id="myChart-3" height="400"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer"></div>
+            </section>
+        </div>
+        <script src="/vendors/jquery/jquery-3.7.1.min.js"></script>
+        <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/vendors/chartJs/chart.umd.min.js"></script>
+        <script src="/assets/JS/notification.js"></script>
+        <script src="/components/dashboard/navbar.js" type="module"></script>
+        <script src="/components/dashboard/sidebar.js"></script>
+        <script src="/components/dashboard/footer.js"></script>
+        <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="/vendors/toastr/toastr.min.js"></script>
+        <script src="/assets/JS/admin.js" type="module"></script>
+        <script src="/assets/JS/charts.js"></script>
+    </body>
+</html>

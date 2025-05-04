@@ -1,0 +1,703 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "email@email.com",
+      "phone": "01012345678",
+      "password": "admin123",
+      "role": "admin",
+      "favourites": [],
+      "image": "/assets/images/avatar/00.avif"
+    },
+    {
+      "id": "2",
+      "name": "User",
+      "email": "email2@email.com",
+      "phone": "01012345678",
+      "password": "user1233",
+      "role": "user",
+      "favourites": [],
+      "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Sara",
+      "email": "ahem@gmail.com",
+      "phone": "01089457686",
+      "password": "NcTwv3n@c5u5M8p",
+      "role": "user",
+      "favourites": [
+        "3",
+        "4",
+        "2",
+        "6",
+        "5"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Max",
+      "email": "max@gmail.com",
+      "phone": "01056436465",
+      "password": "4?c#S%:8d8Z>M!E",
+      "role": "user",
+      "favourites": [
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "9f73",
+      "name": "Victoria",
+      "email": "Sara456456@gmail.com",
+      "phone": "01089457620",
+      "password": "GDt'rTg2Rk7J}r9",
+      "role": "user",
+      "favourites": []
+    },
+    {
+      "id": "7163",
+      "name": "Victoria",
+      "email": "Sara45645677@gmail.com",
+      "phone": "01089456798",
+      "password": "GDt'rTg2Rk7J}r9",
+      "role": "user",
+      "favourites": []
+    },
+    {
+      "id": "4b9b",
+      "name": "Max5687",
+      "email": "asaa12@email.com",
+      "phone": "01089456794",
+      "password": "GDt'rTg2R57J}r956",
+      "role": "user",
+      "favourites": []
+    },
+    {
+      "id": "fce3",
+      "name": "linamona",
+      "email": "linaaaa12345@gmail.com",
+      "phone": "01056456465",
+      "password": "GDt'rTg2457J}r956",
+      "role": "user",
+      "favourites": [
+        "2",
+        "1"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "9421",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 9680,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-10",
+      "status": "confirmed",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "d3f2",
+      "carId": "2",
+      "userId": "1",
+      "totalCost": 17545,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-30",
+      "status": "canceled",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "ee67",
+      "carId": "3",
+      "userId": "2",
+      "totalCost": 10890,
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-05-15",
+      "status": "confirmed",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "cb64",
+      "carId": "1",
+      "userId": "1",
+      "totalCost": 6600,
+      "pickupDate": "2025-05-12",
+      "returnDate": "2025-05-17",
+      "firstName": "Mohamed",
+      "lastName": "Abdelqader",
+      "address": "Egypt",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "confirmed",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "2dc9",
+      "carId": "4",
+      "userId": "1",
+      "totalCost": 22880,
+      "pickupDate": "2025-05-09",
+      "returnDate": "2025-05-20",
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "f81c",
+      "carId": "3",
+      "userId": "1",
+      "totalCost": 7040,
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "pickupDate": "2025-05-02",
+      "returnDate": "2025-05-17",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "2cac",
+      "carId": "5",
+      "userId": "1",
+      "totalCost": 13640,
+      "pickupDate": "2025-05-1",
+      "returnDate": "2025-05-5",
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "e4b9",
+      "carId": "1",
+      "pickupDate": "2025-08-03",
+      "returnDate": "2025-09-04",
+      "userId": "1",
+      "totalCost": 19360,
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "cea0",
+      "carId": "1",
+      "pickupDate": "2025-05-01",
+      "returnDate": "2025-09-18",
+      "userId": "1",
+      "totalCost": 84700,
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "2abb",
+      "carId": "5",
+      "pickupDate": "2025-05-07",
+      "returnDate": "2025-05-08",
+      "userId": "1",
+      "totalCost": 682,
+      "firstName": "Admin2",
+      "lastName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "638e",
+      "carId": "4",
+      "pickupDate": "2025-05-22",
+      "returnDate": "2025-05-22",
+      "userId": "1",
+      "totalCost": 627,
+      "lastName": "Admin2",
+      "firstName": "Admin2",
+      "address": "Talkha",
+      "zipCode": 7650001,
+      "city": "Mansoura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "52a2",
+      "firstName": "Shaima",
+      "lastName": "ahmed",
+      "email": "minalona@gmail.com",
+      "phone": "01089456798",
+      "subject": "problem",
+      "message": "Sure! Here are some engaging and suitable topics for a presentation in a presentation skills course. The focus should be on how well you organize and deliver the content, so choose something you're comfortable with or passionate about:",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    },
+    {
+      "id": "4f73",
+      "firstName": "Max",
+      "lastName": "fury",
+      "email": "3535sade@gmail.com",
+      "phone": "01089456798",
+      "subject": "the service is bad",
+      "message": "ayhag;dvbd vdbaidfga efeg;eago qeg;qeohgqg",
+      "date": "2025-05-01",
+      "read": true,
+      "starred": false,
+      "userId": "1"
+    }
+  ],
+  "cars": [
+    {
+      "id": "1",
+      "brand": "mercedes",
+      "model": "C-Class",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/merceds c-class 2021 - 1/slider1.png",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider2.webp",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider3.png",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider4.png",
+        "/assets/images/cars/merceds c-class 2021 - 1/slider4.png"
+      ],
+      "pricePerDay": 550,
+      "availability": true,
+      "description": "Elegant and smooth sedan with advanced safety and infotainment features.",
+      "seats": 5,
+      "fuelType": "Gas",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "2",
+          "comment": "Stylish and powerful. Loved the driving experience.",
+          "rating": 5
+        },
+        {
+          "userId": "3",
+          "comment": "Premium feel and performance, though a bit pricey.",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "brand": "BMW",
+      "model": "3 Series",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/bmw-3-series-2023/slider 1.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 2.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 3.png",
+        "/assets/images/cars/bmw-3-series-2023/slider 4.png"
+      ],
+      "pricePerDay": 600,
+      "availability": true,
+      "description": "The 2023 BMW 3 Series offers a blend of performance and luxury, featuring a turbocharged engine and advanced technology.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "4",
+          "comment": "Smooth ride and impressive handling. The tech features are top-notch.",
+          "rating": 5
+        },
+        {
+          "userId": "5",
+          "comment": "A bit pricey, but the driving experience justifies it.",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "brand": "Audi",
+      "model": "A4",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/audi-a4-2023/slider1.png",
+        "/assets/images/cars/audi-a4-2023/slider2.png",
+        "/assets/images/cars/audi-a4-2023/slider3.png",
+        "/assets/images/cars/audi-a4-2023/slider4.webp"
+      ],
+      "pricePerDay": 580,
+      "availability": false,
+      "description": "The 2023 Audi A4 combines elegant design with cutting-edge technology, offering a comfortable and dynamic driving experience.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "6",
+          "comment": "Elegant design and smooth performance. Loved the interior quality.",
+          "rating": 5
+        },
+        {
+          "userId": "7",
+          "comment": "Great value for the features offered.",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "brand": "Lexus",
+      "model": "IS",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/lexus-is-2023/slider1.webp",
+        "/assets/images/cars/lexus-is-2023/slider2.webp",
+        "/assets/images/cars/lexus-is-2023/slider3.webp",
+        "/assets/images/cars/lexus-is-2023/slider4.webp"
+      ],
+      "pricePerDay": 570,
+      "availability": true,
+      "description": "The 2023 Lexus IS offers a refined ride with a focus on comfort and reliability, featuring a sleek design and advanced safety features.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "gray",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "8",
+          "comment": "Comfortable and quiet ride. The safety features are impressive.",
+          "rating": 1
+        },
+        {
+          "userId": "9",
+          "comment": "Stylish exterior but could use more power.",
+          "rating": 1
+        },
+        {
+          "userId": "3",
+          "comment": "Stylish exterior but could use more power.",
+          "rating": 1
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "brand": "Tesla",
+      "model": "Model 3",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/tesla-model-3-2023/slider1.png",
+        "/assets/images/cars/tesla-model-3-2023/slider2.webp",
+        "/assets/images/cars/tesla-model-3-2023/slider3.png",
+        "/assets/images/cars/tesla-model-3-2023/slider4.png"
+      ],
+      "pricePerDay": 620,
+      "availability": true,
+      "description": "The 2023 Tesla Model 3 offers impressive electric range, cutting-edge technology, and exhilarating performance.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Blue",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "10",
+          "comment": "Incredible acceleration and tech features. Charging is convenient.",
+          "rating": 5
+        },
+        {
+          "userId": "11",
+          "comment": "Minimalist interior design is refreshing.",
+          "rating": 2
+        },
+        {
+          "userId": "3",
+          "comment": "saddasd",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "brand": "Volvo",
+      "model": "S60",
+      "type": "Sedan",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/volvo-s60-2023/slider1.png",
+        "/assets/images/cars/volvo-s60-2023/slider2.png",
+        "/assets/images/cars/volvo-s60-2023/slider3.webp",
+        "/assets/images/cars/volvo-s60-2023/slider4.png"
+      ],
+      "pricePerDay": 560,
+      "availability": true,
+      "description": "The 2023 Volvo S60 combines Scandinavian design with advanced safety features, offering a comfortable and secure ride.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "12",
+          "comment": "Elegant interior and top-notch safety features.",
+          "rating": 5
+        },
+        {
+          "userId": "13",
+          "comment": "Smooth ride but infotainment system could be more intuitive.",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "brand": "Audi",
+      "model": "Q5",
+      "type": "SUV",
+      "year": 2022,
+      "images": [
+        "/assets/images/cars/Audi Q5/slider1.png",
+        "/assets/images/cars/Audi Q5/slider2.png",
+        "/assets/images/cars/Audi Q5/slider3.png"
+      ],
+      "pricePerDay": 580,
+      "availability": true,
+      "description": "Audi Q5 blends luxury, technology, and performance in a compact SUV. Ideal for family and business trips.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "14",
+          "comment": "Refined interior and great handling.",
+          "rating": 4
+        },
+        {
+          "userId": "15",
+          "comment": "Could use more cargo space, but overall very satisfied.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "brand": "BMW",
+      "model": "X3",
+      "type": "SUV",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/BMW X3/slider1.png",
+        "/assets/images/cars/BMW X3/slider2.png",
+        "/assets/images/cars/BMW X3/slider3.png"
+      ],
+      "pricePerDay": 610,
+      "availability": true,
+      "description": "The 2024 BMW X3 offers agile performance, upscale cabin materials, and intuitive tech features.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Silver",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "16",
+          "comment": "Fun to drive and premium feel throughout.",
+          "rating": 2
+        },
+        {
+          "userId": "17",
+          "comment": "Navigation could be better, but the engine is powerful.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "brand": "Hyundai",
+      "model": "Ioniq 5",
+      "type": "Crossover",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/hyundai-ioniq5-2023/slider1.png",
+        "/assets/images/cars/hyundai-ioniq5-2023/slider2.png",
+        "/assets/images/cars/hyundai-ioniq5-2023/slider3.png"
+      ],
+      "pricePerDay": 550,
+      "availability": false,
+      "description": "The 2023 Hyundai Ioniq 5 is a futuristic electric crossover offering fast charging, spacious interior, and excellent tech features.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Silver",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "16",
+          "comment": "Innovative design and great value for money.",
+          "rating": 5
+        },
+        {
+          "userId": "17",
+          "comment": "Love the tech and smooth electric drive.",
+          "rating": 2
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "brand": "Kia",
+      "model": "EV6",
+      "type": "Crossover",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/kia-ev6-2023/slider1.png",
+        "/assets/images/cars/kia-ev6-2023/slider2.png",
+        "/assets/images/cars/kia-ev6-2023/slider3.png"
+      ],
+      "pricePerDay": 1500,
+      "availability": true,
+      "description": "The 2023 Kia EV6 combines bold styling with electric efficiency and offers a high-tech, fun-to-drive experience.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Red",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "20",
+          "comment": "Impressive acceleration and range. Love the look!",
+          "rating": 5
+        },
+        {
+          "userId": "21",
+          "comment": "Charging network could be better.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "brand": "BMW",
+      "model": "i7",
+      "type": "Sedan",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/bmw-i7-2024/slider1.png",
+        "/assets/images/cars/bmw-i7-2024/slider2.png"
+      ],
+      "pricePerDay": 2000,
+      "availability": true,
+      "description": "The 2024 BMW i7 blends electric power with unmatched luxury, featuring a massive theater screen and silent performance.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "28",
+          "comment": "Top-tier luxury with amazing electric range.",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "brand": "Porsche",
+      "model": "Taycan Turbo",
+      "type": "Sedan",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/porsche-taycan-2024/slider1.png",
+        "/assets/images/cars/porsche-taycan-2024/slider2.png",
+        "/assets/images/cars/porsche-taycan-2024/slider3.png"
+      ],
+      "pricePerDay": 1300,
+      "availability": true,
+      "description": "The Taycan Turbo is Porsche’s electric masterpiece, delivering insane speed with unmistakable Porsche styling.",
+      "seats": 4,
+      "fuelType": "Electric",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "29",
+          "comment": "Fastest EV I’ve ever driven. Phenomenal handling!",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "type": "Coupe",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/lamborghini-revuelto-2024/slider1.webp",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider2.webp",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider3.jpg",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider4.jpg"
+      ],
+      "pricePerDay": 2700,
+      "availability": true,
+      "description": "Lamborghini’s first hybrid hypercar. Mind-blowing design, power, and futuristic performance.",
+      "seats": 2,
+      "fuelType": "Hybrid",
+      "color": "Orange",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "30",
+          "comment": "Absolutely insane. Looks like it came from the future!",
+          "rating": 5
+        }
+      ]
+    }
+  ]
+}

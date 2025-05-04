@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts dashbord</title>
+    <meta name="description" content="Contacts dashboard" />
+    <link rel="stylesheet" href="../assets/css/global-styles.css" />
+    <link rel="stylesheet" href="../vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../vendors/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="../vendors/fontawesome/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/contacts-dashboard.css" />
+  </head>
+  <body data-bs-theme>
+    <div id="loader">
+      <span class="loader-spinner"></span>
+    </div>
+    <div id="content" class="dashboard-container">
+      <div id="sidebar" data-active="#contacts"></div>
+      <section class="dashboard-content">
+        <div id="navbar"></div>
+        <div class="dashboard-body">
+          <div class="dashboard-container-fluid py-4">
+            <div class="mb-4">
+              <div
+                class="row row-cols-auto g-2 justify-content-between align-items-center"
+              >
+                <div class="col">
+                  <h3>Messages</h3>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                      <li class="breadcrumb-item">
+                        <a href="./">Dashboard</a>
+                      </li>
+                      <li class="breadcrumb-item active">Contacts</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div class="col">
+                  <button class="btn btn--primary" id="all-msgs-btn">
+                    All Messages
+                  </button>
+                  <button class="btn btn--primary" id="starred-msgs-btn">
+                    Starred Messages
+                  </button>
+                  <button class="btn btn-danger" id="clear-all-btn">
+                    Clear All
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-card">
+              <div class="dashboard-table table table-responsive mb-0">
+                <table class="align-middle w-100 mb-0">
+                  <thead>
+                    <th class="text-start"></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th class="text-start w-75">Subject</th>
+                    <th>Date</th>
+                    <th class="text-end">Actions</th>
+                  </thead>
+                  <tbody id="msgsTableContainer"></tbody>
+                </table>
+              </div>
+              <div
+                id="paginationControls"
+                class="d-none justify-content-end align-items-center mt-4 gap-2 flex-wrap"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <footer id="footer"></footer>
+      </section>
+    </div>
+
+    <script src="/vendors/jquery/jquery-3.7.1.min.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/assets/JS/notification.js"></script>
+    <script src="/components/dashboard/navbar.js" type="module"></script>
+    <script src="/components/dashboard/sidebar.js"></script>
+    <script src="/components/dashboard/footer.js"></script>
+    <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/vendors/toastr/toastr.min.js"></script>
+    <script src="/assets/JS/admin.js" type="module"></script>
+    <script src="/assets/JS/dashboard-contacts.js" type="module"></script>
+  </body>
+</html>

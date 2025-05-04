@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Search Result </title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/dark-mood.css" />
+
+</head>
+<body>
+
+
+        <!-- Navigation Bar Fetch -->
+        <div id="navbar">  </div>
+
+        <section class="Car-listing pt-5 mt-5">
+            <div class="container">
+                <h1 class="hero-title text-center">  <span> Search  </span> Result </h1>   
+                <div class="row align-items-center">
+                    <div class="col-lg-4 hero-content mt-2 mt-md-5">
+                    </div>
+                </div>
+            </div>
+
+                  <!-- Search Form -->
+                    <div class="container search-form-container">
+                        <div class="search-form">
+                        <div class="row">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                            <h5>Pick-Up Date</h5>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0 bg-transparent">
+                                <i class="far fa-calendar-alt "></i>
+                                </span>
+                                <input
+                                type="date" id="pickupDateHome"
+                                class="form-control border-start-0"
+                                placeholder="Add Date"
+                                />
+                            </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                            <h5>Return Date</h5>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0 bg-transparent">
+                                <i class="far fa-calendar-alt"></i>
+                                </span>
+                                <input
+                                type="date" id="returnDateHome"
+                                class="form-control border-start-0"
+                                placeholder="Add Date"
+                                />
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <h5>&nbsp;</h5>
+                            <button class="btn btn-search">Search</button>
+                            </div>
+                        </div>
+                        <p id="errorSearch" class="errorSearch py-1 text-danger fw-bold">  </p>
+                        </div>
+                    </div>
+    
+            <!-- Car Listing Section -->
+            <div class="container mb-5 d-flex flex-wrap justify-content-between align-items-center">
+    
+                    <div class="row justify-content-between w-100">
+                        <div id="carsContainer" class=" row flex-wrap py-5"></div>
+                    </div>
+            </div>
+            
+            
+            <!-- Background Elements -->
+            <div class="bg-element bg-element-1"></div>
+            <div class="bg-element bg-element-2"></div>
+            <div class="bg-lines"></div>
+        </section>
+        
+    
+        <div id="footer"></div>
+    
+        <!-- Bootstrap and jQuery Scripts -->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/JS/search.js" type="module" ></script>
+        <script src="./assets/JS/main-script.js" type="module" ></script>
+        <script src="components/user/load-navbar.js"></script>
+        <script src="components/user/load-footer.js"></script>
+        <script src="assets/JS/dark-mood-hoom.js"></script>
+
+    
+</body>
+</html>

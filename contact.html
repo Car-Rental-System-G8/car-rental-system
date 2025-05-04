@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <meta name="description" content="Contact Us" />
+    <link rel="stylesheet" href="./vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./vendors/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="./vendors/toastr/toastr.min.css" />
+    <link rel="stylesheet" href="./assets/css/global-styles.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/dark-mood.css" />
+
+    <!-- Font Awesome -->
+    <link href="vendors/fontawesome/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/contact.css" />
+  </head>
+  <body>
+    <header id="navbar" data-active="#ContactUs"></header>
+
+    <main class="contact pt-5 mt-5">
+      <section class="container pt-5">
+        <h2 class="section-title text-center">Contact <span>Us</span></h2>
+        <div class="row my-5 justify-content-center">
+          <section class="col-md-6 px-4">
+            <form id="contact-form" class="contact-form row">
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="first-name"
+                  name="firs-name"
+                />
+                <p
+                  id="first-name-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="last-name"
+                  name="last-name"
+                />
+                <div
+                  id="last-name-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="text"
+                  placeholder="Email Address"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  name="email"
+                  id="email"
+                />
+                <p
+                  id="email-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  type="tel"
+                  placeholder="Phone"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  name="phone"
+                  id="phone"
+                />
+                <p
+                  id="phone-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-12 mb-3">
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  id="subject"
+                  name="subject"
+                />
+                <p
+                  id="subject-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <div class="col-12 mb-3">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Write a message..."
+                  class="w-100 p-3 rounded border-0 border-bottom border-primary-color"
+                  rows="5"
+                ></textarea>
+                <p
+                  id="message-error-message"
+                  class="error text-danger mt-2 ps-2"
+                ></p>
+              </div>
+              <button
+                type="submit"
+                id="submit-btn"
+                class="btn col-6 col-md-3 send-message-btn p-3 mb-5 m-auto m-md-0"
+              >
+                Send Message
+              </button>
+            </form>
+          </section>
+          <section
+            class="col-11 col-md-4 contact-info rounded p-4 align-self-stretch d-flex flex-column justify-content-center"
+          >
+            <article class="d-flex align-items-start my-3">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Hours</h4>
+                <p class="info-details mb-0">
+                  Monday - Friday: 8 AM - 5:30 PM<br />
+                  Saturday - Sunday: Closed
+                </p>
+              </div>
+            </article>
+            <article class="d-flex align-items-start my-3">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Call Us:</h4>
+                <p class="info-details mb-0">
+                  (+20) 305-905-8099<br />
+                  +88 568 956 238
+                </p>
+              </div>
+            </article>
+            <article class="d-flex align-items-start my-3">
+              <div
+                class="icon me-3 p-2 d-flex justify-content-center align-items-center rounded-circle"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="info-title mb-1">Location:</h4>
+                <p class="info-details mb-0">
+                  3915 NW 25th St,<br />
+                  Miami, Florida, USA
+                </p>
+              </div>
+            </article>
+          </section>
+          <div class="text-center pt-5 mt-5 col-md-10">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.647101393784!2d31.3696777705072!3d31.041454356318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79db2a4a552a1%3A0x7acb65869f42f8f3!2sITI%20Mansoura%20Branch%20(New%20Building)!5e0!3m2!1sar!2seg!4v1746149666680!5m2!1sar!2seg"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="map w-100"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="./vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="./vendors/toastr/toastr.min.js"></script>
+    <script src="components/user/load-navbar.js"></script>
+    <script src="components/user/load-footer.js"></script>
+    <script src="assets/JS/dark-mood-hoom.js"></script>
+    <script src="./assets/JS/contact.js"></script>
+  </body>
+</html>

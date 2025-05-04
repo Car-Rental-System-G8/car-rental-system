@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Dashboard - Profile</title>
+        <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/vendors/fontawesome/all.min.css" />
+        <link rel="stylesheet" href="/vendors/sweetalert2/sweetalert2.min.css" />
+        <link rel="stylesheet" href="/vendors/toastr/toastr.min.css" />
+        <link rel="stylesheet" href="/assets/css/dashboard.css" />
+        <link rel="stylesheet" href="/assets/css/settings.css">
+    </head>
+    <body data-bs-theme>
+        <div id="loader">
+            <span class="loader-spinner"></span>
+        </div>
+        <div id="content" class="dashboard-container">
+            <div id="sidebar" data-active="#settings"></div>
+            <section class="dashboard-content">
+                <div id="navbar"></div>
+                <div class="dashboard-body">
+                    <div class="dashboard-container-fluid py-4">
+                        <div class="mb-4">
+                            <div class="row row-cols-auto g-2 justify-content-between align-items-center">
+                                <div class="col">
+                                    <h3>Settings</h3>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item">
+                                                <a href="./">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item active">Admin Info</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="container">
+                                <div class="profile-header text-center">
+                                    <!-- <img src="" alt="User Image" id="profile-image" class="rounded-circle img-fluid profile-image my-4"> -->
+                                </div>
+                                <form class="profile-form row gy-4">
+                                    <div class="form-group d-flex flex-column col-md-6">
+                                        <label for="name" >Name</label>
+                                        <input type="text" id="name" value="" disabled>
+                                        <p class="error" id="name-error"></p>
+                                    </div>
+                        
+                                    <div class="form-group col-md-6 d-flex flex-column">
+                                        <label for="email">E-mail</label>
+                                        <input type="text" id="email" value="" disabled>
+                                    </div>
+                        
+                                    <div class="form-group col-md-6 d-flex flex-column">
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" id="phone" value="" disabled>
+                                        <p class="error" id="phone-error"></p>
+                                    </div>
+                        
+                                    <div class="form-group col-md-6 d-flex flex-column">
+                                        <label for="password">Password</label>
+                                        <input type="password" id="password" value="" disabled>
+                                        <p class="error" id="password-error"></p>
+                                    </div>
+
+                                    <div class="form-group col-md-6 d-flex flex-column">
+                                        <label for="image">Profile Picture</label>
+                                        <input type="file" id="image" disabled>
+                                    </div>
+                                    <div class="col-12 text-end">
+                                        <button type="button" id="form-button" class="btn btn-primary px-5">Edit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer id="footer"></footer>
+            </section>
+        </div>
+        <script src="/vendors/jquery/jquery-3.7.1.min.js"></script>
+        <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/assets/JS/notification.js"></script>
+        <script src="/components/dashboard/navbar.js" type="module"></script>
+        <script src="/components/dashboard/sidebar.js"></script>
+        <script src="/components/dashboard/footer.js"></script>
+        <script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="/vendors/toastr/toastr.min.js"></script>
+        <script src="/assets/JS/settings.js"></script>
+        <script src="/assets/JS/admin.js" type="module"></script>
+    </body>
+</html>
