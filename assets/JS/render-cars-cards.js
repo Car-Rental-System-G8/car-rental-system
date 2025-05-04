@@ -52,7 +52,7 @@ export function renderCars(carsData) {
   function getCarHTML(car) {
     const favCars = JSON.parse(sessionStorage.getItem("favourites")) || [];
     const isFavourite = favCars.some(favCar => favCar.id == car.id);
-    let averageRating = (car.reviews.reduce((sum, review) => sum + parseInt(review.rating), 0) / car.reviews.length).toFixed(1);
+    let averageRating = (car.reviews?.reduce((sum, review) => sum + parseInt(review.rating), 0) / car.reviews?.length).toFixed(1);
     return `
       <div class="col-lg-3 col-md-4 py-md-3 p-lg-4 mb-4 text-center">
         <div class="carCard car-cards animateCard position-relative z-2 p-3" data-id="${car.id}">
