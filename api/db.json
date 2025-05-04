@@ -7,6 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
+      "favourites": [],
       "image": "/assets/images/avatar/00.avif"
     },
     {
@@ -16,6 +17,7 @@
       "phone": "01012345678",
       "password": "user1233",
       "role": "user",
+      "favourites": [],
       "image": "/assets/images/others/37fe057358bd77b11943809cb58b9af1.jpg"
     },
     {
@@ -24,7 +26,14 @@
       "email": "ahem@gmail.com",
       "phone": "01089457686",
       "password": "NcTwv3n@c5u5M8p",
-      "role": "user"
+      "role": "user",
+      "favourites": [
+        "3",
+        "4",
+        "2",
+        "6",
+        "5"
+      ]
     },
     {
       "id": "4",
@@ -32,7 +41,11 @@
       "email": "max@gmail.com",
       "phone": "01056436465",
       "password": "4?c#S%:8d8Z>M!E",
-      "role": "user"
+      "role": "user",
+      "favourites": [
+        "1",
+        "4"
+      ]
     },
     {
       "id": "9f73",
@@ -40,7 +53,8 @@
       "email": "Sara456456@gmail.com",
       "phone": "01089457620",
       "password": "GDt'rTg2Rk7J}r9",
-      "role": "user"
+      "role": "user",
+      "favourites": []
     },
     {
       "id": "7163",
@@ -48,7 +62,8 @@
       "email": "Sara45645677@gmail.com",
       "phone": "01089456798",
       "password": "GDt'rTg2Rk7J}r9",
-      "role": "user"
+      "role": "user",
+      "favourites": []
     },
     {
       "id": "4b9b",
@@ -56,7 +71,8 @@
       "email": "asaa12@email.com",
       "phone": "01089456794",
       "password": "GDt'rTg2R57J}r956",
-      "role": "user"
+      "role": "user",
+      "favourites": []
     },
     {
       "id": "fce3",
@@ -64,7 +80,11 @@
       "email": "linaaaa12345@gmail.com",
       "phone": "01056456465",
       "password": "GDt'rTg2457J}r956",
-      "role": "user"
+      "role": "user",
+      "favourites": [
+        "2",
+        "1"
+      ]
     }
   ],
   "bookings": [
@@ -324,7 +344,7 @@
       "description": "The 2023 Audi A4 combines elegant design with cutting-edge technology, offering a comfortable and dynamic driving experience.",
       "seats": 5,
       "fuelType": "Gasoline",
-      "color": "Silver",
+      "color": "black",
       "Gearbox": "Automatic",
       "reviews": [
         {
@@ -348,7 +368,7 @@
       "images": [
         "/assets/images/cars/lexus-is-2023/slider1.webp",
         "/assets/images/cars/lexus-is-2023/slider2.webp",
-        "/assets/images/cars/lexus-is-2023/slider3.png",
+        "/assets/images/cars/lexus-is-2023/slider3.webp",
         "/assets/images/cars/lexus-is-2023/slider4.webp"
       ],
       "pricePerDay": 570,
@@ -356,7 +376,7 @@
       "description": "The 2023 Lexus IS offers a refined ride with a focus on comfort and reliability, featuring a sleek design and advanced safety features.",
       "seats": 5,
       "fuelType": "Gasoline",
-      "color": "Red",
+      "color": "gray",
       "Gearbox": "Automatic",
       "reviews": [
         {
@@ -442,6 +462,208 @@
           "userId": "13",
           "comment": "Smooth ride but infotainment system could be more intuitive.",
           "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "brand": "Audi",
+      "model": "Q5",
+      "type": "SUV",
+      "year": 2022,
+      "images": [
+        "/assets/images/cars/Audi Q5/slider1.png",
+        "/assets/images/cars/Audi Q5/slider2.png",
+        "/assets/images/cars/Audi Q5/slider3.png"
+      ],
+      "pricePerDay": 580,
+      "availability": true,
+      "description": "Audi Q5 blends luxury, technology, and performance in a compact SUV. Ideal for family and business trips.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "14",
+          "comment": "Refined interior and great handling.",
+          "rating": 4
+        },
+        {
+          "userId": "15",
+          "comment": "Could use more cargo space, but overall very satisfied.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "brand": "BMW",
+      "model": "X3",
+      "type": "SUV",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/BMW X3/slider1.png",
+        "/assets/images/cars/BMW X3/slider2.png",
+        "/assets/images/cars/BMW X3/slider3.png"
+      ],
+      "pricePerDay": 610,
+      "availability": true,
+      "description": "The 2024 BMW X3 offers agile performance, upscale cabin materials, and intuitive tech features.",
+      "seats": 5,
+      "fuelType": "Gasoline",
+      "color": "Silver",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "16",
+          "comment": "Fun to drive and premium feel throughout.",
+          "rating": 2
+        },
+        {
+          "userId": "17",
+          "comment": "Navigation could be better, but the engine is powerful.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "brand": "Hyundai",
+      "model": "Ioniq 5",
+      "type": "Crossover",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/hyundai-ioniq5-2023/slider1.png",
+        "/assets/images/cars/hyundai-ioniq5-2023/slider2.png",
+        "/assets/images/cars/hyundai-ioniq5-2023/slider3.png"
+      ],
+      "pricePerDay": 550,
+      "availability": false,
+      "description": "The 2023 Hyundai Ioniq 5 is a futuristic electric crossover offering fast charging, spacious interior, and excellent tech features.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Silver",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "16",
+          "comment": "Innovative design and great value for money.",
+          "rating": 5
+        },
+        {
+          "userId": "17",
+          "comment": "Love the tech and smooth electric drive.",
+          "rating": 2
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "brand": "Kia",
+      "model": "EV6",
+      "type": "Crossover",
+      "year": 2023,
+      "images": [
+        "/assets/images/cars/kia-ev6-2023/slider1.png",
+        "/assets/images/cars/kia-ev6-2023/slider2.png",
+        "/assets/images/cars/kia-ev6-2023/slider3.png"
+      ],
+      "pricePerDay": 1500,
+      "availability": true,
+      "description": "The 2023 Kia EV6 combines bold styling with electric efficiency and offers a high-tech, fun-to-drive experience.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Red",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "20",
+          "comment": "Impressive acceleration and range. Love the look!",
+          "rating": 5
+        },
+        {
+          "userId": "21",
+          "comment": "Charging network could be better.",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "brand": "BMW",
+      "model": "i7",
+      "type": "Sedan",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/bmw-i7-2024/slider1.png",
+        "/assets/images/cars/bmw-i7-2024/slider2.png"
+      ],
+      "pricePerDay": 2000,
+      "availability": true,
+      "description": "The 2024 BMW i7 blends electric power with unmatched luxury, featuring a massive theater screen and silent performance.",
+      "seats": 5,
+      "fuelType": "Electric",
+      "color": "Black",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "28",
+          "comment": "Top-tier luxury with amazing electric range.",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "brand": "Porsche",
+      "model": "Taycan Turbo",
+      "type": "Sedan",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/porsche-taycan-2024/slider1.png",
+        "/assets/images/cars/porsche-taycan-2024/slider2.png",
+        "/assets/images/cars/porsche-taycan-2024/slider3.png"
+      ],
+      "pricePerDay": 1300,
+      "availability": true,
+      "description": "The Taycan Turbo is Porsche’s electric masterpiece, delivering insane speed with unmistakable Porsche styling.",
+      "seats": 4,
+      "fuelType": "Electric",
+      "color": "White",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "29",
+          "comment": "Fastest EV I’ve ever driven. Phenomenal handling!",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "type": "Coupe",
+      "year": 2024,
+      "images": [
+        "/assets/images/cars/lamborghini-revuelto-2024/slider1.webp",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider2.webp",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider3.jpg",
+        "/assets/images/cars/lamborghini-revuelto-2024/slider4.jpg"
+      ],
+      "pricePerDay": 2700,
+      "availability": true,
+      "description": "Lamborghini’s first hybrid hypercar. Mind-blowing design, power, and futuristic performance.",
+      "seats": 2,
+      "fuelType": "Hybrid",
+      "color": "Orange",
+      "Gearbox": "Automatic",
+      "reviews": [
+        {
+          "userId": "30",
+          "comment": "Absolutely insane. Looks like it came from the future!",
+          "rating": 5
         }
       ]
     }

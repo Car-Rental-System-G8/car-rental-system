@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isLoggedIn) {
                     function logoutUser() {
                         localStorage.removeItem('currentUser');
+                        sessionStorage.removeItem('favourites');
                         window.location.href = '../login.html';
                     }
 

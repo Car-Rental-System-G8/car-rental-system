@@ -5,6 +5,7 @@ async function loadTrendingSection() {
     const cars = await initCars();
     getTopRatedCars(cars);
     const topRatedCars = getTopRatedCars(cars);
+    console.log('topRatedCars:', topRatedCars);
     renderCars(topRatedCars);
 }
 
