@@ -394,12 +394,17 @@
         {
           "userId": "8",
           "comment": "Comfortable and quiet ride. The safety features are impressive.",
-          "rating": 5
+          "rating": 1
         },
         {
           "userId": "9",
           "comment": "Stylish exterior but could use more power.",
-          "rating": 4
+          "rating": 1
+        },
+        {
+          "userId": "3",
+          "comment": "Stylish exterior but could use more power.",
+          "rating": 1
         }
       ]
     },
@@ -432,6 +437,11 @@
           "userId": "11",
           "comment": "Minimalist interior design is refreshing.",
           "rating": 2
+        },
+        {
+          "userId": "3",
+          "comment": "saddasd",
+          "rating": "4"
         }
       ]
     },

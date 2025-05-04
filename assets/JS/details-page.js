@@ -37,7 +37,7 @@ function renderReviews(reviews, users) {
 
   if (!reviews.length) {
     reviewsContainer.innerHTML = `
-      <div class="p-4 bg-light text-center text-muted rounded">
+      <div class="p-4 bg-light text-center rounded">
         No reviews yet.
       </div>
     `;
@@ -57,7 +57,7 @@ function renderReviews(reviews, users) {
       }
 
       return `
-      <div class="box-styles p-3 mb-3 shadow-sm bg-light rounded">
+      <div class="box-styles p-3 mb-3 shadow-sm">
         <div class="d-flex align-items-center mb-2">
           <img src="${userImg}" alt="${userName}" class=" rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
           <div>
