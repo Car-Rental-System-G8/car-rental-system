@@ -1,3 +1,4 @@
+
 // inputs and form
 const loginForm = document.getElementById("login-form");
 const mail = document.getElementById("email");
@@ -50,11 +51,12 @@ async function login(email, password) {
     if (user.role === "admin") {
         window.location.href = "./admin/index.html";
     } else {
-      window.location.href = "./index.html";
-      
+
+        window.location.href = "./index.html";
     }
 
     localStorage.setItem("currentUser", JSON.stringify(user.email));
+    
   } else {
     Swal.fire({
       title: "Error!",
