@@ -110,7 +110,7 @@ applyFiltersButton.addEventListener("click", applyFilters);
 
 //  Add cards to each page on load 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.href.includes('Index.html') || window.location.href.includes('index.html') || window.location.href.endsWith('')) {
+  if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
     loadUserFavourites()
     loadTrendingSection();
   }

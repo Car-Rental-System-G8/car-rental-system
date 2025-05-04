@@ -4,7 +4,9 @@ async function loadfavourites() {
 
     if(sessionStorage.getItem("favourites")) {
         const favourites = JSON.parse(sessionStorage.getItem("favourites"));
-        renderCars(favourites); 
+        if (window.location.pathname.includes("favourite-cars.html")) {
+          renderCars(favourites); 
+        }
         checkFavourite()
     }
 }

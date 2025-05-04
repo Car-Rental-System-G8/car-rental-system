@@ -85,6 +85,58 @@
         "2",
         "1"
       ]
+    },
+    {
+      "id": "a9b7",
+      "name": "Mohamed Hasan",
+      "email": "ex213123@gmail.com",
+      "phone": "01234567891",
+      "password": "mdx123456",
+      "role": "user"
+    },
+    {
+      "id": "9d19",
+      "name": "Mohamed",
+      "email": "ex1@gmail.com",
+      "phone": "01234567892",
+      "password": "mdx123456",
+      "role": "user"
+    },
+    {
+      "id": "e4b4",
+      "name": "dddds",
+      "email": "dddasdasd@gmail.com",
+      "phone": "01054689789",
+      "password": "Mdx123456",
+      "role": "user"
+    },
+    {
+      "id": "520d",
+      "name": "asdvfsaf",
+      "email": "dddds@gmail.com",
+      "phone": "01064568748",
+      "password": "mdx123456",
+      "role": "user",
+      "favourites": [
+        "2",
+        "1",
+        "4",
+        "5",
+        "9"
+      ]
+    },
+    {
+      "id": "c872",
+      "name": "aaasadad",
+      "email": "ssss@gmail.com",
+      "phone": "01021654894",
+      "password": "mdx123456",
+      "role": "user",
+      "favourites": [
+        "5",
+        "4",
+        "2"
+      ]
     }
   ],
   "bookings": [
@@ -231,6 +283,38 @@
       "country": "Egypt",
       "status": "pending",
       "paymentMethod": "cash"
+    },
+    {
+      "id": "2249",
+      "carId": "6",
+      "pickupDate": "2025-06-18",
+      "returnDate": "2025-06-26",
+      "userId": "520d",
+      "totalCost": 4928,
+      "firstName": "Mohmed",
+      "lastName": "Hasan",
+      "address": "sadsd",
+      "zipCode": 56465,
+      "city": "mansura",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": "aee0",
+      "carId": "2",
+      "pickupDate": "2025-06-04",
+      "returnDate": "2025-06-20",
+      "userId": "c872",
+      "totalCost": 10560,
+      "firstName": "Mohmed",
+      "lastName": "Hasan",
+      "address": "sadsd",
+      "zipCode": 56465,
+      "city": "Dakahlyia",
+      "country": "Egypt",
+      "status": "pending",
+      "paymentMethod": "cash"
     }
   ],
   "contacts": [
@@ -242,19 +326,6 @@
       "phone": "01089456798",
       "subject": "problem",
       "message": "Sure! Here are some engaging and suitable topics for a presentation in a presentation skills course. The focus should be on how well you organize and deliver the content, so choose something you're comfortable with or passionate about:",
-      "date": "2025-05-01",
-      "read": true,
-      "starred": false,
-      "userId": "1"
-    },
-    {
-      "id": "4f73",
-      "firstName": "Max",
-      "lastName": "fury",
-      "email": "3535sade@gmail.com",
-      "phone": "01089456798",
-      "subject": "the service is bad",
-      "message": "ayhag;dvbd vdbaidfga efeg;eago qeg;qeohgqg",
       "date": "2025-05-01",
       "read": true,
       "starred": false,
@@ -324,6 +395,11 @@
           "userId": "5",
           "comment": "A bit pricey, but the driving experience justifies it.",
           "rating": 4
+        },
+        {
+          "userId": "c872",
+          "comment": "very good",
+          "rating": "4"
         }
       ]
     },
@@ -430,6 +506,11 @@
           "userId": "3",
           "comment": "saddasd",
           "rating": "4"
+        },
+        {
+          "userId": "520d",
+          "comment": "good",
+          "rating": "2"
         }
       ]
     },
@@ -555,6 +636,11 @@
           "userId": "17",
           "comment": "Love the tech and smooth electric drive.",
           "rating": 2
+        },
+        {
+          "userId": "520d",
+          "comment": "very Good",
+          "rating": "5"
         }
       ]
     },
@@ -652,7 +738,7 @@
         "/assets/images/cars/lamborghini-revuelto-2024/slider3.jpg",
         "/assets/images/cars/lamborghini-revuelto-2024/slider4.jpg"
       ],
-      "pricePerDay": 2700,
+      "pricePerDay": 2800,
       "availability": true,
       "description": "Lamborghini’s first hybrid hypercar. Mind-blowing design, power, and futuristic performance.",
       "seats": 2,
@@ -665,6 +751,22 @@
           "comment": "Absolutely insane. Looks like it came from the future!",
           "rating": 5
         }
+      ]
+    },
+    {
+      "id": "c688",
+      "brand": "sedan",
+      "model": "model 4",
+      "type": "cross",
+      "year": 2025,
+      "pricePerDay": 750,
+      "availability": false,
+      "description": "very nice car",
+      "images": [
+        "/assets/images/cars/volvo-s60-2023/slider1.png",
+        "/assets/images/cars/volvo-s60-2023/slider2.png",
+        "/assets/images/cars/volvo-s60-2023/slider3.webp",
+        "/assets/images/cars/volvo-s60-2023/slider4.png"
       ]
     }
   ]
