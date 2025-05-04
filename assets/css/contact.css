@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+form input,
+form textarea {
+  /* border: 1px solid var(--text-light); */
+  color: var(--text-gray) !important;
+  background-color: var(--gradient-bg) !important;
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 0;
+  transform: scale(1.02);
+}
+
+.contact form button {
+  background-color: var(--primary-color);
+  color: white;
+  transition: var(--transition);
+}
+
+.contact form button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(94, 204, 201, 0.3);
+}
+
+.contact-info {
+  background-color: var(--primary-color);
+  /* background-color: var(--secondary-color); */
+  color: white;
+}
+
+.contact-info .icon {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  color: var(--primary-color);
+}
+
+.contact-info .icon i {
+  font-size: 1.5em;
+}
+
+.contact .error {
+  color: red;
+  font-size: 12px;
+}
+
+.map{
+  border-radius: 1.5em;
+}
