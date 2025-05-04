@@ -364,7 +364,7 @@ a {
   color: var(--text-dark);
 }
 
-.form-control {
+.form-control, .form-select {
   height: 50px;
   border-radius: var(--border-radius);
   border: 1px solid #e1e1e1;
@@ -372,7 +372,7 @@ a {
   transition: var(--transition);
 }
 
-.form-control:focus {
+.form-control:focus, .form-select:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(94, 204, 201, 0.2);
 }

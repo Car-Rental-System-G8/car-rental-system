@@ -47,13 +47,6 @@ html {
   width: 100%;
   padding: 0 8%;
 }
-/* .checkout-container .checkout-card {
-  padding: 30px;
-  border: 1px solid var(--border-color);
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  border-radius: 5px;
-} */
 .checkout-container .checkout-card .checkout-car-img {
   height: 60px;
 }
@@ -158,19 +151,19 @@ html {
   -ms-flex-align: center;
   align-items: center;
 }
-/* .checkout-container .checkout-sidebar .checkout-plan .checkout-plan-header .checkout-plan-title i {
-  color: var(--swipgle-secondary-color);
-} */
-/* .checkout-container .checkout-sidebar .checkout-plan .checkout-plan-body .checkout-plan-discount {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--border-color);
-} */
 .checkout-container .checkout-sidebar .checkout-plan .checkout-plan-body .checkout-plan-total:not(:last-child) {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
+}
+
+[data-bs-theme="dark"] {
+  .checkout {
+    --checkout-sidebar-bg: #2a2a2a;
+    --border-color: #666;
+  }
+
+  .list-unstyled li:nth-child(odd) {
+    background: transparent !important;
+  }
 }
