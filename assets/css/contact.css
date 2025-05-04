@@ -5,8 +5,8 @@
 form input,
 form textarea {
   /* border: 1px solid var(--text-light); */
-  color: var(--text-gray);
-  background-color: var(--gradient-bg);
+  color: var(--text-gray) !important;
+  background-color: var(--gradient-bg) !important;
   border-radius: 3px;
   transition: var(--transition);
 }
