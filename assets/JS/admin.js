@@ -1,28 +1,5 @@
 import { getAvaliableCarsLength, getCarsLength } from "./modules/carManager.js";
 import { fetchData } from "./modules/fetchData.js";
-import { getCurrentUser } from "./modules/userManager.js";
-
-// Acess to Dashboard & Admin Details
-document.addEventListener("DOMContentLoaded", async () => {
-  document.body.classList.add("overflow-hidden");
-  try {
-    const currentUser = await getCurrentUser();
-
-    if (!currentUser || currentUser.role !== "admin") {
-      window.location = "/";
-      return;
-    }
-    
-    document.querySelectorAll(".current-user-title").forEach(title => title.textContent = currentUser.name);
-    document.querySelectorAll(".current-user-email").forEach(email => email.textContent = currentUser.email);
-    document.querySelectorAll(".current-user-img").forEach(img => img.src = currentUser.image);
-
-    document.getElementById("loader").style.display = "none";
-    document.body.classList.remove("overflow-hidden");
-  } catch (err) {
-    console.log(err);
-  }
-});
 
 if (window.toastr) {
   toastr.options = {

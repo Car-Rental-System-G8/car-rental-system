@@ -6,7 +6,6 @@ import { renderCars } from "./render-cars-cards.js";
 
     async function getCars() {
     const data = await initCars();
-    console.log('data:', data);
     cars = [...data];
     return cars;
     }
@@ -25,7 +24,6 @@ import { renderCars } from "./render-cars-cards.js";
 
   async function loadSearchResult() {
         const searchIds = JSON.parse(sessionStorage.getItem("serachResult")) || []
-        console.log('searchIds:', searchIds);
         if(searchIds) {
             const matchedCars = cars.filter(car => searchIds.includes(car.id));
             renderCars(matchedCars);

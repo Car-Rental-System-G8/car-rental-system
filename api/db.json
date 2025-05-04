@@ -7,7 +7,7 @@
       "phone": "01012345678",
       "password": "admin123",
       "role": "admin",
-      "image": "/assets/images/others/bodyguard-hands-gun-suit-jacke.avif"
+      "image": "/assets/images/avatar/00.avif"
     },
     {
       "id": "2",
@@ -113,38 +113,6 @@
       "country": "Egypt",
       "pickupDate": "2025-05-01",
       "returnDate": "2025-05-15",
-      "status": "confirmed",
-      "paymentMethod": "cash"
-    },
-    {
-      "id": "e22d",
-      "carId": null,
-      "userId": "1",
-      "totalCost": 12100,
-      "firstName": "Mohamed",
-      "lastName": "Abdelqader",
-      "address": "Talkha",
-      "zipCode": 7650001,
-      "city": "Mansoura",
-      "country": "Egypt",
-      "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-21",
-      "status": "pending",
-      "paymentMethod": "cash"
-    },
-    {
-      "id": "d201",
-      "carId": "7",
-      "userId": "1",
-      "totalCost": 12760,
-      "lastName": "Abdelqader",
-      "firstName": "Mohamed",
-      "address": "Talkha",
-      "zipCode": 7650001,
-      "city": "Mansoura",
-      "country": "Egypt",
-      "pickupDate": "2025-05-01",
-      "returnDate": "2025-05-12",
       "status": "confirmed",
       "paymentMethod": "cash"
     },
@@ -289,7 +257,6 @@
       ],
       "pricePerDay": 550,
       "availability": true,
-      "rating": 4.7,
       "description": "Elegant and smooth sedan with advanced safety and infotainment features.",
       "seats": 5,
       "fuelType": "Gas",
@@ -322,7 +289,6 @@
       ],
       "pricePerDay": 600,
       "availability": true,
-      "rating": 4.6,
       "description": "The 2023 BMW 3 Series offers a blend of performance and luxury, featuring a turbocharged engine and advanced technology.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -355,7 +321,6 @@
       ],
       "pricePerDay": 580,
       "availability": false,
-      "rating": 4.5,
       "description": "The 2023 Audi A4 combines elegant design with cutting-edge technology, offering a comfortable and dynamic driving experience.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -388,7 +353,6 @@
       ],
       "pricePerDay": 570,
       "availability": true,
-      "rating": 4.4,
       "description": "The 2023 Lexus IS offers a refined ride with a focus on comfort and reliability, featuring a sleek design and advanced safety features.",
       "seats": 5,
       "fuelType": "Gasoline",
@@ -398,12 +362,17 @@
         {
           "userId": "8",
           "comment": "Comfortable and quiet ride. The safety features are impressive.",
-          "rating": 5
+          "rating": 1
         },
         {
           "userId": "9",
           "comment": "Stylish exterior but could use more power.",
-          "rating": 4
+          "rating": 1
+        },
+        {
+          "userId": "3",
+          "comment": "Stylish exterior but could use more power.",
+          "rating": 1
         }
       ]
     },
@@ -421,7 +390,6 @@
       ],
       "pricePerDay": 620,
       "availability": true,
-      "rating": 4.8,
       "description": "The 2023 Tesla Model 3 offers impressive electric range, cutting-edge technology, and exhilarating performance.",
       "seats": 5,
       "fuelType": "Electric",
@@ -436,7 +404,12 @@
         {
           "userId": "11",
           "comment": "Minimalist interior design is refreshing.",
-          "rating": 4
+          "rating": 2
+        },
+        {
+          "userId": "3",
+          "comment": "saddasd",
+          "rating": "4"
         }
       ]
     },
@@ -454,7 +427,6 @@
       ],
       "pricePerDay": 560,
       "availability": true,
-      "rating": 4.5,
       "description": "The 2023 Volvo S60 combines Scandinavian design with advanced safety features, offering a comfortable and secure ride.",
       "seats": 5,
       "fuelType": "Gasoline",
