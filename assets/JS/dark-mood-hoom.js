@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to set theme
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
-      document.documentElement.setAttribute('data-theme', themeName);
+      document.documentElement.setAttribute('data-bs-theme', themeName);
       
       // Update the icons based on theme
       updateThemeIcon(themeName);
