@@ -129,11 +129,7 @@ const validateName = (name) => {
   if (name.trim() === "") {
     return { isValid: false, error: "*user Name is required*" };
   } else if (!regex.test(name.trim())) {
-    console.log(name.trim());
-    return {
-      isValid: false,
-      error: "*Must be 5-30 characters (numbers, letters, _ )*",
-    };
+    return { isValid: false, error: "*Must be 5-30 characters (numbers, letters, _ )*", };
   } else {
     return { isValid: true, error: "" };
   }

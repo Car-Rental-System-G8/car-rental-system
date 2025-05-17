@@ -21,7 +21,7 @@ npm install -g json-server
 ### 3. Start Backend Server
 
 ```bash
-json-server --watch db.json
+npx json-server api/db.json
 ```
 
 ### 4. Open in Browser Using Live Server

@@ -32,6 +32,9 @@ async function loadDetailsPage() {
 
 export { loadDetailsPage };
 
+
+
+// get reviews and show them 
 function renderReviews(reviews, users) {
   const reviewsContainer = document.getElementById("reviews");
 
@@ -74,6 +77,8 @@ function renderReviews(reviews, users) {
   reviewsContainer.innerHTML = reviewHTML;
 }
 
+
+// get Recommended Cars exept for the one apears in page 
 function getTopRatedCars(cars, notThisCar) {
   let carsToShow = cars.filter((car) => car !== notThisCar);
   let avilable = carsToShow.filter((car) => car.availability === true) || [];

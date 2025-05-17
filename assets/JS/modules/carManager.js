@@ -111,7 +111,7 @@ export const displayCars = async (_cars, options = {}) => {
     } else {
       carsToDisplay.forEach((car) => {
         const { id, images, brand, model, type, year, pricePerDay, availability, reviews } = car;
-        const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
+        const averageRating = reviews.reduce((acc, review) => acc + parseInt(review.rating), 0) / reviews.length;
 
         const tr = document.createElement("tr");
         tr.innerHTML = `

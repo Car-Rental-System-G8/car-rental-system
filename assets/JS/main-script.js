@@ -4,6 +4,7 @@ import { loadTrendingSection } from './trending-section.js';
 import { initCars } from './get-data.js';
 import { renderCars } from "./render-cars-cards.js";
 import {homeSearch} from "./search.js"
+import {loadUserFavourites} from "./favourites.js"
 
 $(document).ready(function () {
   $(".carousel").carousel({
@@ -110,6 +111,7 @@ applyFiltersButton.addEventListener("click", applyFilters);
 //  Add cards to each page on load 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.href.includes('Index.html') || window.location.href.includes('index.html')) {
+    loadUserFavourites()
     loadTrendingSection();
   }
   if (window.location.href.includes('car-listing.html')) {

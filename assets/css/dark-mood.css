@@ -17,7 +17,7 @@
   }
   
   /* Dark Mode Variables */
-  [data-theme="dark"] {
+  [data-bs-theme="dark"] {
     --primary-color: #52908f;
     --primary-hover: #4fcdc8;
     --primary-color-opacity: #39aca933;
@@ -34,90 +34,90 @@
   }
   
   /* Dark Mode Specific Styles */
-  [data-theme="dark"] body {
+  [data-bs-theme="dark"] body {
     color: var(--text-dark);
     background: var(--gradient-bg);
   }
   
-  [data-theme="dark"] .navbar {
+  [data-bs-theme="dark"] .navbar {
     background-color: var(--primary-color-opacity);
     backdrop-filter: blur(50px);
   }
   
 
 
-  [data-theme="dark"] .navbar .nav-link:not(.active) {
+  [data-bs-theme="dark"] .navbar .nav-link:not(.active) {
     color: #e4e6eb;
   }
   
-  [data-theme="dark"] .search-icon,
-  [data-theme="dark"] .profile-icon,
-  [data-theme="dark"] .favorite-icon,
-  [data-theme="dark"] .login-link,
-  [data-theme="dark"] .theme-toggle {
+  [data-bs-theme="dark"] .search-icon,
+  [data-bs-theme="dark"] .profile-icon,
+  [data-bs-theme="dark"] .favorite-icon,
+  [data-bs-theme="dark"] .login-link,
+  [data-bs-theme="dark"] .theme-toggle {
     background-color: #2a2d31;
     color: #e4e6eb;
   }
 
 
-  [data-theme="dark"] .dropdown-menu {
+  [data-bs-theme="dark"] .dropdown-menu {
     background-color: #2a2d31;
     border-color: #3a3d42;
   }
   
-  [data-theme="dark"] .dropdown-item {
+  [data-bs-theme="dark"] .dropdown-item {
     color: #e4e6eb;
   }
   
-  [data-theme="dark"] .dropdown-menu::before {
+  [data-bs-theme="dark"] .dropdown-menu::before {
     background-color: #2a2d31;
     border-color: #3a3d42;
   }
   
-  [data-theme="dark"] .dropdown-item:hover,
-  [data-theme="dark"] .dropdown-item:focus {
+  [data-bs-theme="dark"] .dropdown-item:hover,
+  [data-bs-theme="dark"] .dropdown-item:focus {
     background-color: rgba(57, 172, 169, 0.2);
     color: var(--primary-color);
   }
   
-  [data-theme="dark"] .dropdown-divider {
+  [data-bs-theme="dark"] .dropdown-divider {
     border-color: #3a3d42;
   }
   
-  [data-theme="dark"] .carCard {
+  [data-bs-theme="dark"] .carCard {
     background: radial-gradient(circle 304px at 41% 130%, var(--primary-color-opacity), var(--card-bg));
   }
   
-  [data-theme="dark"] .carCard:hover {
+  [data-bs-theme="dark"] .carCard:hover {
     background: radial-gradient(circle 304px at 41% 120%, var(--primary-color-opacity), var(--card-bg));
   }
   
-  [data-theme="dark"] .search-form {
+  [data-bs-theme="dark"] .search-form {
     background-color: var(--card-bg);
   }
   
-  [data-theme="dark"] .form-control {
+  [data-bs-theme="dark"] .form-control, [data-bs-theme="dark"] .form-select {
     background-color: #262a2d;
     border-color: #3a3d42;
     color: #e4e6eb;
   }
   
-  [data-theme="dark"] .form-control:focus {
+  [data-bs-theme="dark"] .form-control:focus, [data-bs-theme="dark"] .form-select:focus {
     border-color: var(--primary-color);
   }
   
-  [data-theme="dark"] .step-card,
-  [data-theme="dark"] .testimonial-card,
-  [data-theme="dark"] .wcu-service-box {
+  [data-bs-theme="dark"] .step-card,
+  [data-bs-theme="dark"] .testimonial-card,
+  [data-bs-theme="dark"] .wcu-service-box {
     background-color: var(--card-bg);
     color: var(--text-dark);
   }
   
-  [data-theme="dark"] .step-icon {
+  [data-bs-theme="dark"] .step-icon {
     background-color: rgba(57, 172, 169, 0.2);
   }
   
-  [data-theme="dark"] .testimonial-avatar {
+  [data-bs-theme="dark"] .testimonial-avatar {
     border-color: var(--card-bg);
   }
   
@@ -156,96 +156,92 @@
   }
   
   /* Hide appropriate icon based on theme */
-  [data-theme="dark"] .theme-toggle .fa-moon {
+  [data-bs-theme="dark"] .theme-toggle .fa-moon {
     display: none;
   }
   
-  [data-theme="light"] .theme-toggle .fa-sun {
+  [data-bs-theme="light"] .theme-toggle .fa-sun {
     display: none;
   }
 
 
 
-  [data-theme="dark"] .wcu-service-box{
+  [data-bs-theme="dark"] .wcu-service-box{
     background-color: var(--primary-color);
     color: #e4e6eb;
   }
 
 
-  [data-theme="dark"] .testimonials-section{
+  [data-bs-theme="dark"] .testimonials-section{
     background-color:var(--primary-color-opacity);
   }
 
-  [data-theme="dark"] .trending-section{
+  [data-bs-theme="dark"] .trending-section{
     background-color: var( --footer-bg);
   }
 
-  [data-theme="dark"] .how-it-works-section{
+  [data-bs-theme="dark"] .how-it-works-section{
     background-color: var(--primary-color-opacity);
   }
 
-  [data-theme="dark"] .car-info-badge{
+  [data-bs-theme="dark"] .car-info-badge{
     color: var( --footer-bg);
   }
 
-  [data-theme="dark"] .form-control{
-    background-color: var(--primary-color);
-  }
 
-
-  [data-theme="dark"] .contact-form input , .contact-form textarea{ 
+  [data-bs-theme="dark"] .contact-form input , .contact-form textarea{ 
     background-color: var(--primary-color-opacity);
     color: var(--text-light);
   }
 
-  [data-theme="dark"] #rental-terms, #insurance, #cancellation, #damages, #privacy{
+  [data-bs-theme="dark"] #rental-terms, #insurance, #cancellation, #damages, #privacy{
     background-color: var(--primary-color-opacity);
   
   }
 
-  [data-theme="dark"] .highlight-box{
+  [data-bs-theme="dark"] .highlight-box{
     background-color: var(--secondary-color);
   }
 
 
-  [data-theme="dark"] #login-form input, #signup-form input{
+  [data-bs-theme="dark"] #login-form input, #signup-form input{
     color: var(--text-light);
     background-color: var(--primary-color-opacity);
   }
 
 
-  [data-theme="dark"] #profileDetails, .profile-container{
+  [data-bs-theme="dark"] #profileDetails, .profile-container{
+    background-color: var(--secondary-color);
+  }
+
+  [data-bs-theme="dark"] .popup-content {
     background-color: var(--secondary-color);
   }
 
 
-  [data-theme="dark"] .box-styles , #reviews{
-    /* background-color: var(--primary-color-opacity); */
+  [data-bs-theme="dark"] .box-styles, [data-bs-theme="dark"] .profile-card {
+    background-color: var(--primary-color-opacity) !important;
   }
 
-  [data-theme="dark"] #car-recommendation{
+  [data-bs-theme="dark"] #car-recommendation{
     background-color: var(--footer-bg);
   } 
 
-  [data-theme="dark"] #reviews .box-styles{
+  [data-bs-theme="dark"] #reviews .box-styles{
     background-color: var(--primary-color-opacity);
   }
-  [data-theme="dark"] .list-unstyled li:nth-child(odd) {
+  [data-bs-theme="dark"] .list-unstyled li:nth-child(odd) {
     background-color: var(--light-bg)
       ;
     }
     
-  [data-theme="dark"] .filters input ,#carType{
-    background-color: var(--light-bg);
-    color: var(--text-dark);
+  [data-bs-theme="dark"] .filters input {
+    background-color: var(--primary-color-opacity);
+    color: var(--text-light);
   }
 
 
-  [data-theme="dark"] .input-group-text i {
+  [data-bs-theme="dark"] .input-group-text i {
     border: var(--primary-color-opacity);
-  }
-  
-  [data-theme="dark"] #pickupDateHome, #returnDateHome {
-    /* border: solid 1px var( --text-light); */
   }
   
